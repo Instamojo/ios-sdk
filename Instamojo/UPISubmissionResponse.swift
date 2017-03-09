@@ -11,7 +11,7 @@ import UIKit
 class UPISubmissionResponse {
 
     var paymentID: String
-    var statusCode: String
+    var statusCode: Int
     var payerVirtualAddress: String
     var payeeVirtualAddress: String
     var statusCheckURL: String
@@ -20,7 +20,7 @@ class UPISubmissionResponse {
 
     init() {
         self.paymentID = ""
-        self.statusCode = ""
+        self.statusCode = 0
         self.payeeVirtualAddress = ""
         self.payerVirtualAddress = ""
         self.statusCheckURL = ""
@@ -28,7 +28,7 @@ class UPISubmissionResponse {
         self.statusMessage = ""
     }
 
-    init(paymentID: String, statusCode: String, payerVirtualAddress: String, payeeVirtualAddress: String, statusCheckURL: String, upiBank: String, statusMessage: String) {
+    init(paymentID: String, statusCode: Int, payerVirtualAddress: String, payeeVirtualAddress: String, statusCheckURL: String, upiBank: String, statusMessage: String) {
         self.paymentID = paymentID
         self.statusCode = statusCode
         self.payerVirtualAddress = payerVirtualAddress

@@ -10,7 +10,7 @@ import Foundation
 
 public class Urls {
 
-    static var baseUrl = Constants.DEFAULT_BASE_URL
+    static var baseUrl = Constants.DefaultBaseUrl
 
     /**
      * @return Order Create URL
@@ -42,7 +42,7 @@ public class Urls {
         let endPoint = formatUrl(url: baseUrl)
 
         if(endPoint.contains("test")) {
-            Logger.logDebug(tag: "Urls", message : "Using a test base url. Use https://api.instamojo.com/ for production")
+            Logger.logDebug(tag: "Urls", message : "Use https://api.instamojo.com/ for production")
         }
         Urls.baseUrl = endPoint
         Logger.logDebug(tag: "Urls", message: "Base URL - " + Urls.baseUrl)
@@ -65,7 +65,7 @@ public class Urls {
     private static func formatUrl(url: String?) -> String {
         var endPoint: String = url!
         if (((url ?? "").isEmpty) || (url?.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).isEmpty)!) {
-            endPoint = Constants.DEFAULT_BASE_URL
+            endPoint = Constants.DefaultBaseUrl
         }
 
         if !(endPoint.hasSuffix("/")) {

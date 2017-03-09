@@ -38,11 +38,11 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         expiryDateTextField.inputView = expiryPickerView
         expiryPickerView.removeFromSuperview()
         expiryPickerView.onDateSelected = { (month: Int, year: Int) in
-            let date = String(format: Constants.DATE_FORMAT, month, year)
+            let date = String(format: Constants.DateFormat, month, year)
             self.expiryDateTextField.text = date
         }
         cvvTextField.inputAccessoryView = toolbarDone
-        spinner = Spinner(text: Constants.SPINNER_TEXT)
+        spinner = Spinner(text: Constants.SpinnerText)
         spinner.hide()
         self.view.addSubview(spinner)
     }
@@ -57,13 +57,13 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             expiryDateTextField.resignFirstResponder()
             cvvTextField.becomeFirstResponder()
             if (expiryDate?.isEmpty)! {
-                expiryDateTextField.text = Constants.DEFAULT_CARD_EXPIRY
+                expiryDateTextField.text = Constants.DefaultCardExpiry
             }
         } else if cvvTextField.isEditing {
             let cvv = cvvTextField?.text
             cvvTextField.resignFirstResponder()
             if (cvv?.isEmpty)! {
-                cvvTextField.text = Constants.DEFAULT_CVV
+                cvvTextField.text = Constants.DefaultCvv
             }
         }
         validateEntries()
@@ -93,27 +93,27 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         var error: String = ""
 
         if !cardNumberTextField.isEditing {
-            if (cardNumber?.isEmpty)! {
-                error = Constants.EMPTY_CARD_NUMER
+            if cardNumber?.characters.count == 0 {
+                error = Constants.EmptyCardNumer
             } else {
                 let isValid = cardNumber?.isValidCardNumber()
                 if !isValid! {
-                    error = Constants.INVALID_CARD_NUMBER
+                    error = Constants.InvalidCardNumber
                     cardNumberTextField.textColor = UIColor.red
                 } else {
                     cardNumberTextField.textColor = UIColor.black
                 }
             }
         } else {
-            error = error + ""
+            error += ""
         }
 
         if !nameTextField.isEditing {
-            if (name?.isEmpty)! {
-                error = error + Constants.EMPTY_CARD_HOLDER_NAME
+            if name?.characters.count == 0 {
+                error += Constants.EmptyCardHolderName
             }
         } else {
-            error = error + ""
+            error += ""
         }
         errorLableView.text = error
     }
@@ -129,15 +129,15 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
 
     //Changed the screen title based on card type selected and updated the pay button title with the amount
     func initUI() {
-        if cardType == Constants.DEBIT_CARD {
-            self.title = Constants.DEBIT_CARD_TITLE
-        } else if cardType == Constants.CREDIT_CARD {
+        if cardType == Constants.DebitCard {
+            self.title = Constants.DebitCardTitle
+        } else if cardType == Constants.CreditCard {
             //Default to Credit Card
-            self.title = Constants.CREDI_CARD_TITLE
+            self.title = Constants.CrediCardTitle
         } else {
-            self.title = Constants.EMI_CARD_TITLE
+            self.title = Constants.EmiCardTitle
         }
-        payButton.setTitle("Pay " + Constants.INR + String(amountToBePayed).amountFormatter, for: UIControlState.normal)
+        payButton.setTitle("Pay " + Constants.Inr + String(amountToBePayed).amountFormatter, for: UIControlState.normal)
     }
 
     //validates a card number
@@ -147,17 +147,17 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             let cardType = try CardValidator.cardType(for: (cardNumber)!)
             cardImageView.image = UIImage(named : cardType.stringValue())
             let validLength = cardNumber?.validLength()
-            if ((cardNumber?.characters.count)! >= validLength! && range.length == 0) {
+            if (cardNumber?.characters.count)! >= validLength! && range.length == 0 {
                 return false
             } else {
                 return true
             }
         } catch {
-            if (cardNumber?.isEmpty)! {
-                cardImageView.image = UIImage(named : Constants.ACCEPTED_CARDS)
+            if cardNumber?.characters.count == 0 {
+                cardImageView.image = UIImage(named : Constants.AcceptedCards)
                 return true
             } else {
-                cardImageView.image = UIImage(named : Constants.UNKNOWN_CARD)
+                cardImageView.image = UIImage(named : Constants.UnknownCard)
                 return ((cardNumber?.characters.count)! >= 19 && range.length == 0) ? false : true
             }
         }
@@ -176,7 +176,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             } else {
                 return true
             }
-        } else if(textField == cvvTextField) {
+        } else if textField == cvvTextField {
             //CVV number should not exceed 6 character limit
             return (characterCount! >= 6 && range.length == 0) ? false : true
         } else if textField == expiryDateTextField {
@@ -189,10 +189,11 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     //Call back recieved from juspay request to instamojo
     func onFinish(params: BrowserParams, error: String ) {
         let mainStoryboard = Constants.getStoryboardInstance()
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_JUSPAY_VIEW_CONTROLLER) as! JuspayBrowser
-        viewController.params = params
-        self.navigationController?.pushViewController(viewController, animated: true)
-        spinner.hide()
+        if let viewController: JuspayBrowser = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as? JuspayBrowser {
+            viewController.params = params
+            self.navigationController?.pushViewController(viewController, animated: true)
+            spinner.hide()
+        }
     }
 
     //When pay button is clicked

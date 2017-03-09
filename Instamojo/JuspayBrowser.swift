@@ -19,7 +19,6 @@ class JuspayBrowser: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        //Juspay needs access to the back button for the view controller where payment will start which can not be done if you have interactive Pop gesture enabled. To disable it for current view controller.
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         self.juspaySafeBrowser.startpaymentWithJuspay(in: self.view, withParameters: self.params) { (status, error, _) in
             let transactionStatus = TransactionStatus()

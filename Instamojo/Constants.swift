@@ -12,69 +12,69 @@ import UIKit
 public class Constants {
 
     //Default base url
-   public static var DEFAULT_BASE_URL = "https://api.instamojo.com/"
+    public static let DefaultBaseUrl = "https://api.instamojo.com/"
 
     // Status code for UPI Pending Authentication
-    public static let PENDING_PAYMENT = 2
+    public static let PendingPayment = 2
 
     //Ruppe 
-    public static let INR = "\u{20B9}"
+    public static let Inr = "\u{20B9}"
 
     //DateFormat
-    public static let DATE_FORMAT = "%02d/%d"
+    public static let DateFormat = "%02d/%d"
 
     //Default Card Expiry
-    public static let DEFAULT_CARD_EXPIRY = "12/49"
+    public static let DefaultCardExpiry = "12/49"
 
     // Default CVV Number
-    public static let DEFAULT_CVV = "111"
+    public static let DefaultCvv = "111"
 
     //Card Validation Errors
-    public static let EMPTY_CARD_NUMER = "Please enter the card number"
-    public static let INVALID_CARD_NUMBER = "Card Number is not valid"
-    public static let EMPTY_CARD_HOLDER_NAME = "\n\nPlease enter Name"
+    public static let EmptyCardNumer = "Please enter the card number"
+    public static let InvalidCardNumber = "Card Number is not valid"
+    public static let EmptyCardHolderName = "\n\nPlease enter Name"
 
     //Card Image Names
-    public static let ACCEPTED_CARDS = "accepted_cards"
-    public static let UNKNOWN_CARD = "ic_unknown_card"
+    public static let AcceptedCards = "accepted_cards"
+    public static let UnknownCard = "ic_unknown_card"
 
     //Spinner Text
-    public static let SPINNER_TEXT = "Please Wait.."
+    public static let SpinnerText = "Please Wait.."
 
     //Card Options
-    public static let DEBIT_CARD = 101
-    public static let CREDIT_CARD = 102
-    public static let CREDI_CARD_EMI = 103
+    public static let DebitCard = 101
+    public static let CreditCard = 102
+    public static let CrediCardEmi = 103
 
     // Client ID is required for JuspayBrowser
-    public static let PROD_CLIENT_ID = "instamojo8"
-    public static let TEST_CLIENT_ID = "testing_instamojo"
+    public static let ProdClientId = "instamojo8"
+    public static let TestClientId = "testing_instamojo"
 
     //Payment Options
-    public static let WALLETS_OPTION = "Wallets"
-    public static let EMI_OPTION = "EMI"
-    public static let NET_BANKING_OPTION = "Net Banking"
-    public static let CREDIT_CARD_OPTION = "Credit Card"
-    public static let DEBIT_CARD_OPTION = "Debit Card"
-    public static let UPI_OPTION = "UPI"
+    public static let WalletsOption = "Wallets"
+    public static let EmiOption = "EMI"
+    public static let NetBankingOption = "Net Banking"
+    public static let CreditCardOption = "Credit Card"
+    public static let DebitCardOption = "Debit Card"
+    public static let UpiOption = "UPI"
 
     //Storyboard ViewController Names
-    public static let PAYMENT_OPTIONS_CELL = "options"
-    public static let PAYMENT_OPTIONS_LISTVIEW_CONTROLLER = "optionsView"
-    public static let PAYMENT_OPTIONS_CARD_VIEW_CONTROLLER = "cardFormView"
-    public static let PAYMENT_OPTIONS_UPI_VIEW_CONTROLLER = "upiPaymentView"
-    public static let PAYMENT_OPTIONS_EMI_VIEW_CONTROLLER = "emiOptions"
-    public static let PAYMENT_OPTIONS_JUSPAY_VIEW_CONTROLLER = "juspay"
-    public static let PAYMENT_OPTIONS_VIEW_CONTROLLER  = "PaymentOptions"
+    public static let PaymentOptionsCell = "options"
+    public static let PaymentOptionsListviewController = "optionsView"
+    public static let PaymentOptionsCardViewController = "cardFormView"
+    public static let PaymentOptionsUpiViewController = "upiPaymentView"
+    public static let PaymentOptionsEmiViewController = "emiOptions"
+    public static let PaymentOptionsJuspayViewController = "juspay"
+    public static let PaymentOptionsViewController  = "PaymentOptions"
 
     //ViewController Titles
-    public static let NETBANKING_TITLE = "Choose your Bank"
-    public static let WALLET_TITLE = "Choose your Wallet"
-    public static let EMI_TITLE = "Choose your Credit Card"
-    public static let UPI_TITLE = "Verify Payment"
-    public static let EMI_CARD_TITLE = "EMI on Credit Card"
-    public static let CREDI_CARD_TITLE = "Enter Credit Card Details"
-    public static let DEBIT_CARD_TITLE = "Enter Debit Card Details"
+    public static let NetbankingTitle = "Choose your Bank"
+    public static let WalletTitle = "Choose your Wallet"
+    public static let EmiTitle = "Choose your Credit Card"
+    public static let UpiTitle = "Verify Payment"
+    public static let EmiCardTitle = "EMI on Credit Card"
+    public static let CrediCardTitle = "Enter Credit Card Details"
+    public static let DebitCardTitle = "Enter Debit Card Details"
 
     public static func getStoryboardInstance() -> UIStoryboard {
         let frameworkBundle = Bundle(identifier: "com.instamojo.ios.Instamojo")!

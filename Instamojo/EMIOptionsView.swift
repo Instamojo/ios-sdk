@@ -30,8 +30,8 @@ class EMIOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSour
             let tenure = key
             let interest = value
             let emiAmount = self.getEMIAmount(totalAmount: amountToBePaid, interest: interest, tenure: tenure)
-            let emiAmountString = Constants.INR + String(emiAmount) + " x " + String(tenure) + " Months"
-            let finalAmountString = "Total " + Constants.INR + self.getFinalAmount(amount: (emiAmount * Double(tenure))) + " @ " + String(interest) + "% pa"
+            let emiAmountString = Constants.Inr + String(emiAmount) + " x " + String(tenure) + " Months"
+            let finalAmountString = "Total " + Constants.Inr + self.getFinalAmount(amount: (emiAmount * Double(tenure))) + " @ " + String(interest) + "% pa"
             let month = [emiAmountString: "month"]
             let value = [finalAmountString: "value"]
             let period = [tenure: "tenure"]
@@ -49,7 +49,7 @@ class EMIOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func getFinalAmount(amount: Double) -> String {
-         let divisor = pow(10.0, Double(2))
+        let divisor = pow(10.0, Double(2))
         return String((amount * divisor).rounded() / divisor)
     }
 
@@ -59,27 +59,33 @@ class EMIOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.PAYMENT_OPTIONS_EMI_VIEW_CONTROLLER) else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.PaymentOptionsEmiViewController) else {
             // Never fails:
-            return UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: Constants.PAYMENT_OPTIONS_EMI_VIEW_CONTROLLER)
+            return UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: Constants.PaymentOptionsEmiViewController)
         }
-        let data: NSDictionary = values.object(forKey: String(indexPath.row)) as! NSDictionary
-        cell.textLabel?.text = data.object(forKey: "month") as! String?
-        cell.detailTextLabel?.text = data.object(forKey: "value") as! String?
+        if let data: NSDictionary = values.object(forKey: String(indexPath.row)) as? NSDictionary {
+            if let month = data.object(forKey: "month") as? String? {
+                cell.textLabel?.text = month
+            }
+            if let value = data.object(forKey: "value") as? String? {
+                cell.detailTextLabel?.text = value
+            }
+        }
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainStoryboard = Constants.getStoryboardInstance()
-        let data: NSDictionary = values.object(forKey: String(indexPath.row)) as! NSDictionary
-        let tenure =  data.object(forKey: "tenure") as! Int
-        self.order.emiOptions.selectedTenure = tenure
-        self.order.emiOptions.selectedBankCode = selectedBank.bankCode
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_CARD_VIEW_CONTROLLER) as! CardFormView
-        viewController.cardType = Constants.CREDI_CARD_EMI
-        viewController.order = self.order
-        self.navigationController?.pushViewController(viewController, animated: true)
-
+        if let data: NSDictionary = values.object(forKey: String(indexPath.row)) as? NSDictionary {
+            if let tenure =  data.object(forKey: "tenure") as? Int {
+                self.order.emiOptions.selectedTenure = tenure
+            }
+            self.order.emiOptions.selectedBankCode = selectedBank.bankCode
+            if let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsCardViewController) as? CardFormView {
+                viewController.cardType = Constants.CrediCardEmi
+                viewController.order = self.order
+                self.navigationController?.pushViewController(viewController, animated: true)
+            }
+        }
     }
-
 }

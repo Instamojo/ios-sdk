@@ -43,9 +43,9 @@ public class Order {
         self.description = description
         self.webhook = webhook
         if Urls.getBaseUrl().contains("test") {
-           self.clientID = Constants.TEST_CLIENT_ID
+           self.clientID = Constants.TestClientId
         } else {
-            self.clientID = Constants.PROD_CLIENT_ID
+            self.clientID = Constants.ProdClientId
         }
     }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol UPICallBack {
-    func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: NSException)
+    func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: String)
 
-    func onStatusCheckComplete( dictonary: NSDictionary, paymentComplete: Bool, exception: NSException)
+    func onStatusCheckComplete(paymentComplete: Bool, exception: String)
 }

@@ -76,16 +76,16 @@ open class CardValidator {
                 var product = value * 2
 
                 if product > 9 {
-                    product = product - 9
+                    product -= 9
                 }
 
-                digitSum = digitSum + product
+                digitSum += product
             } else {
-                digitSum = digitSum + value
+                digitSum += value
             }
         }
 
-        digitSum = digitSum * 9
+        digitSum *= 9
 
         let computedCheckDigit = digitSum % 10
 
