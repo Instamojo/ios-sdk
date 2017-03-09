@@ -8,62 +8,62 @@
 
 import UIKit
 
-class PaymentOptionsView : UIViewController,UITableViewDataSource,UITableViewDelegate {
+class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var paymentOptionsTableView: UITableView!
-    var order : Order!
-    var paymentOptions : NSMutableArray = [Constants.NET_BANKING_OPTION, Constants.CREDIT_CARD_OPTION, Constants.DEBIT_CARD_OPTION, Constants.EMI_OPTION, Constants.WALLETS_OPTION, Constants.UPI_OPTION];
-    
-    var mainStoryboard: UIStoryboard = UIStoryboard();
-    
+    var order: Order!
+    var paymentOptions: NSMutableArray = [Constants.NET_BANKING_OPTION, Constants.CREDIT_CARD_OPTION, Constants.DEBIT_CARD_OPTION, Constants.EMI_OPTION, Constants.WALLETS_OPTION, Constants.UPI_OPTION]
+
+    var mainStoryboard: UIStoryboard = UIStoryboard()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        paymentOptionsTableView.tableFooterView = UIView();
+        paymentOptionsTableView.tableFooterView = UIView()
         mainStoryboard = Constants.getStoryboardInstance()
         self.reloadDataBasedOnOrder()
     }
-    
+
     //Set payment options based on the order
-    func reloadDataBasedOnOrder(){
-        if order.netBankingOptions == nil{
+    func reloadDataBasedOnOrder() {
+        if order.netBankingOptions == nil {
             paymentOptions.remove(Constants.NET_BANKING_OPTION)
         }
-        if order.cardOptions == nil{
+        if order.cardOptions == nil {
             paymentOptions.remove(Constants.CREDIT_CARD_OPTION)
             paymentOptions.remove(Constants.DEBIT_CARD_OPTION)
         }
-        if order.emiOptions == nil{
+        if order.emiOptions == nil {
             paymentOptions.remove(Constants.EMI_OPTION)
         }
-        if order.walletOptions == nil{
+        if order.walletOptions == nil {
             paymentOptions.remove(Constants.WALLETS_OPTION)
         }
         if order.upiOptions == nil {
             paymentOptions.remove(Constants.UPI_OPTION)
         }
         paymentOptionsTableView.reloadData()
-        
+
         //Until implementation is complete
          paymentOptions.remove(Constants.UPI_OPTION)
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return paymentOptions.count;
+        return paymentOptions.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.PAYMENT_OPTIONS_CELL, for: indexPath)
-        cell.textLabel?.text = paymentOptions.object(at: indexPath.row) as? String;
-        return cell;
+        cell.textLabel?.text = paymentOptions.object(at: indexPath.row) as? String
+        return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rowSelected = indexPath.row;
-        let options = paymentOptions.object(at: rowSelected) as! String;
+        let rowSelected = indexPath.row
+        let options = paymentOptions.object(at: rowSelected) as! String
         switch options {
         case Constants.NET_BANKING_OPTION :
             onNetBankingSelected(options: options)
@@ -88,46 +88,46 @@ class PaymentOptionsView : UIViewController,UITableViewDataSource,UITableViewDel
             break
         }
     }
-    
-    func onNetBankingSelected(options : String){
+
+    func onNetBankingSelected(options: String) {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_LISTVIEW_CONTROLLER) as! ListOptionsView
-        viewController.optionsFor = options;
+        viewController.optionsFor = options
         viewController.order = order
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func onCreditCardSelected(){
+
+    func onCreditCardSelected() {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_CARD_VIEW_CONTROLLER) as! CardFormView
-        viewController.cardType = Constants.CREDIT_CARD;
+        viewController.cardType = Constants.CREDIT_CARD
         viewController.order = self.order
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func onDebitCardSelected(){
+
+    func onDebitCardSelected() {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_CARD_VIEW_CONTROLLER) as! CardFormView
-        viewController.cardType = Constants.DEBIT_CARD;
+        viewController.cardType = Constants.DEBIT_CARD
         viewController.order = self.order
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func onEmiSelected(options : String){
+
+    func onEmiSelected(options: String) {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_LISTVIEW_CONTROLLER) as! ListOptionsView
-        viewController.optionsFor = options;
+        viewController.optionsFor = options
         viewController.order = order
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func onWalletSelected(options : String){
+
+    func onWalletSelected(options: String) {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_LISTVIEW_CONTROLLER) as! ListOptionsView
-        viewController.optionsFor = options;
+        viewController.optionsFor = options
         viewController.order = order
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
-    func onUPISelected(){
+
+    func onUPISelected() {
         let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_UPI_VIEW_CONTROLLER) as! UPIPaymentView
         viewController.order = order
         self.navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
 }

@@ -9,12 +9,11 @@
 import UIKit
 
 class EMIBank {
-    var bankName : String!
-    var bankCode : String!
+    var bankName: String!
+    var bankCode: String!
     var rate : [(key: Int, value: Int)]!
 
-    
-    init(bankName : String, bankCode : String, rate : [(key: Int, value: Int)]){
+    init(bankName: String, bankCode: String, rate : [(key: Int, value: Int)]) {
         self.bankName = bankName
         self.bankCode = bankCode
         self.rate = rate

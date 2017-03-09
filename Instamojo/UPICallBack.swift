@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol UPICallBack  {
-    func onSubmission(upiSubmissionResponse : UPISubmissionResponse, exception : NSException)
-    
-    func onStatusCheckComplete( dictonary : NSDictionary, paymentComplete : Bool, exception : NSException)
+protocol UPICallBack {
+    func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: NSException)
+
+    func onStatusCheckComplete( dictonary: NSDictionary, paymentComplete: Bool, exception: NSException)
 }

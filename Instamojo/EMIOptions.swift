@@ -9,26 +9,26 @@
 import UIKit
 
 class EMIOptions {
-    
-    var merchantID : String
-    var orderID : String
-    var url : String
-    var emiBanks : [EMIBank]!
-    var selectedBankCode : String!
-    var selectedTenure : Int = -1
-    
+
+    var merchantID: String
+    var orderID: String
+    var url: String
+    var emiBanks: [EMIBank]!
+    var selectedBankCode: String!
+    var selectedTenure: Int = -1
+
     init() {
         self.merchantID = ""
         self.orderID = ""
         self.selectedTenure = -1
         self.url = ""
     }
-    
-    init(merchantID : String, orderID : String, url : String, emiBanks : [EMIBank]) {
+
+    init(merchantID: String, orderID: String, url: String, emiBanks: [EMIBank]) {
         self.merchantID = merchantID
         self.orderID = orderID
         self.url = url
         self.emiBanks = emiBanks
     }
-    
+
 }

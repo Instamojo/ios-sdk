@@ -9,14 +9,14 @@
 import UIKit
 
 class UPIOptions {
-    
-    var url : String
-    
+
+    var url: String
+
     init() {
         self.url = ""
     }
-    
-    init(url : String) {
+
+    init(url: String) {
         self.url = url
     }
 }

@@ -9,33 +9,33 @@
 import UIKit
 
 public class Spinner: UIVisualEffectView {
-    
+
     var text: String? {
         didSet {
             label.text = text
         }
     }
-    
-    let background : UIView = UIView()
+
+    let background: UIView = UIView()
     let activityIndictor: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     let label: UILabel = UILabel()
     let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
     let vibrancyView: UIVisualEffectView
-    
+
     public init(text: String) {
         self.text = text
         self.vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
         super.init(effect: blurEffect)
         self.setup()
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         self.text = ""
         self.vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
         super.init(coder: aDecoder)
         self.setup()
     }
-    
+
     func setup() {
         contentView.addSubview(background)
         contentView.addSubview(vibrancyView)
@@ -43,12 +43,12 @@ public class Spinner: UIVisualEffectView {
         contentView.addSubview(label)
         activityIndictor.startAnimating()
     }
-    
+
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
-        
+
         if let superview = self.superview {
-            
+
             let width = superview.frame.size.width / 2
             let height: CGFloat = 50.0
             self.frame = CGRect(x: superview.frame.size.width / 2 - width / 2,
@@ -63,7 +63,7 @@ public class Spinner: UIVisualEffectView {
                                             y: height / 2 - activityIndicatorSize / 2,
                                             width: activityIndicatorSize,
                                             height: activityIndicatorSize)
-            
+
             layer.cornerRadius = 8.0
             layer.masksToBounds = true
             label.text = text
@@ -76,11 +76,11 @@ public class Spinner: UIVisualEffectView {
             label.font = UIFont.boldSystemFont(ofSize: 16)
         }
     }
-    
+
     public func show() {
         self.isHidden = false
     }
-    
+
     public func hide() {
         self.isHidden = true
     }

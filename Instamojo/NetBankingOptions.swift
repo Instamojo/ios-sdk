@@ -9,21 +9,20 @@
 import UIKit
 
 class NetBankingOptions {
-    
-    var url : String!
-    var banks : NSDictionary!
-    
-    init(url : String, banks : NSDictionary) {
+
+    var url: String!
+    var banks: NSDictionary!
+
+    init(url: String, banks: NSDictionary) {
         self.url = url
         self.banks = banks
     }
-    
-    func getPostData(accessToken : String, bankCode : String) -> String{
+
+    func getPostData(accessToken: String, bankCode: String) -> String {
         return "access_token=" + accessToken + "&bank_code=" + bankCode
     }
-    
-    func toString()->String{
+
+    func toString() -> String {
         return "URL " + self.url + "Banks " + String(describing: self.banks.allKeys)
     }
 }
-

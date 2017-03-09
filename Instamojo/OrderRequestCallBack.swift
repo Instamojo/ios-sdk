@@ -9,5 +9,5 @@
 import Foundation
 
 public protocol OrderRequestCallBack {
-    func onFinish(order : Order, error : String)
+    func onFinish(order: Order, error: String)
 }

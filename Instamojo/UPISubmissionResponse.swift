@@ -9,15 +9,15 @@
 import UIKit
 
 class UPISubmissionResponse {
-    
-    var paymentID : String
-    var statusCode : String
-    var payerVirtualAddress : String
-    var payeeVirtualAddress : String
-    var statusCheckURL : String
-    var upiBank : String
-    var statusMessage : String
-    
+
+    var paymentID: String
+    var statusCode: String
+    var payerVirtualAddress: String
+    var payeeVirtualAddress: String
+    var statusCheckURL: String
+    var upiBank: String
+    var statusMessage: String
+
     init() {
         self.paymentID = ""
         self.statusCode = ""
@@ -27,8 +27,8 @@ class UPISubmissionResponse {
         self.upiBank = ""
         self.statusMessage = ""
     }
-    
-    init(paymentID : String, statusCode : String, payerVirtualAddress : String, payeeVirtualAddress : String, statusCheckURL : String, upiBank : String, statusMessage : String) {
+
+    init(paymentID: String, statusCode: String, payerVirtualAddress: String, payeeVirtualAddress: String, statusCheckURL: String, upiBank: String, statusMessage: String) {
         self.paymentID = paymentID
         self.statusCode = statusCode
         self.payerVirtualAddress = payerVirtualAddress

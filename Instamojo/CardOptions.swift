@@ -9,23 +9,23 @@
 import UIKit
 
 class CardOptions {
-    var orderID : String
-    var url : String
-    var merchantID : String
-    
+    var orderID: String
+    var url: String
+    var merchantID: String
+
     init() {
         self.orderID = ""
         self.url = ""
         self.merchantID = ""
     }
-    
-    init(orderID : String, url : String, merchantID : String) {
-        self.orderID = orderID;
+
+    init(orderID: String, url: String, merchantID: String) {
+        self.orderID = orderID
         self.url = url
         self.merchantID = merchantID
     }
-    
-    func toString() -> String{
+
+    func toString() -> String {
         return " Order ID - " + self.orderID + " URL -" + self.url + "MerchantID -" + merchantID
     }
 }

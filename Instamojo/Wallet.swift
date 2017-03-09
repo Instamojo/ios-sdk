@@ -9,21 +9,21 @@
 import UIKit
 
 class Wallet {
-    
-    var name : String
-    var imageUrl : String
-    var walletID : String
-    
+
+    var name: String
+    var imageUrl: String
+    var walletID: String
+
     init() {
         self.name = ""
         self.imageUrl = ""
          self.walletID = ""
     }
-    
-    init(name : String, imageUrl : String, walletID : String) {
+
+    init(name: String, imageUrl: String, walletID: String) {
         self.name = name
         self.imageUrl = imageUrl
         self.walletID = walletID
     }
-    
+
 }

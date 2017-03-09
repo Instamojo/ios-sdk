@@ -8,7 +8,6 @@
 
 import UIKit
 
-protocol JuspayRequestCallBack{
-   func onFinish(params : BrowserParams, error : String )
+protocol JuspayRequestCallBack {
+   func onFinish(params: BrowserParams, error: String )
 }
-

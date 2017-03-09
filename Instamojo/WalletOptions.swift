@@ -9,16 +9,16 @@
 import UIKit
 
 class WalletOptions {
-    
-    var url : String!
-    var wallets : [Wallet]!
-    
-    init(url : String, wallets : [Wallet]) {
+
+    var url: String!
+    var wallets: [Wallet]!
+
+    init(url: String, wallets: [Wallet]) {
         self.url = url
         self.wallets = wallets
     }
-    
-    func getPostData(accessToken : String, walletID : String)-> String{
+
+    func getPostData(accessToken: String, walletID: String) -> String {
         return "access_token=" + accessToken + "&wallet_id=" + walletID
     }
 }
