@@ -32,9 +32,9 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if optionsFor == Constants.WALLETS_OPTION {
+        if optionsFor == Constants.WalletsOption {
             return wallets.count
-        } else if optionsFor == Constants.EMI_OPTION {
+        } else if optionsFor == Constants.EmiOption {
             return banks.count
         } else {
             return options.count
@@ -43,11 +43,11 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "options", for: indexPath)
-        if optionsFor == Constants.WALLETS_OPTION {
+        if optionsFor == Constants.WalletsOption {
             let wallet = wallets[indexPath.row] as Wallet
             let walletName = wallet.name
             cell.textLabel?.text = walletName
-        } else if optionsFor == Constants.EMI_OPTION {
+        } else if optionsFor == Constants.EmiOption {
             let bank = banks[indexPath.row] as EMIBank
             let bankName = bank.bankName
             cell.textLabel?.text = bankName
@@ -58,13 +58,13 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if optionsFor == Constants.EMI_OPTION {
+        if optionsFor == Constants.EmiOption {
             let bank = banks[indexPath.row] as EMIBank
-            let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_EMI_VIEW_CONTROLLER) as! EMIOptionsView
+            let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsEmiViewController) as! EMIOptionsView
             viewController.order = self.order
             viewController.selectedBank = bank
             self.navigationController?.pushViewController(viewController, animated: true)
-        } else if optionsFor == Constants.NET_BANKING_OPTION {
+        } else if optionsFor == Constants.NetBankingOption {
             let selectedBank = options[indexPath.row]
             let bankCode = netBankingOptions.value(forKey: selectedBank) as! String
             let postData = order.netBankingOptions.getPostData(accessToken: order.authToken!, bankCode: bankCode)
@@ -76,7 +76,7 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
             browserParams.endUrlRegexes = Urls.getEndUrlRegex()
 
             self.startJuspayBrowser(params: browserParams)
-        } else if optionsFor == Constants.WALLETS_OPTION {
+        } else if optionsFor == Constants.WalletsOption {
             let wallet = wallets[indexPath.row] as Wallet
             let walletID = wallet.walletID
             let postData = order.walletOptions.getPostData(accessToken: order.authToken!, walletID: walletID)
@@ -91,32 +91,32 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     func startJuspayBrowser(params: BrowserParams) {
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PAYMENT_OPTIONS_JUSPAY_VIEW_CONTROLLER) as! JuspayBrowser
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as! JuspayBrowser
         viewController.params = params
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     func setOptions() {
         switch optionsFor {
-        case Constants.NET_BANKING_OPTION:
+        case Constants.NetBankingOption:
             self.submissionURL = order.netBankingOptions.url
             self.netBankingOptions = order.netBankingOptions.banks
             options = self.netBankingOptions.allKeys as! [String]
-            self.title = Constants.NETBANKING_TITLE
+            self.title = Constants.NetbankingTitle
             break
-        case Constants.WALLETS_OPTION :
+        case Constants.WalletsOption :
             self.submissionURL = order.walletOptions.url
             self.wallets = order.walletOptions.wallets as [Wallet]
-            self.title = Constants.WALLET_TITLE
+            self.title = Constants.WalletTitle
             break
-        case Constants.EMI_OPTION :
+        case Constants.EmiOption :
             self.submissionURL = order.emiOptions.url
             banks = order.emiOptions.emiBanks as [EMIBank]
-            self.title = Constants.EMI_TITLE
+            self.title = Constants.EmiTitle
             break
         default:
             options = []
-            self.title = Constants.EMI_TITLE
+            self.title = Constants.EmiTitle
         }
     }
 
