@@ -53,7 +53,14 @@ public class Instamojo: NSObject {
         }
     }
 
+    private class func resetDefaults() {
+        UserDefaults.standard.setValue(nil, forKey: "USER-CANCELLED-ON-VERIFY")
+        UserDefaults.standard.setValue(nil, forKey: "USER-CANCELLED")
+        UserDefaults.standard.setValue(nil, forKey: "ON-REDIRECT-URL")
+    }
+
     public class func invokePaymentOptionsView(order: Order) {
+        self.resetDefaults()
         let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
         if let viewController: PaymentOptionsView = storyBoard.instantiateViewController(withIdentifier: Constants.PaymentOptionsViewController) as? PaymentOptionsView {
             viewController.order = order
