@@ -11,9 +11,9 @@ import UIKit
 class NetBankingOptions {
 
     var url: String!
-    var banks: NSDictionary!
+    var banks: [NetBankingBanks]!
 
-    init(url: String, banks: NSDictionary) {
+    init(url: String, banks: [NetBankingBanks]) {
         self.url = url
         self.banks = banks
     }
@@ -22,7 +22,4 @@ class NetBankingOptions {
         return "access_token=" + accessToken + "&bank_code=" + bankCode
     }
 
-    func toString() -> String {
-        return "URL " + self.url + "Banks " + String(describing: self.banks.allKeys)
-    }
 }

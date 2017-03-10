@@ -88,7 +88,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
 
     func onNetBankingSelected(options: String) {
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsListviewController) as? ListOptionsView {
-            viewController.optionsFor = options
+            viewController.paymentOption = options
             viewController.order = order
             self.navigationController?.pushViewController(viewController, animated: true)
         }
@@ -112,7 +112,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
 
     func onEmiSelected(options: String) {
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsListviewController) as? ListOptionsView {
-            viewController.optionsFor = options
+            viewController.paymentOption = options
             viewController.order = order
             self.navigationController?.pushViewController(viewController, animated: true)
         }
@@ -120,7 +120,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
 
     func onWalletSelected(options: String) {
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsListviewController) as? ListOptionsView {
-            viewController.optionsFor = options
+            viewController.paymentOption = options
             viewController.order = order
             self.navigationController?.pushViewController(viewController, animated: true)
         }
