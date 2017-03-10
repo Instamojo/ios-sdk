@@ -197,11 +197,12 @@ public class Request {
             let netbanking_options = paymentOptions?["netbanking_options"] as? [String:Any]
             let submission_url = netbanking_options?["submission_url"] as? String
             if let choicesArray = netbanking_options?["choices"] as? [[String: Any]] {
-                let choices: NSMutableDictionary = NSMutableDictionary()
+                var choices = [NetBankingBanks]()
                 for i in 0 ..< choicesArray.count {
                     let bank_name = choicesArray[i]["name"] as? String
                     let bank_code = choicesArray[i]["id"] as? String
-                    choices.setValue(bank_code, forKey: bank_name!)
+                    let netBanks = NetBankingBanks.init(bankName: bank_name!, bankCode: bank_code!)
+                    choices.append(netBanks)
                 }
                 if choices.count > 0 {
                     self.order!.netBankingOptions = NetBankingOptions(url: submission_url!, banks: choices)
@@ -252,9 +253,10 @@ public class Request {
                 var wallets = [Wallet]()
                 for i in 0 ..< choicesArray.count {
                     let name = choicesArray[i]["name"] as? String
-                    let walletID = choicesArray[i]["id"] as? Int
+                    let walletID = choicesArray[i]["id"] as! Int
                     let walletImage = choicesArray[i]["image"] as? String
-                    wallets.append(Wallet(name: name!, imageUrl: walletImage!, walletID: String(describing: walletID)))
+                    wallets.append(Wallet(name: name!, imageUrl: walletImage!, walletID: walletID.stringValue))
+                    Logger.logDebug(tag: "String value", message: walletID.stringValue)
                 }
                 if wallets.count > 0 {
                     self.order?.walletOptions = WalletOptions(url: submission_url!, wallets: wallets)
@@ -389,14 +391,18 @@ public class Request {
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: []) as?  [String:Any] {
                         let upiSubmissionResponse = self.parseUPIResponse(response: jsonResponse)
+                        if upiSubmissionResponse.statusCode == Constants.FailedPayment {
+                            self.upiCallBack?.onSubmission(upiSubmissionResponse: UPISubmissionResponse.init(), exception: "Payment failed. Please try again.")
+                        } else {
                         self.upiCallBack?.onSubmission(upiSubmissionResponse:upiSubmissionResponse, exception: "")
+                        }
                     }
                 } catch {
-                    self.upiCallBack?.onSubmission(upiSubmissionResponse: UPISubmissionResponse.init(), exception: "Error while making UPI Submission request")
+                    self.upiCallBack?.onSubmission(upiSubmissionResponse: UPISubmissionResponse.init(), exception: "Error while making UPI Submission request. Please try again.")
                     Logger.logError(tag: "Caught Exception", message: String(describing: error))
                 }
             } else {
-                self.upiCallBack?.onSubmission(upiSubmissionResponse: UPISubmissionResponse.init(), exception: "Error while making UPI Submission request")
+                self.upiCallBack?.onSubmission(upiSubmissionResponse: UPISubmissionResponse.init(), exception: "Error while making UPI Submission request. Please try again.")
                 print(error!.localizedDescription)
             }
         })
@@ -467,5 +473,11 @@ public extension NSMutableURLRequest {
             return "\(key)=\((value as AnyObject))"
         }
         httpBody = parameterArray.joined(separator: "&").data(using: String.Encoding.utf8)
+    }
+}
+
+public extension Int {
+    var stringValue: String {
+        return "\(self)"
     }
 }

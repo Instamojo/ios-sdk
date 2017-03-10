@@ -94,6 +94,16 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.standard.value(forKey: "USER-CANCELLED-ON-VERIFY") != nil {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                _ = self.navigationController?.popToRootViewController(animated: true)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
+            }
+        }
+    }
+
     func onCreditCardSelected() {
         if let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsCardViewController) as? CardFormView {
             viewController.cardType = Constants.CreditCard
