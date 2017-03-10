@@ -103,9 +103,9 @@ class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataS
         let currentYear = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
         if currentYear == year {
             if month < currentMonth {
-                Logger.logDebug(tag: "Picker View", message: "Lesser")
-                self.selectRow(1, inComponent: 0, animated: true)
-                self.pickerView(self, didSelectRow: 5, inComponent: 0)
+                self.selectRow(currentMonth - 1, inComponent: 0, animated: true)
+                self.pickerView(self, didSelectRow: currentMonth - 1, inComponent: 0)
+                return
             }
         }
 
