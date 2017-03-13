@@ -20,25 +20,14 @@
 		58B97B181E5C023100B7941C /* OrderRequestCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B97B171E5C023100B7941C /* OrderRequestCallBack.swift */; };
 		58B97B1E1E5C72D500B7941C /* JuspayRequestCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B97B1D1E5C72D500B7941C /* JuspayRequestCallBack.swift */; };
 		58BB7DCD1E484B35009AFD0C /* Instamojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DCC1E484B35009AFD0C /* Instamojo.swift */; };
-		58BB7DD51E484B67009AFD0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DD41E484B67009AFD0C /* AppDelegate.swift */; };
-		58BB7DD71E484B67009AFD0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DD61E484B67009AFD0C /* ViewController.swift */; };
-		58BB7DDA1E484B67009AFD0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DD81E484B67009AFD0C /* Main.storyboard */; };
-		58BB7DDC1E484B67009AFD0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DDB1E484B67009AFD0C /* Assets.xcassets */; };
-		58BB7DDF1E484B67009AFD0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DDD1E484B67009AFD0C /* LaunchScreen.storyboard */; };
 		58BB7DEA1E484F70009AFD0C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DE91E484F70009AFD0C /* Logger.swift */; };
 		58BB7DEC1E485129009AFD0C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DEB1E485129009AFD0C /* Constants.swift */; };
 		58BB7DEE1E485235009AFD0C /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DED1E485235009AFD0C /* Urls.swift */; };
 		58BB7DF21E486E07009AFD0C /* InstamojoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DF11E486E07009AFD0C /* InstamojoStoryboard.storyboard */; };
 		58BB7DF51E486E9C009AFD0C /* PaymentOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DF41E486E9C009AFD0C /* PaymentOptionsView.swift */; };
 		58BB7DF91E487384009AFD0C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DF81E487384009AFD0C /* Media.xcassets */; };
-		58BB7DFC1E489205009AFD0C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DF81E487384009AFD0C /* Media.xcassets */; };
 		58BB7DFE1E48A4BC009AFD0C /* ListOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DFD1E48A4BC009AFD0C /* ListOptionsView.swift */; };
-		58BB7E011E48BBC9009AFD0C /* InstamojoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DF11E486E07009AFD0C /* InstamojoStoryboard.storyboard */; };
-		58BB7E021E48BC17009AFD0C /* Instamojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB7DC11E484B26009AFD0C /* Instamojo.framework */; };
-		58BB7E031E48BC17009AFD0C /* Instamojo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB7DC11E484B26009AFD0C /* Instamojo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58BE55131E60565C00997CE5 /* Instamojo-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 58BE55121E60565C00997CE5 /* Instamojo-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58C254321E54170D00D070EF /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C254301E54170D00D070EF /* Fabric.framework */; };
-		58C254331E54170D00D070EF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C254311E54170D00D070EF /* Crashlytics.framework */; };
 		58C254351E542C9300D070EF /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254341E542C9300D070EF /* MonthYearPicker.swift */; };
 		58C254371E54842100D070EF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254361E54842100D070EF /* Card.swift */; };
 		58C254391E5489BC00D070EF /* CardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254381E5489BC00D070EF /* CardOptions.swift */; };
@@ -51,6 +40,7 @@
 		58C254471E5490E300D070EF /* WalletOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254461E5490E300D070EF /* WalletOptions.swift */; };
 		58DB9B511E5039E7003A812D /* EMIOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9B501E5039E7003A812D /* EMIOptionsView.swift */; };
 		58F7650B1E69BAC900013D8B /* JuspayBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7650A1E69BAC900013D8B /* JuspayBrowser.swift */; };
+		98D1C4E930029B4CAC434BE5 /* Pods_Instamojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,39 +51,12 @@
 			remoteGlobalIDString = 58BB7DC01E484B26009AFD0C;
 			remoteInfo = Instamojo;
 		};
-		5857B1221E533AF4008ECDF9 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58BB7DB81E484B26009AFD0C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58BB7DD11E484B67009AFD0C;
-			remoteInfo = Sample;
-		};
-		58BB7E041E48BC17009AFD0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 58BB7DB81E484B26009AFD0C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 58BB7DC01E484B26009AFD0C;
-			remoteInfo = Instamojo;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		58BB7E061E48BC17009AFD0C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				58BB7E031E48BC17009AFD0C /* Instamojo.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		34B62ABE01B309064FF7EFD1 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		37C4D5A58F905AC576912279 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
+		413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5825BFCF1E6ED06A00643173 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5857B10F1E5303C2008ECDF9 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstamojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,13 +73,6 @@
 		58BB7DC11E484B26009AFD0C /* Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		58BB7DC51E484B26009AFD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58BB7DCC1E484B35009AFD0C /* Instamojo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instamojo.swift; sourceTree = "<group>"; };
-		58BB7DD21E484B67009AFD0C /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		58BB7DD41E484B67009AFD0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		58BB7DD61E484B67009AFD0C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		58BB7DD91E484B67009AFD0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		58BB7DDB1E484B67009AFD0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		58BB7DDE1E484B67009AFD0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		58BB7DE01E484B67009AFD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58BB7DE91E484F70009AFD0C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		58BB7DEB1E485129009AFD0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		58BB7DED1E485235009AFD0C /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
@@ -125,8 +81,6 @@
 		58BB7DF81E487384009AFD0C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		58BB7DFD1E48A4BC009AFD0C /* ListOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOptionsView.swift; sourceTree = "<group>"; };
 		58BE55121E60565C00997CE5 /* Instamojo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Instamojo-Bridging-Header.h"; sourceTree = "<group>"; };
-		58C254301E54170D00D070EF /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		58C254311E54170D00D070EF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		58C254341E542C9300D070EF /* MonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
 		58C254361E54842100D070EF /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		58C254381E5489BC00D070EF /* CardOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOptions.swift; sourceTree = "<group>"; };
@@ -156,16 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58BB7DCF1E484B67009AFD0C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58BB7E021E48BC17009AFD0C /* Instamojo.framework in Frameworks */,
-				58C254331E54170D00D070EF /* Crashlytics.framework in Frameworks */,
-				58C254321E54170D00D070EF /* Fabric.framework in Frameworks */,
+				98D1C4E930029B4CAC434BE5 /* Pods_Instamojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +170,6 @@
 			children = (
 				58BE55121E60565C00997CE5 /* Instamojo-Bridging-Header.h */,
 				58BB7DC31E484B26009AFD0C /* Instamojo */,
-				58BB7DD31E484B67009AFD0C /* Sample */,
 				5857B1181E5339BC008ECDF9 /* InstamojoTests */,
 				58BB7DC21E484B26009AFD0C /* Products */,
 				6403D92C2618E56F849F0EAE /* Frameworks */,
@@ -237,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				58BB7DC11E484B26009AFD0C /* Instamojo.framework */,
-				58BB7DD21E484B67009AFD0C /* Sample.app */,
 				5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */,
 			);
 			name = Products;
@@ -257,21 +200,6 @@
 				58BB7DF81E487384009AFD0C /* Media.xcassets */,
 			);
 			path = Instamojo;
-			sourceTree = "<group>";
-		};
-		58BB7DD31E484B67009AFD0C /* Sample */ = {
-			isa = PBXGroup;
-			children = (
-				58C254301E54170D00D070EF /* Fabric.framework */,
-				58C254311E54170D00D070EF /* Crashlytics.framework */,
-				58BB7DD41E484B67009AFD0C /* AppDelegate.swift */,
-				58BB7DD61E484B67009AFD0C /* ViewController.swift */,
-				58BB7DD81E484B67009AFD0C /* Main.storyboard */,
-				58BB7DDB1E484B67009AFD0C /* Assets.xcassets */,
-				58BB7DDD1E484B67009AFD0C /* LaunchScreen.storyboard */,
-				58BB7DE01E484B67009AFD0C /* Info.plist */,
-			);
-			path = Sample;
 			sourceTree = "<group>";
 		};
 		58BB7DEF1E485245009AFD0C /* network */ = {
@@ -311,6 +239,7 @@
 		6403D92C2618E56F849F0EAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -323,13 +252,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				58BE55131E60565C00997CE5 /* Instamojo-Bridging-Header.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		58F765061E69A77400013D8B /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +270,6 @@
 			);
 			dependencies = (
 				5857B11E1E5339BC008ECDF9 /* PBXTargetDependency */,
-				5857B1231E533AF4008ECDF9 /* PBXTargetDependency */,
 			);
 			name = InstamojoTests;
 			productName = InstamojoTests;
@@ -375,30 +296,6 @@
 			productReference = 58BB7DC11E484B26009AFD0C /* Instamojo.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		58BB7DD11E484B67009AFD0C /* Sample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58BB7DE11E484B67009AFD0C /* Build configuration list for PBXNativeTarget "Sample" */;
-			buildPhases = (
-				6D3D98D3228B11BCD9122398 /* [CP] Check Pods Manifest.lock */,
-				58BB7DCE1E484B67009AFD0C /* Sources */,
-				58BB7DCF1E484B67009AFD0C /* Frameworks */,
-				58BB7DD01E484B67009AFD0C /* Resources */,
-				58BB7E061E48BC17009AFD0C /* Embed Frameworks */,
-				58C254231E5415CB00D070EF /* ShellScript */,
-				58F765061E69A77400013D8B /* Headers */,
-				505B9581B5FB442F721C3E8D /* [CP] Embed Pods Frameworks */,
-				D98690314E3B975C904C612A /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				58BB7E051E48BC17009AFD0C /* PBXTargetDependency */,
-			);
-			name = Sample;
-			productName = Sample;
-			productReference = 58BB7DD21E484B67009AFD0C /* Sample.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -421,11 +318,6 @@
 						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
-					58BB7DD11E484B67009AFD0C = {
-						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = YB8APMPG5N;
-						ProvisioningStyle = Manual;
-					};
 				};
 			};
 			buildConfigurationList = 58BB7DBB1E484B26009AFD0C /* Build configuration list for PBXProject "Instamojo" */;
@@ -442,7 +334,6 @@
 			projectRoot = "";
 			targets = (
 				58BB7DC01E484B26009AFD0C /* Instamojo */,
-				58BB7DD11E484B67009AFD0C /* Sample */,
 				5857B1161E5339BC008ECDF9 /* InstamojoTests */,
 			);
 		};
@@ -465,18 +356,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58BB7DD01E484B67009AFD0C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58BB7DFC1E489205009AFD0C /* Media.xcassets in Resources */,
-				58BB7DDF1E484B67009AFD0C /* LaunchScreen.storyboard in Resources */,
-				58BB7DDC1E484B67009AFD0C /* Assets.xcassets in Resources */,
-				58BB7DDA1E484B67009AFD0C /* Main.storyboard in Resources */,
-				58BB7E011E48BBC9009AFD0C /* InstamojoStoryboard.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -493,64 +372,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		505B9581B5FB442F721C3E8D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sample/Pods-Sample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		58C254231E5415CB00D070EF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 07ad6ec4919f509fb3b675750673a5c630614723 d90b71c648f26bc9c8855e9e3e4c36ca28928285735ebf774e77028d9169068e";
-		};
-		6D3D98D3228B11BCD9122398 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D98690314E3B975C904C612A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sample/Pods-Sample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E3C3C24EE4A8161F1B85D4F2 /* [CP] Copy Pods Resources */ = {
@@ -614,15 +435,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		58BB7DCE1E484B67009AFD0C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				58BB7DD71E484B67009AFD0C /* ViewController.swift in Sources */,
-				58BB7DD51E484B67009AFD0C /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -631,36 +443,7 @@
 			target = 58BB7DC01E484B26009AFD0C /* Instamojo */;
 			targetProxy = 5857B11D1E5339BC008ECDF9 /* PBXContainerItemProxy */;
 		};
-		5857B1231E533AF4008ECDF9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58BB7DD11E484B67009AFD0C /* Sample */;
-			targetProxy = 5857B1221E533AF4008ECDF9 /* PBXContainerItemProxy */;
-		};
-		58BB7E051E48BC17009AFD0C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 58BB7DC01E484B26009AFD0C /* Instamojo */;
-			targetProxy = 58BB7E041E48BC17009AFD0C /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		58BB7DD81E484B67009AFD0C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				58BB7DD91E484B67009AFD0C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		58BB7DDD1E484B67009AFD0C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				58BB7DDE1E484B67009AFD0C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5857B1201E5339BC008ECDF9 /* Debug */ = {
@@ -845,54 +628,6 @@
 			};
 			name = Release;
 		};
-		58BB7DE21E484B67009AFD0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37C4D5A58F905AC576912279 /* Pods-Sample.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = YB8APMPG5N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = Sample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.instamojo.ios.Sample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b1287614-4053-4688-a850-15c3070e586d";
-				PROVISIONING_PROFILE_SPECIFIER = "instamojo-adhoc";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		58BB7DE31E484B67009AFD0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34B62ABE01B309064FF7EFD1 /* Pods-Sample.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEVELOPMENT_TEAM = YB8APMPG5N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = Sample/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.instamojo.ios.Sample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b1287614-4053-4688-a850-15c3070e586d";
-				PROVISIONING_PROFILE_SPECIFIER = "instamojo-adhoc";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -919,15 +654,6 @@
 			buildConfigurations = (
 				58BB7DCA1E484B26009AFD0C /* Debug */,
 				58BB7DCB1E484B26009AFD0C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		58BB7DE11E484B67009AFD0C /* Build configuration list for PBXNativeTarget "Sample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58BB7DE21E484B67009AFD0C /* Debug */,
-				58BB7DE31E484B67009AFD0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
