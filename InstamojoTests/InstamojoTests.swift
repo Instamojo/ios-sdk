@@ -21,9 +21,8 @@ class InstamojoTests: XCTestCase {
         super.tearDown()
     }
 
-    // MARK: Order Class Tests
     func testOrderValidationSucceeds() {
-        let order = Order.init(authToken: "", transactionID: "2343543", buyerName: "Sukanya", buyerEmail: "sukanyadraj@gmail.com", buyerPhone: "9952620490", amount: "2434", description: "dfkdjfhgkjdfkjfkjfdsdfgdsjfk", webhook: "dfgkjdkjfgkdfs")
+        let order = Order.init(authToken: "set354rfr3455645kgkfk", transactionID: "2343543", buyerName: "Sukanya", buyerEmail: "sukanyadraj@gmail.com", buyerPhone: "9952620490", amount: "2434", description: "sample description", webhook: "www.yourserver.com/webhookurl")
         XCTAssertNotNil(order)
         print(order?.isValid().error)
     }
