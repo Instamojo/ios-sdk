@@ -54,8 +54,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34B62ABE01B309064FF7EFD1 /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
-		37C4D5A58F905AC576912279 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5825BFCF1E6ED06A00643173 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5857B10F1E5303C2008ECDF9 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
@@ -122,8 +120,6 @@
 			children = (
 				9FF622859F2EDEC353C40DAD /* Pods-Instamojo.debug.xcconfig */,
 				E357C4204689E4AE31BA278F /* Pods-Instamojo.release.xcconfig */,
-				37C4D5A58F905AC576912279 /* Pods-Sample.debug.xcconfig */,
-				34B62ABE01B309064FF7EFD1 /* Pods-Sample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
