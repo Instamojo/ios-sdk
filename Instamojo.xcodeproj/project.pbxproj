@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		58093B371E7816AA007BD619 /* InstamojoSDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 58093B3A1E7816AA007BD619 /* Build configuration list for PBXAggregateTarget "InstamojoSDK" */;
+			buildPhases = (
+				58093B3B1E7816B2007BD619 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = InstamojoSDK;
+			productName = InstamojoSDK;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		5825BFD01E6ED06A00643173 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5825BFCF1E6ED06A00643173 /* Spinner.swift */; };
 		5857B1101E5303C2008ECDF9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857B10F1E5303C2008ECDF9 /* Order.swift */; };
@@ -40,7 +54,6 @@
 		58C254471E5490E300D070EF /* WalletOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254461E5490E300D070EF /* WalletOptions.swift */; };
 		58DB9B511E5039E7003A812D /* EMIOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9B501E5039E7003A812D /* EMIOptionsView.swift */; };
 		58F7650B1E69BAC900013D8B /* JuspayBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7650A1E69BAC900013D8B /* JuspayBrowser.swift */; };
-		98D1C4E930029B4CAC434BE5 /* Pods_Instamojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58093B3E1E7817CC007BD619 /* Pods_Instamojo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Instamojo.framework; path = "../../Library/Developer/Xcode/DerivedData/Instamojo-grghmvbpskyktjbjihwmxvxoyjli/Build/Products/Release-iphonesimulator/Pods_Instamojo.framework"; sourceTree = "<group>"; };
 		5825BFCF1E6ED06A00643173 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5857B10F1E5303C2008ECDF9 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstamojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98D1C4E930029B4CAC434BE5 /* Pods_Instamojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +247,7 @@
 		6403D92C2618E56F849F0EAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				413263D10ABDE126CD51B02F /* Pods_Instamojo.framework */,
+				58093B3E1E7817CC007BD619 /* Pods_Instamojo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -302,6 +314,11 @@
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Sukanya Raj";
 				TargetAttributes = {
+					58093B371E7816AA007BD619 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = YB8APMPG5N;
+						ProvisioningStyle = Automatic;
+					};
 					5857B1161E5339BC008ECDF9 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = YB8APMPG5N;
@@ -331,6 +348,7 @@
 			targets = (
 				58BB7DC01E484B26009AFD0C /* Instamojo */,
 				5857B1161E5339BC008ECDF9 /* InstamojoTests */,
+				58093B371E7816AA007BD619 /* InstamojoSDK */,
 			);
 		};
 /* End PBXProject section */
@@ -369,6 +387,19 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		58093B3B1E7816B2007BD619 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nSTAR_PATH=\"*\"\n#MUST_CLEAN=true\nMUST_CLEAN=false\nCLEAN_BUILD=\"\"\nif [ ${MUST_CLEAN} = true ]; then\nCLEAN_BUILD=\"clean build\"\nfi\n\nCONFIGURATION_IS_RELEASE=true ### We force configuration to be Release\n\nREVEAL_ARCHIVE_IN_FINDER=true\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\nFRAMEWORK_DIR=\"${FRAMEWORK_NAME}.framework\"\nWORKSPACE_NAME=\"Instamojo.xcworkspace\"\n#WORKSPACE_PATH=\"../${WORKSPACE_NAME}\"\nWORKSPACE_PATH=\"${WORKSPACE_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_DIR}\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_DIR}\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_DIR}\"\n\nif [ ${CONFIGURATION_IS_RELEASE} = true ]; then\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphonesimulator/${FRAMEWORK_DIR}\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphoneos/${FRAMEWORK_DIR}\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/Release-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_DIR}\"\nfi\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\n\n#### Current Configuration Build (if different than Release)\nif [ ${CONFIGURATION_IS_RELEASE} = false ]; then\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphonesimulator\" -configuration ${CONFIGURATION} ${CLEAN_BUILD} CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphoneos\" -configuration ${CONFIGURATION} ${CLEAN_BUILD} CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\nfi\n\n\n#### Release Build (Simulator)\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphonesimulator\" -configuration Release ${CLEAN_BUILD}only_active_arch=no defines_module=yes\n#### Release Build (Device)\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphoneos\" -configuration Release ${CLEAN_BUILD} only_active_arch=no defines_module=yes\n\n#exit;\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${FRAMEWORK}\"\n\n# 6\n# Copy the device version of framework.\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\n\nlipo -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/${STAR_PATH} \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n#if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n#  cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n#fi\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n\n######################\n# On Release, copy the result to release directory\n######################\n\nOUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\ncp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\n# 10\n# Convenience step\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nopen \"${OUTPUT_DIR}/\"\nfi";
 		};
 		E3C3C24EE4A8161F1B85D4F2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -442,6 +473,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		58093B381E7816AA007BD619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58093B391E7816AA007BD619 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5857B1201E5339BC008ECDF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -627,6 +674,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		58093B3A1E7816AA007BD619 /* Build configuration list for PBXAggregateTarget "InstamojoSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58093B381E7816AA007BD619 /* Debug */,
+				58093B391E7816AA007BD619 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5857B11F1E5339BC008ECDF9 /* Build configuration list for PBXNativeTarget "InstamojoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
