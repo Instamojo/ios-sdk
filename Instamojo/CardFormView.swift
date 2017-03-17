@@ -23,7 +23,8 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     var cardType: Int = 0
     var amountToBePayed: Float = 0
     var spinner: Spinner!
-
+    var textField : UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         amountToBePayed =  Float(order.amount!)!
@@ -45,26 +46,21 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         spinner = Spinner(text: Constants.SpinnerText)
         spinner.hide()
         self.view.addSubview(spinner)
+        self.textField = cardNumberTextField
     }
 
     //Click listener on the Done button on top of the keyboard
     func doneButton_Clicked(sender: UIBarButtonItem) {
         if cardNumberTextField.isEditing {
             cardNumberTextField.resignFirstResponder()
+            self.textField = nameTextField
             nameTextField.becomeFirstResponder()
         } else if expiryDateTextField.isEditing {
-            let expiryDate = expiryDateTextField?.text
             expiryDateTextField.resignFirstResponder()
+            self.textField = cvvTextField
             cvvTextField.becomeFirstResponder()
-            if (expiryDate?.isEmpty)! {
-                expiryDateTextField.text = Constants.DefaultCardExpiry
-            }
         } else if cvvTextField.isEditing {
-            let cvv = cvvTextField?.text
             cvvTextField.resignFirstResponder()
-            if (cvv?.isEmpty)! {
-                cvvTextField.text = Constants.DefaultCvv
-            }
         }
         validateEntries()
     }
@@ -81,6 +77,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
 
     //A juspay request using Card object
     func checkOutCard(card: Card) {
+        self.textField.resignFirstResponder()
         spinner.show()
         let request = Request(order: self.order, card: card, jusPayRequestCallBack: self)
         request.execute()
@@ -115,12 +112,32 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         } else {
             error += ""
         }
+        
+        if !expiryDateTextField.isEditing{
+            let expiryDate = expiryDateTextField.text
+            if (expiryDate?.isEmpty)! {
+                 error += Constants.EmptyExpiryDate
+            }
+        }else {
+            error += ""
+        }
+        
+        if !cvvTextField.isEditing{
+            let cvv = cvvTextField.text
+            if (cvv?.isEmpty)! {
+                error += Constants.EmptyCVV
+            }
+        }else {
+            error += ""
+        }
+        
         errorLableView.text = error
     }
 
     //To asssing next responder
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == nameTextField {
+            self.textField = expiryDateTextField
             expiryDateTextField.becomeFirstResponder()
         }
         validateEntries()
@@ -145,7 +162,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         let cardNumber = cardNumberTextField.text?.formattedCardNumber()
         do {
             let cardType = try CardValidator.cardType(for: (cardNumber)!)
-            cardImageView.image = UIImage(named : cardType.stringValue())
+            cardImageView.image = UIImage(named : cardType.stringValue(), in: Constants.frameworkBundle, compatibleWith: nil)
             let validLength = cardNumber?.validLength()
             if (cardNumber?.characters.count)! >= validLength! && range.length == 0 {
                 return false
@@ -154,10 +171,11 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             }
         } catch {
             if cardNumber?.characters.count == 0 {
-                cardImageView.image = UIImage(named : Constants.AcceptedCards)
+                cardImageView.image = UIImage(named: Constants.AcceptedCards, in: Constants.frameworkBundle, compatibleWith: nil)
                 return true
             } else {
-                cardImageView.image = UIImage(named : Constants.UnknownCard)
+                cardImageView.image = UIImage(named: Constants.UnknownCard, in: Constants.frameworkBundle, compatibleWith: nil)
+
                 return ((cardNumber?.characters.count)! >= 19 && range.length == 0) ? false : true
             }
         }
@@ -189,7 +207,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     //Call back recieved from juspay request to instamojo
     func onFinish(params: BrowserParams, error: String ) {
         let mainStoryboard = Constants.getStoryboardInstance()
-        if let viewController: JuspayBrowser = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as? JuspayBrowser {
+        if let viewController: PaymentViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as? PaymentViewController {
             viewController.params = params
             self.navigationController?.pushViewController(viewController, animated: true)
             spinner.hide()

@@ -33,8 +33,10 @@ public class Constants {
     //Card Validation Errors
     public static let EmptyCardNumer = "Please enter the card number"
     public static let InvalidCardNumber = "Card Number is not valid"
-    public static let EmptyCardHolderName = "\n\nPlease enter Name"
-
+    public static let EmptyCardHolderName = "\nPlease enter Name"
+    public static let EmptyExpiryDate = "\nPlease enter the expiry date"
+    public static let EmptyCVV = "\nPlease enter the cvv number"
+    
     //Card Image Names
     public static let AcceptedCards = "accepted_cards"
     public static let UnknownCard = "ic_unknown_card"
@@ -76,9 +78,10 @@ public class Constants {
     public static let EmiCardTitle = "EMI on Credit Card"
     public static let CrediCardTitle = "Enter Credit Card Details"
     public static let DebitCardTitle = "Enter Debit Card Details"
-
+    
+    internal static let frameworkBundle = Bundle(identifier: "com.instamojo.ios.Instamojo")!
+    
     public static func getStoryboardInstance() -> UIStoryboard {
-        let frameworkBundle = Bundle(identifier: "com.instamojo.ios.Instamojo")!
         return UIStoryboard(name: "InstamojoStoryboard", bundle: frameworkBundle)
     }
 }
