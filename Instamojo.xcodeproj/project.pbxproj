@@ -622,6 +622,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9FF622859F2EDEC353C40DAD /* Pods-Instamojo.debug.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -651,6 +652,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E357C4204689E4AE31BA278F /* Pods-Instamojo.release.xcconfig */;
 			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
