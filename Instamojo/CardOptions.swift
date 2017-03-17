@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardOptions {
+public class CardOptions {
     var orderID: String
     var url: String
     var merchantID: String

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NetBankingOptions {
+public class NetBankingOptions {
 
     var url: String!
     var banks: [NetBankingBanks]!

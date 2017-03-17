@@ -165,7 +165,7 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
 
     func startJuspayBrowser(params: BrowserParams) {
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as! JuspayBrowser
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as! PaymentViewController
         viewController.params = params
         self.navigationController?.pushViewController(viewController, animated: true)
     }

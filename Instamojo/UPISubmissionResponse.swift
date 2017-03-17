@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UPISubmissionResponse {
+public class UPISubmissionResponse {
 
     var paymentID: String
     var statusCode: Int

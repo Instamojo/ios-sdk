@@ -24,11 +24,11 @@ public class Order {
     var authToken: String?
     var resourceURI: String?
     var clientID: String?
-    var cardOptions: CardOptions!
-    var netBankingOptions: NetBankingOptions!
-    var emiOptions: EMIOptions!
-    var walletOptions: WalletOptions!
-    var upiOptions: UPIOptions!
+    public var cardOptions: CardOptions!
+    public var netBankingOptions: NetBankingOptions!
+    public var emiOptions: EMIOptions!
+    public var walletOptions: WalletOptions!
+    public var upiOptions: UPIOptions!
 
    public init(authToken: String, transactionID: String, buyerName: String, buyerEmail: String, buyerPhone: String, amount: String, description: String, webhook: String ) {
         self.authToken = authToken
@@ -103,14 +103,14 @@ public class Order {
         if (self.amount?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             return (false, "Amount is empty")
         } else {
-            let ammountArray = self.amount?.components(separatedBy: ".")
-            if ammountArray?.count != 2 {
+            let amountArray = self.amount?.components(separatedBy: ".")
+            if amountArray?.count != 2 {
                  return (false, "In valid Amount")
             } else {
-                if ammountArray?[1].characters.count == 2 {
-                    return (true, "Valid Amount")
-                } else {
+                if (amountArray?[0].characters.count)! < 2 {
                     return (false, "In valid Amount")
+                } else {
+                    return (true, "Valid Amount")
                 }
             }
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Card {
+public class Card {
 
     var cardHolderName: String
     var cardNumber: String

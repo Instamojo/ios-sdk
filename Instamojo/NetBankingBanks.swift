@@ -8,10 +8,10 @@
 
 import Foundation
 
-class NetBankingBanks {
+public class NetBankingBanks {
 
-    var bankName: String!
-    var bankCode: String!
+    public var bankName: String!
+    public var bankCode: String!
 
     init(bankName: String, bankCode: String) {
         self.bankName = bankName

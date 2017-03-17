@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UPIOptions {
+public class UPIOptions {
 
     var url: String
 

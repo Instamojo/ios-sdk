@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EMIOptions {
+public class EMIOptions {
 
     var merchantID: String
     var orderID: String

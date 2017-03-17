@@ -438,6 +438,7 @@ public class Request {
             if error == nil {
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: []) as?  [String:Any] {
+                        Logger.logDebug(tag: "UPI Status", message: String(describing: jsonResponse))
                         let statusCode = jsonResponse["status_code"] as? Int
                         if statusCode == Constants.PendingPayment {
                             self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, exception: "Payment Pending")
