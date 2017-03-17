@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1BBB3E25E8DCCDCE2C088E34 /* Pods_Instamojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20BDAB05EE5B78CD7AFDE2B /* Pods_Instamojo.framework */; };
 		5825BFD01E6ED06A00643173 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5825BFCF1E6ED06A00643173 /* Spinner.swift */; };
 		5857B1101E5303C2008ECDF9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857B10F1E5303C2008ECDF9 /* Order.swift */; };
 		5857B11A1E5339BC008ECDF9 /* InstamojoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857B1191E5339BC008ECDF9 /* InstamojoTests.swift */; };
@@ -53,7 +54,7 @@
 		58C254451E54909200D070EF /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254441E54909200D070EF /* Wallet.swift */; };
 		58C254471E5490E300D070EF /* WalletOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254461E5490E300D070EF /* WalletOptions.swift */; };
 		58DB9B511E5039E7003A812D /* EMIOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9B501E5039E7003A812D /* EMIOptionsView.swift */; };
-		58F7650B1E69BAC900013D8B /* JuspayBrowser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7650A1E69BAC900013D8B /* JuspayBrowser.swift */; };
+		58F7650B1E69BAC900013D8B /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7650A1E69BAC900013D8B /* PaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,9 +104,10 @@
 		58C254441E54909200D070EF /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		58C254461E5490E300D070EF /* WalletOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletOptions.swift; sourceTree = "<group>"; };
 		58DB9B501E5039E7003A812D /* EMIOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIOptionsView.swift; sourceTree = "<group>"; };
-		58F7650A1E69BAC900013D8B /* JuspayBrowser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JuspayBrowser.swift; sourceTree = "<group>"; };
+		58F7650A1E69BAC900013D8B /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9FF622859F2EDEC353C40DAD /* Pods-Instamojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instamojo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instamojo/Pods-Instamojo.debug.xcconfig"; sourceTree = "<group>"; };
 		E357C4204689E4AE31BA278F /* Pods-Instamojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instamojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instamojo/Pods-Instamojo.release.xcconfig"; sourceTree = "<group>"; };
+		F20BDAB05EE5B78CD7AFDE2B /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BBB3E25E8DCCDCE2C088E34 /* Pods_Instamojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +242,7 @@
 				587825011E4991DA00D90B35 /* UPIPaymentView.swift */,
 				587825051E49B75300D90B35 /* CardFormView.swift */,
 				58DB9B501E5039E7003A812D /* EMIOptionsView.swift */,
-				58F7650A1E69BAC900013D8B /* JuspayBrowser.swift */,
+				58F7650A1E69BAC900013D8B /* PaymentViewController.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				58093B3E1E7817CC007BD619 /* Pods_Instamojo.framework */,
+				F20BDAB05EE5B78CD7AFDE2B /* Pods_Instamojo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -454,7 +458,7 @@
 				587825021E4991DA00D90B35 /* UPIPaymentView.swift in Sources */,
 				58BB7DFE1E48A4BC009AFD0C /* ListOptionsView.swift in Sources */,
 				58BB7DEC1E485129009AFD0C /* Constants.swift in Sources */,
-				58F7650B1E69BAC900013D8B /* JuspayBrowser.swift in Sources */,
+				58F7650B1E69BAC900013D8B /* PaymentViewController.swift in Sources */,
 				586CB52E1E7276B9000A1D39 /* NetBankingBanks.swift in Sources */,
 				58C254351E542C9300D070EF /* MonthYearPicker.swift in Sources */,
 				587825041E49AFD000D90B35 /* CardValidator.swift in Sources */,

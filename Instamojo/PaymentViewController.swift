@@ -1,5 +1,5 @@
 //
-//  JuspayBrowser.swift
+//  PaymentView.swift
 //  Instamojo
 //
 //  Created by Sukanya Raj on 27/02/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JuspayBrowser: UIViewController {
+class PaymentViewController: UIViewController {
 
     var juspaySafeBrowser = JuspaySafeBrowser()
     var params: BrowserParams!

@@ -9,7 +9,7 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>InstamojoTests.xcscheme</key>
+		<key>InstamojoSDK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -22,7 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>58037A431E76CF3400FA3892</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>58093B371E7816AA007BD619</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>581A4C801E77B72B00F685CD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
