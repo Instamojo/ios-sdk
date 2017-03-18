@@ -58,11 +58,16 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
     }
 
     func verifyPayment(sender: UIBarButtonItem) {
-        self.vpa.resignFirstResponder()
-        self.spinner.show()
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        let request = Request.init(order: self.order, virtualPaymentAddress: self.vpa.text!, upiCallBack: self)
-        request.execute()
+        let virturalPaymentAddress = self.vpa.text
+        if (virturalPaymentAddress?.contains("@"))!{
+            self.vpa.resignFirstResponder()
+            self.spinner.show()
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            let request = Request.init(order: self.order, virtualPaymentAddress: virturalPaymentAddress!, upiCallBack: self)
+            request.execute()
+        }else{
+            self.showAlert(title: "Invalid VPA", errorMessage: "Please enter a valid VPA. Example mohit@icici")
+        }
     }
 
     func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: String) {
