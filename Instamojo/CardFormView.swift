@@ -47,6 +47,8 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         spinner.hide()
         self.view.addSubview(spinner)
         self.textField = cardNumberTextField
+        self.errorLableView.numberOfLines = 0
+        self.errorLableView.sizeToFit()
     }
 
     //Click listener on the Done button on top of the keyboard
@@ -113,22 +115,26 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             error += ""
         }
         
-        if !expiryDateTextField.isEditing{
-            let expiryDate = expiryDateTextField.text
-            if (expiryDate?.isEmpty)! {
-                 error += Constants.EmptyExpiryDate
+        if !(name?.isEmpty)! && !(cardNumber?.isEmpty)! {
+            if !expiryDateTextField.isEditing{
+                let expiryDate = expiryDateTextField.text
+                if (expiryDate?.isEmpty)! {
+                    error += Constants.EmptyExpiryDate
+                }
+            }else {
+                error += ""
             }
-        }else {
-            error += ""
         }
         
-        if !cvvTextField.isEditing{
-            let cvv = cvvTextField.text
-            if (cvv?.isEmpty)! {
-                error += Constants.EmptyCVV
+        if !(name?.isEmpty)! && !(cardNumber?.isEmpty)! {
+            if !cvvTextField.isEditing{
+                let cvv = cvvTextField.text
+                if (cvv?.isEmpty)! {
+                    error += Constants.EmptyCVV
+                }
+            }else {
+                error += ""
             }
-        }else {
-            error += ""
         }
         
         errorLableView.text = error
