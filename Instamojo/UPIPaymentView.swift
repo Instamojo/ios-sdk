@@ -106,7 +106,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
     }
 
     func onPaymentStatusComplete() {
-        let alert = UIAlertController(title: "Payment Status", message: "Payment complete. Finishing activity...", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Payment Status", message: "Payment complete", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) in
                 UserDefaults.standard.setValue(true, forKey: "ON-REDIRECT-URL")
                 _ = self.navigationController?.popToRootViewController(animated: true)
