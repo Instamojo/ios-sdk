@@ -70,7 +70,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
             self.spinner.hide()
             if !exception.isEmpty && upiSubmissionResponse.statusCode != Constants.PendingPayment {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
-                self.showAlert(errorMessage: exception)
+                self.showAlert(title: "Payment Response", errorMessage: exception)
             } else {
                 self.continueCheck = true
                 self.vpaDetailsView.isHidden = true
@@ -115,8 +115,8 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
 
-    func showAlert(errorMessage: String) {
-        let alert = UIAlertController(title: "Payment Status", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+    func showAlert(title: String, errorMessage: String) {
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
