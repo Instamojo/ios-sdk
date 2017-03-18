@@ -33,7 +33,7 @@ public class Constants {
     //Card Validation Errors
     public static let EmptyCardNumer = "Please enter the card number"
     public static let InvalidCardNumber = "Card Number is not valid"
-    public static let EmptyCardHolderName = "\nPlease enter Name"
+    public static let EmptyCardHolderName = "\nPlease enter name on the card"
     public static let EmptyExpiryDate = "\nPlease enter the expiry date"
     public static let EmptyCVV = "\nPlease enter the cvv number"
     
