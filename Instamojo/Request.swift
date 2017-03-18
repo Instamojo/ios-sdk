@@ -80,6 +80,7 @@ public class Request {
         self.mode = Mode.UPIStatusCheck
         self.order = order
         self.upiSubmissionResponse = upiSubmissionResponse
+         self.upiCallBack = upiCallback
     }
 
     /**
