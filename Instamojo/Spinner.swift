@@ -29,6 +29,11 @@ public class Spinner: UIVisualEffectView {
         self.setup()
     }
 
+    
+    public func setText(text: String){
+        self.text = text
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         self.text = ""
         self.vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
@@ -48,8 +53,8 @@ public class Spinner: UIVisualEffectView {
         super.didMoveToSuperview()
 
         if let superview = self.superview {
-
-            let width = superview.frame.size.width / 2
+            
+            let width = superview.frame.size.width / 1.7
             let height: CGFloat = 50.0
             self.frame = CGRect(x: superview.frame.size.width / 2 - width / 2,
                                 y: superview.frame.height / 2 - height / 2,
@@ -68,17 +73,18 @@ public class Spinner: UIVisualEffectView {
             layer.masksToBounds = true
             label.text = text
             label.textAlignment = NSTextAlignment.center
-            label.frame = CGRect(x: activityIndicatorSize + 5,
+            label.frame = CGRect(x: activityIndicatorSize + 1,
                                  y: 0,
-                                 width: width - activityIndicatorSize - 15,
+                                 width: width - activityIndicatorSize - 10,
                                  height: height)
             label.textColor = UIColor.white
-            label.font = UIFont.boldSystemFont(ofSize: 16)
+            label.font = UIFont.boldSystemFont(ofSize: 14)
         }
     }
 
     public func show() {
         self.isHidden = false
+        label.text = text
     }
 
     public func hide() {
