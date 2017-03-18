@@ -82,6 +82,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
     }
 
     func checkForStatusTransaction() {
+        self.spinner.setText(text: "Checking status..")
         self.spinner.show()
         let request = Request.init(order: self.order, upiSubmissionResponse: self.upiSubmissionResponse, upiCallback: self)
         request.execute()
