@@ -10,7 +10,6 @@ import UIKit
 
 class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack {
 
-    @IBOutlet weak var errorLableView: UILabel!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var cvvTextField: UITextField!
     @IBOutlet weak var expiryDateTextField: UITextField!
@@ -19,11 +18,21 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     @IBOutlet weak var cardImageView: UIImageView!
     @IBOutlet var expiryPickerView: MonthYearPickerView!
 
+    @IBOutlet var cardNumberErrorLable: UILabel!
+    @IBOutlet var cardNumberDivider: UIView!
+    @IBOutlet var nameDivider: UIView!
+    @IBOutlet var nameErrorLable: UILabel!
+    @IBOutlet var expiryDateDivider: UIView!
+    @IBOutlet var expiryDateErrorLable: UILabel!
+    @IBOutlet var cvvDivider: UIView!
+    @IBOutlet var cvvErrorLable: UILabel!
+    
     var order: Order!
     var cardType: Int = 0
     var amountToBePayed: Float = 0
     var spinner: Spinner!
-    var textField : UITextField!
+    var textField: UITextField!
+    var invalidEntries: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +56,6 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         spinner.hide()
         self.view.addSubview(spinner)
         self.textField = cardNumberTextField
-        self.errorLableView.numberOfLines = 0
-        self.errorLableView.sizeToFit()
     }
 
     //Click listener on the Done button on top of the keyboard
@@ -89,29 +96,49 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     func validateEntries() {
         let cardNumber = cardNumberTextField?.text
         let name = nameTextField?.text
-        var error: String = ""
-
+        var error : String = ""
         if !cardNumberTextField.isEditing {
-            if cardNumber?.characters.count == 0 {
+            if (cardNumber?.isEmpty)! {
+                invalidEntries = true
                 error = Constants.EmptyCardNumer
+                cardNumberErrorLable.isHidden = false
+                cardNumberErrorLable.text = Constants.EmptyCardNumer
+                cardNumberDivider.backgroundColor = .red
             } else {
                 let isValid = cardNumber?.isValidCardNumber()
                 if !isValid! {
                     error = Constants.InvalidCardNumber
-                    cardNumberTextField.textColor = UIColor.red
+                    cardNumberErrorLable.isHidden = false
+                    cardNumberErrorLable.text = Constants.InvalidCardNumber
+                    cardNumberDivider.backgroundColor = .red
+                    cardNumberTextField.textColor = .red
                 } else {
-                    cardNumberTextField.textColor = UIColor.black
+                    cardNumberErrorLable.isHidden = true
+                    cardNumberDivider.backgroundColor = .groupTableViewBackground
+                    cardNumberTextField.textColor = .black
+                    error += ""
                 }
             }
         } else {
+            cardNumberErrorLable.isHidden = true
+            cardNumberDivider.backgroundColor = .groupTableViewBackground
             error += ""
         }
 
         if !nameTextField.isEditing {
-            if name?.characters.count == 0 {
+            if (name?.isEmpty)! {
                 error += Constants.EmptyCardHolderName
+                nameErrorLable.isHidden = false
+                nameErrorLable.text = Constants.EmptyCardHolderName
+                nameDivider.backgroundColor = .red
+            }else{
+                nameErrorLable.isHidden = true
+                nameDivider.backgroundColor = .groupTableViewBackground
+                error += ""
             }
         } else {
+            nameErrorLable.isHidden = true
+            nameDivider.backgroundColor = .groupTableViewBackground
             error += ""
         }
         
@@ -120,8 +147,16 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                 let expiryDate = expiryDateTextField.text
                 if (expiryDate?.isEmpty)! {
                     error += Constants.EmptyExpiryDate
+                    expiryDateErrorLable.isHidden = false
+                    expiryDateErrorLable.text = Constants.EmptyExpiryDate
+                    expiryDateDivider.backgroundColor = .red
+                }else{
+                    expiryDateErrorLable.isHidden = true
+                    expiryDateDivider.backgroundColor = .groupTableViewBackground
                 }
             }else {
+                expiryDateErrorLable.isHidden = true
+                expiryDateDivider.backgroundColor = .groupTableViewBackground
                 error += ""
             }
         }
@@ -131,13 +166,21 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                 let cvv = cvvTextField.text
                 if (cvv?.isEmpty)! {
                     error += Constants.EmptyCVV
+                    cvvErrorLable.isHidden = false
+                    cvvErrorLable.text = Constants.EmptyCVV
+                    cvvDivider.backgroundColor = .red
+                }else{
+                    cvvErrorLable.isHidden = true
+                    cvvDivider.backgroundColor = .groupTableViewBackground
+                    error += ""
                 }
             }else {
+                cvvErrorLable.isHidden = true
+                cvvDivider.backgroundColor = .groupTableViewBackground
                 error += ""
             }
         }
-        
-        errorLableView.text = error
+        invalidEntries = !error.isEmpty
     }
 
     //To asssing next responder
@@ -222,7 +265,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
 
     //When pay button is clicked
     @IBAction func checkout(_ sender: Any) {
-        if (errorLableView.text?.isEmpty)! {
+        if !(invalidEntries) {
             prepareCheckOut()
         }
     }
