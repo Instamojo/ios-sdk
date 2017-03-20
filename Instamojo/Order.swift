@@ -62,9 +62,9 @@ public class Order {
     /**
      * @return false if the buyer name is empty or has greater than 100 characters. Else true.
      */
-    func isValidName() -> (validity: Bool, error: String) {
+    public func isValidName() -> (validity: Bool, error: String) {
         if (self.buyerName?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "The buyer name is empty")
+            return (false, "Required")
         } else if ((self.buyerName?.characters.count)! > 100) {
             return (false, "The buyer name is greater than 100 characters")
         } else {
@@ -75,22 +75,30 @@ public class Order {
     /**
      * @return false if the buyer email is empty or has greater than 75 characters. Else true.
      */
-    func isValidEmail() -> (validity: Bool, error: String) {
+    public func isValidEmail() -> (validity: Bool, error: String) {
         if  (self.buyerEmail?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "The buyer email is empty")
+            return (false, "Required")
         } else if (self.buyerEmail?.characters.count)! > 75 {
             return (false, "The buyer email is greater than 75 characters")
-        } else {
+        } else if !validateEmail(email: self.buyerEmail!){
+             return (false, "Invalid Email")
+        }else {
              return (true, "Valid Email")
         }
     }
 
+    func validateEmail(email:String) -> Bool {
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: email)
+    }
+    
     /**
      * @return false if the phone number is empty. Else true.
      */
-    func isValidPhone() -> (validity: Bool, error: String) {
+    public func isValidPhone() -> (validity: Bool, error: String) {
         if (self.buyerPhone?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "Phone number is empty")
+            return (false, "Required")
         } else {
             return (true, "Valid Phone Number")
         }
@@ -99,16 +107,17 @@ public class Order {
     /**
      * @return false if the amount is empty or less than Rs. 9 or has more than 2 decimal places.
      */
-    func isValidAmount() -> (validity: Bool, error: String) {
+    public func isValidAmount() -> (validity: Bool, error: String) {
         if (self.amount?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "Amount is empty")
+            return (false, "Required")
         } else {
             let amountArray = self.amount?.components(separatedBy: ".")
             if amountArray?.count != 2 {
-                 return (false, "In valid Amount")
+                 return (false, "Invalid Amount")
             } else {
-                if (amountArray?[0].characters.count)! < 2 {
-                    return (false, "In valid Amount")
+                let amount = Int((amountArray?[0])!)
+                if amount! < 9 {
+                    return (false, "Invalid Amount")
                 } else {
                     return (true, "Valid Amount")
                 }
@@ -119,9 +128,9 @@ public class Order {
     /**
      * @return false if the description is empty or has greater than 255 characters. Else true.
      */
-    func isValidDescription()-> (validity: Bool, error: String) {
+    public func isValidDescription()-> (validity: Bool, error: String) {
         if (self.description?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "Description is empty")
+            return (false, "Required")
         } else if (self.description?.characters.count)! > 255 {
             return (true, "Description is greater than 255 characters")
         } else {
@@ -132,9 +141,9 @@ public class Order {
     /**
      * @return false if the transaction ID is empty or has greater than 64 characters.
      */
-    func isValidTransactionID() -> (validity: Bool, error: String) {
+    public func isValidTransactionID() -> (validity: Bool, error: String) {
         if (self.transactionID?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "Transaction ID is empty")
+            return (false, "Transaction ID is a mandatory parameter")
         } else if (self.transactionID?.characters.count)! > 64 {
             return (true, "Transaction ID is greater than 64 characters")
         } else {
@@ -146,11 +155,11 @@ public class Order {
      * @return false if the redirection URL is empty or contains any query parameters.
      */
 
-    func isValidRedirectURL() -> (validity: Bool, error: String) {
+    public func isValidRedirectURL() -> (validity: Bool, error: String) {
         if (self.redirectionUrl?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (true, "Valid Redirection URL")
-        } else if isValidURL(urlString: (self.redirectionUrl)!) {
-            return (true, "Redirection URL is invalid")
+            return (true, "Invalid Redirection URL")
+        } else if !isValidURL(urlString: (self.redirectionUrl)!) {
+            return (true, "Invalid Redirection URL")
         } else {
             return (true, "Valid Redirection URL")
         }
@@ -159,15 +168,15 @@ public class Order {
     /**
      * @return false if webhook is set and not a valid url or has query parameters
      */
-    func isValidWebhook() -> (validity: Bool, error: String) {
+    public func isValidWebhook() -> (validity: Bool, error: String) {
         if (self.webhook?.trimmingCharacters(in: .whitespaces).isEmpty)! {
-            return (false, "Webhook is empty")
+            return (false, "Webhook is a mandatory parameter.")
         } else {
             return (true, "Valid Webhook")
         }
     }
 
-    func isValidURL(urlString: String) -> Bool {
+    public func isValidURL(urlString: String) -> Bool {
         let url: NSURL = NSURL(string: urlString)!
         if url.query != nil {
             return false

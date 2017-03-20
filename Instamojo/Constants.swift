@@ -31,11 +31,11 @@ public class Constants {
     public static let DefaultCvv = "111"
 
     //Card Validation Errors
-    public static let EmptyCardNumer = "Please enter the card number"
-    public static let InvalidCardNumber = "Card Number is not valid"
-    public static let EmptyCardHolderName = "\nPlease enter name on the card"
-    public static let EmptyExpiryDate = "\nPlease enter the expiry date"
-    public static let EmptyCVV = "\nPlease enter the cvv number"
+    public static let EmptyCardNumer = "Required"
+    public static let InvalidCardNumber = "Invalid Card Number"
+    public static let EmptyCardHolderName = "Required"
+    public static let EmptyExpiryDate = "Required"
+    public static let EmptyCVV = "Required"
     
     //Card Image Names
     public static let AcceptedCards = "accepted_cards"
