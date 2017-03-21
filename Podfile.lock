@@ -1,11 +1,11 @@
 PODS:
-  - JuspaySafeBrowser (0.1.27)
+  - JuspaySafeBrowser (0.1.30)
 
 DEPENDENCIES:
   - JuspaySafeBrowser
 
 SPEC CHECKSUMS:
-  JuspaySafeBrowser: 19d8193b94a861a52d8853fa9ff63ea2d55cb8f5
+  JuspaySafeBrowser: 94b7523b6364151467fedb4ab45bc4410cf9f98a
 
 PODFILE CHECKSUM: aff709d2ef7cd4a5abca83b045a3aaff3bface1b
 

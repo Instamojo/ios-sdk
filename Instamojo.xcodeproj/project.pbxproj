@@ -67,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AEA5EDB04D213D0895970C5 /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5825BFCF1E6ED06A00643173 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5857B10F1E5303C2008ECDF9 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstamojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -246,6 +247,7 @@
 		6403D92C2618E56F849F0EAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AEA5EDB04D213D0895970C5 /* Pods_Instamojo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

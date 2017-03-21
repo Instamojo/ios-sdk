@@ -84,6 +84,11 @@
  */
 @property (nonatomic, strong) NSString *amount;
 
+/**
+ Cookies that need to be stored in browser.
+ */
+@property (nonatomic, strong) NSArray *cookies;
+
 //Customer specific params
 
 /**
