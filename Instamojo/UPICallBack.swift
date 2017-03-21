@@ -11,5 +11,5 @@ import Foundation
 protocol UPICallBack {
     func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: String)
 
-    func onStatusCheckComplete(paymentComplete: Bool, exception: String)
+    func onStatusCheckComplete(paymentComplete: Bool, status: Int)
 }

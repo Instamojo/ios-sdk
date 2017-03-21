@@ -93,25 +93,31 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
         request.execute()
     }
 
-    func onStatusCheckComplete(paymentComplete: Bool, exception: String) {
+    func onStatusCheckComplete(paymentComplete: Bool, status: Int) {
         DispatchQueue.main.async {
             self.spinner.hide()
-            if !exception.isEmpty && !paymentComplete {
+            if status == Constants.FailedPayment {
+                 self.continueCheck = false
+                 self.onPaymentStatusComplete(message: "Payment Cancelled")
+            }else if status == Constants.PendingPayment {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     if self.continueCheck {
                         // check transaction status 2 seconds later
                         self.checkForStatusTransaction()
                     }
                 }
-            } else {
+            }else if status == Constants.PaymentError{
                 self.continueCheck = false
-                self.onPaymentStatusComplete()
+                self.onPaymentStatusComplete(message:"Error while making UPI Status Check request")
+            }else {
+                self.continueCheck = false
+                self.onPaymentStatusComplete(message: "Payment Completed")
             }
         }
     }
 
-    func onPaymentStatusComplete() {
-        let alert = UIAlertController(title: "Payment Status", message: "Payment complete", preferredStyle: UIAlertControllerStyle.alert)
+    func onPaymentStatusComplete(message: String) {
+        let alert = UIAlertController(title: "Payment Status", message: message, preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) in
                 UserDefaults.standard.setValue(true, forKey: "ON-REDIRECT-URL")
                 _ = self.navigationController?.popToRootViewController(animated: true)

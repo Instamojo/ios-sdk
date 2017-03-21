@@ -442,17 +442,19 @@ public class Request {
                         Logger.logDebug(tag: "UPI Status", message: String(describing: jsonResponse))
                         let statusCode = jsonResponse["status_code"] as? Int
                         if statusCode == Constants.PendingPayment {
-                            self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, exception: "Payment Pending")
-                        } else {
-                            self.upiCallBack?.onStatusCheckComplete(paymentComplete: true, exception: "")
+                            self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, status: statusCode!)
+                        } else if statusCode == Constants.FailedPayment {
+                             self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, status: statusCode!)
+                        }else {
+                            self.upiCallBack?.onStatusCheckComplete(paymentComplete: true, status: statusCode!)
                         }
                     }
                 } catch {
-                    self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, exception: "Error while making UPI Status Check request ")
+                    self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, status: Constants.PaymentError)
                     Logger.logError(tag: "Caught Exception", message: String(describing: error))
                 }
             } else {
-                self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, exception: "Error while making UPI Status Check request ")
+                self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, status: Constants.PaymentError)
                 print(error!.localizedDescription)
             }
         })
