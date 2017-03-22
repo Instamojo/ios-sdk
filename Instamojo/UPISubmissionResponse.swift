@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class UPISubmissionResponse {
+public class UPISubmissionResponse : NSObject {
 
     var paymentID: String
     var statusCode: Int
@@ -18,7 +18,7 @@ public class UPISubmissionResponse {
     var upiBank: String
     var statusMessage: String
 
-    init() {
+    override init() {
         self.paymentID = ""
         self.statusCode = 0
         self.payeeVirtualAddress = ""

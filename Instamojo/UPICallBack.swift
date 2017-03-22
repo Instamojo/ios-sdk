@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UPICallBack {
+@objc public protocol UPICallBack {
     func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: String)
 
     func onStatusCheckComplete(paymentComplete: Bool, status: Int)

@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol OrderRequestCallBack {
+@objc public protocol OrderRequestCallBack {
     func onFinish(order: Order, error: String)
 }

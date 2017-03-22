@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class EMIOptions {
+public class EMIOptions : NSObject{
 
     var merchantID: String
     var orderID: String
@@ -17,7 +17,7 @@ public class EMIOptions {
     var selectedBankCode: String!
     var selectedTenure: Int = -1
 
-    init() {
+    override init() {
         self.merchantID = ""
         self.orderID = ""
         self.selectedTenure = -1

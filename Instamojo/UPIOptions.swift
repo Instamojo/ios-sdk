@@ -8,11 +8,11 @@
 
 import UIKit
 
-public class UPIOptions {
+public class UPIOptions : NSObject {
 
     var url: String
 
-    init() {
+    override init() {
         self.url = ""
     }
 

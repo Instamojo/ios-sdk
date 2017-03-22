@@ -8,13 +8,13 @@
 
 import UIKit
 
-public class Wallet {
+public class Wallet : NSObject{
 
     var name: String
     var imageUrl: String
     var walletID: String
 
-    init() {
+    override init() {
         self.name = ""
         self.imageUrl = ""
          self.walletID = ""

@@ -8,12 +8,12 @@
 
 import UIKit
 
-public class CardOptions {
+public class CardOptions : NSObject {
     var orderID: String
     var url: String
     var merchantID: String
 
-    init() {
+    override init() {
         self.orderID = ""
         self.url = ""
         self.merchantID = ""

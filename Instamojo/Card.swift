@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Card {
+public class Card : NSObject{
 
     var cardHolderName: String
     var cardNumber: String
@@ -16,7 +16,7 @@ public class Card {
     var cvv: String
     var savedCard: Bool
 
-    init() {
+    override init() {
         self.cardNumber = ""
         self.cvv = ""
         self.date = ""

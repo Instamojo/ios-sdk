@@ -17,6 +17,7 @@ public class Constants {
     // Status code for UPI Pending Authentication
     public static let PendingPayment = 2
     public static let FailedPayment = 6
+    public static let PaymentError = 104
 
     //Ruppe 
     public static let Inr = "\u{20B9}"

@@ -8,22 +8,22 @@
 
 import UIKit
 
-public class Order {
+public class Order : NSObject{
 
-    var id: String?
-    var transactionID: String?
-    let buyerName: String?
-    var buyerEmail: String?
-    var buyerPhone: String?
-    var amount: String?
-    var description: String?
-    var currency: String?
-    var redirectionUrl: String?
-    var webhook: String?
-    var mode: String?
-    var authToken: String?
-    var resourceURI: String?
-    var clientID: String?
+    public var id: String?
+    public var transactionID: String?
+    public var buyerName: String?
+    public var buyerEmail: String?
+    public var buyerPhone: String?
+    public var amount: String?
+    public var orderDescription: String?
+    public var currency: String?
+    public var redirectionUrl: String?
+    public var webhook: String?
+    public var mode: String?
+    public var authToken: String?
+    public var resourceURI: String?
+    public var clientID: String?
     public var cardOptions: CardOptions!
     public var netBankingOptions: NetBankingOptions!
     public var emiOptions: EMIOptions!
@@ -40,7 +40,7 @@ public class Order {
         self.currency = "INR"
         self.mode = "IOS_SDK"
         self.redirectionUrl = Urls.getDefaultRedirectUrl()
-        self.description = description
+        self.orderDescription = description
         self.webhook = webhook
         if Urls.getBaseUrl().contains("test") {
            self.clientID = Constants.TestClientId
@@ -58,6 +58,11 @@ public class Order {
         let space = ","
         return (isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity && isValidRedirectURL().validity && isValidTransactionID().validity, isValidName().error + space + isValidEmail().error + space + isValidPhone().error + space + isValidAmount().error + space + isValidWebhook().error + space + isValidDescription().error + space + isValidRedirectURL().error + space + isValidTransactionID().error)
     }
+    
+    public func isValid() -> Bool {
+        return isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity && isValidRedirectURL().validity && isValidTransactionID().validity
+    }
+
 
     /**
      * @return false if the buyer name is empty or has greater than 100 characters. Else true.
@@ -69,6 +74,24 @@ public class Order {
             return (false, "The buyer name is greater than 100 characters")
         } else {
              return (true, "Valid Name")
+        }
+    }
+    
+    //Tuples are not supported by Objective-C
+    public func isValidName() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.buyerName?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Required", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else if ((self.buyerName?.characters.count)! > 100) {
+            dictonary.setValue("The buyer name is greater than 100 characters", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            dictonary.setValue("Valid Name", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
         }
     }
 
@@ -86,6 +109,28 @@ public class Order {
              return (true, "Valid Email")
         }
     }
+    
+    public func isValidEmail() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if  (self.buyerEmail?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Required", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else if (self.buyerEmail?.characters.count)! > 75 {
+            dictonary.setValue("The buyer email is greater than 75 characters", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else if !validateEmail(email: self.buyerEmail!){
+            dictonary.setValue("Invalid Email", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        }else {
+            dictonary.setValue("Valid Email", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
+        }
+    }
+
 
     func validateEmail(email:String) -> Bool {
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -103,6 +148,20 @@ public class Order {
             return (true, "Valid Phone Number")
         }
     }
+    
+    public func isValidPhone() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.buyerPhone?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Required", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            dictonary.setValue("Valid Phone Number", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
+        }
+    }
+
 
     /**
      * @return false if the amount is empty or less than Rs. 9 or has more than 2 decimal places.
@@ -124,20 +183,64 @@ public class Order {
             }
         }
     }
+    
+    public func isValidAmount() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.amount?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Required", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            let amountArray = self.amount?.components(separatedBy: ".")
+            if amountArray?.count != 2 {
+                dictonary.setValue("Invalid Amount", forKey: "error")
+                dictonary.setValue(false, forKey: "validity")
+                return dictonary
+            } else {
+                let amount = Int((amountArray?[0])!)
+                if amount! < 9 {
+                    dictonary.setValue("Invalid Amount", forKey: "error")
+                    dictonary.setValue(false, forKey: "validity")
+                    return dictonary
+                } else {
+                    dictonary.setValue("Valid Amount", forKey: "error")
+                    dictonary.setValue(true, forKey: "validity")
+                    return dictonary
+                }
+            }
+        }
+    }
 
     /**
      * @return false if the description is empty or has greater than 255 characters. Else true.
      */
     public func isValidDescription()-> (validity: Bool, error: String) {
-        if (self.description?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+        if (self.orderDescription?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             return (false, "Required")
-        } else if (self.description?.characters.count)! > 255 {
+        } else if (self.orderDescription?.characters.count)! > 255 {
             return (true, "Description is greater than 255 characters")
         } else {
             return (true, "Valid Description")
         }
     }
 
+    public func isValidDescription() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.orderDescription?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Required", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else if (self.orderDescription?.characters.count)! > 255 {
+            dictonary.setValue("Description is greater than 255 characters", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            dictonary.setValue("Description is greater than 255 characters", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
+        }
+    }
+    
     /**
      * @return false if the transaction ID is empty or has greater than 64 characters.
      */
@@ -148,6 +251,24 @@ public class Order {
             return (true, "Transaction ID is greater than 64 characters")
         } else {
             return (true, "Valid Transaction ID")
+        }
+    }
+    
+    public func isValidTransactionID() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.transactionID?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Transaction ID is a mandatory parameter", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+
+        } else if (self.transactionID?.characters.count)! > 64 {
+            dictonary.setValue("Transaction ID is greater than 64 characters", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            dictonary.setValue("Valid Transaction ID", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
         }
     }
 
@@ -164,6 +285,23 @@ public class Order {
             return (true, "Valid Redirection URL")
         }
     }
+    
+    public func isValidRedirectURL() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.redirectionUrl?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Invalid Redirection URL", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else if !isValidURL(urlString: (self.redirectionUrl)!) {
+            dictonary.setValue("Invalid Redirection URL", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            dictonary.setValue("Valid Redirection URL", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
+        }
+    }
 
     /**
      * @return false if webhook is set and not a valid url or has query parameters
@@ -173,6 +311,19 @@ public class Order {
             return (false, "Webhook is a mandatory parameter.")
         } else {
             return (true, "Valid Webhook")
+        }
+    }
+    
+    public func isValidWebhook() -> NSDictionary {
+        let dictonary = NSMutableDictionary()
+        if (self.webhook?.trimmingCharacters(in: .whitespaces).isEmpty)! {
+            dictonary.setValue("Webhook is a mandatory parameter.", forKey: "error")
+            dictonary.setValue(false, forKey: "validity")
+            return dictonary
+        } else {
+            dictonary.setValue("Valid Webhook", forKey: "error")
+            dictonary.setValue(true, forKey: "validity")
+            return dictonary
         }
     }
 

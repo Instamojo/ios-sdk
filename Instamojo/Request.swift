@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Request {
+public class Request : NSObject {
 
     var order: Order?
     var mode: Mode
@@ -119,7 +119,7 @@ public class Request {
     func createOrder() {
         let url: String = Urls.getOrderCreateUrl()
 
-        let params: [String: Any] = ["name": order!.buyerName!, "email": order!.buyerEmail!, "amount": order!.amount!, "description": order!.description!, "phone": order!.buyerPhone!, "currency": order!.currency!, "transaction_id": order!.transactionID!, "redirect_url": order!.redirectionUrl!, "advanced_payment_options": "true", "mode": order!.mode!, "webhook_url": order!.webhook!]
+        let params: [String: Any] = ["name": order!.buyerName!, "email": order!.buyerEmail!, "amount": order!.amount!, "description": order!.orderDescription!, "phone": order!.buyerPhone!, "currency": order!.currency!, "transaction_id": order!.transactionID!, "redirect_url": order!.redirectionUrl!, "advanced_payment_options": "true", "mode": order!.mode!, "webhook_url": order!.webhook!]
 
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
         request.httpMethod = "POST"
@@ -352,8 +352,7 @@ public class Request {
                             let browserParams = BrowserParams()
                             browserParams.url = url
                             browserParams.orderId = orderID
-                            browserParams.clientId = self.order?.cardOptions.merchantID
-                            browserParams.merchantId = self.order?.cardOptions.merchantID
+                            browserParams.clientId = self.order?.clientID
                             browserParams.transactionId = txn_id
                             browserParams.endUrlRegexes = Urls.getEndUrlRegex()
 
