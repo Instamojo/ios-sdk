@@ -321,6 +321,7 @@ public class Request : NSObject {
     }
 
     func juspayRequest() {
+        Logger.logDebug(tag: "Juspay Request", message: "Juspay Request On Start")
         let url: String = self.order!.cardOptions.url
         let session = URLSession.shared
 
@@ -339,9 +340,11 @@ public class Request : NSObject {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
 
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, _, error -> Void in
+            Logger.logDebug(tag: "Juspay Request", message: "Network call completed")
             if error == nil {
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: []) as?  [String:Any] {
+                        Logger.logDebug(tag: "Juspay Request", message: String(describing: jsonResponse))
                         if jsonResponse["payment"] != nil {
                             let payment = jsonResponse["payment"] as? [String : Any]
                             let authentication = payment?["authentication"] as? [String : Any]
@@ -355,8 +358,10 @@ public class Request : NSObject {
                             browserParams.clientId = self.order?.clientID
                             browserParams.transactionId = txn_id
                             browserParams.endUrlRegexes = Urls.getEndUrlRegex()
-
                             self.juspayRequestCallBack?.onFinish(params: browserParams, error: "")
+                        }else{
+                            Logger.logDebug(tag: "Juspay Request", message: "Error on request")
+                            self.juspayRequestCallBack?.onFinish(params: BrowserParams.init(), error: "Error while making Instamojo request")
                         }
                     }
                 } catch {
