@@ -12,7 +12,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var paymentOptionsTableView: UITableView!
     var order: Order!
-    var paymentOptions: NSMutableArray = [Constants.NetBankingOption, Constants.CreditCardOption, Constants.DebitCardOption, Constants.EmiOption, Constants.WalletsOption, Constants.UpiOption]
+    var paymentOptions: NSMutableArray = [Constants.DebitCardOption, Constants.NetBankingOption, Constants.CreditCardOption, Constants.WalletsOption, Constants.EmiOption, Constants.UpiOption]
 
     var mainStoryboard: UIStoryboard = UIStoryboard()
 
