@@ -255,11 +255,19 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
 
     //Call back recieved from juspay request to instamojo
     func onFinish(params: BrowserParams, error: String ) {
-        let mainStoryboard = Constants.getStoryboardInstance()
-        if let viewController: PaymentViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as? PaymentViewController {
-            viewController.params = params
-            self.navigationController?.pushViewController(viewController, animated: true)
-            spinner.hide()
+        Logger.logDebug(tag: "Juspay Request", message: "Juspay Request On Finish")
+        if error.isEmpty {
+           DispatchQueue.main.async {
+            let mainStoryboard = Constants.getStoryboardInstance()
+            if let viewController: PaymentViewController = mainStoryboard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as? PaymentViewController {
+                    viewController.params = params
+                    self.navigationController?.pushViewController(viewController, animated: true)
+                    self.spinner.hide()
+                }
+            }
+        }else{
+            Logger.logDebug(tag: "Juspay Request", message: "Juspay Request Failed")
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
 
