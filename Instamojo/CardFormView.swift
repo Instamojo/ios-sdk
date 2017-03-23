@@ -265,8 +265,13 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                 }
             }
         }else{
-            Logger.logDebug(tag: "Juspay Request", message: "Juspay Request Failed")
-            _ = self.navigationController?.popViewController(animated: true)
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Payment Status", message: "There seems to be some problem. Please choose a different payment options", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) in
+                    _ = self.navigationController?.popViewController(animated: true)
+                }))
+                self.present(alert, animated: true, completion: nil)
+            }           
         }
     }
 
