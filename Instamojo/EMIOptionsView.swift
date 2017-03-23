@@ -76,6 +76,16 @@ class EMIOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.title = "Choose an EMI"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = "Back"
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let mainStoryboard = Constants.getStoryboardInstance()
         let emi = values.object(at: indexPath.row) as! NSDictionary

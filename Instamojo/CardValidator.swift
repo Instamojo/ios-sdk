@@ -191,7 +191,7 @@ public extension String {
         var result: [String] = []
         let chars = Array(characters)
         for index in stride(from:0, to: chars.count, by: 4) {
-            result.append(String(chars[index..<min(index+4, chars.count)]))
+            result.append(String(chars[index..<min(index + 4, chars.count)]))
         }
         return result
     }

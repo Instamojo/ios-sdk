@@ -74,9 +74,9 @@ public class Constants {
     //ViewController Titles
     public static let NetbankingTitle = "Choose your Bank"
     public static let WalletTitle = "Choose your Wallet"
-    public static let EmiTitle = "Choose your Credit Card"
+    public static let EmiTitle = "Choose your Bank"
     public static let UpiTitle = "Verify Payment"
-    public static let EmiCardTitle = "EMI on Credit Card"
+    public static let EmiCardTitle = "EMI"
     public static let CrediCardTitle = "Enter Credit Card Details"
     public static let DebitCardTitle = "Enter Debit Card Details"
     

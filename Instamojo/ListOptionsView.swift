@@ -26,7 +26,10 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setOptions()
+        netBanks = [NetBankingBanks]()
+        wallets = [Wallet]()
+        banks = [EMIBank]()
+        
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
@@ -195,6 +198,12 @@ class ListOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.title = "Back"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setOptions()
+        self.banksTableView.reloadData()
     }
 
     func updateSearchResults(for searchController: UISearchController) {
