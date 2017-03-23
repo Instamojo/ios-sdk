@@ -216,7 +216,7 @@ public class Request : NSObject {
             let emi_options = paymentOptions?["emi_options"] as? [String: Any]
             let submission_url =  emi_options?["submission_url"] as? String
             if let emi_list = emi_options?["emi_list"] as? [[String : Any]] {
-                var emis: [EMIBank]!
+                var emis = [EMIBank]()
                 for i in 0 ..< emi_list.count {
                     let bank_name = emi_list[i]["bank_name"] as? String
                     let bank_code = emi_list[i]["bank_code"] as? String
@@ -236,7 +236,7 @@ public class Request : NSObject {
                         }
                     }
                 }
-                let submissionData = emi_options?["submissionData"] as? [String : Any]
+                let submissionData = emi_options?["submission_data"] as? [String : Any]
                 let merchantID = submissionData?["merchant_id"] as? String
                 let orderID = submissionData?["order_id"] as? String
                 if emis.count > 0 {
@@ -333,6 +333,7 @@ public class Request : NSObject {
             params.updateValue(self.order!.emiOptions.selectedTenure, forKey: "emi_tenure")
         }
 
+        Logger.logDebug(tag: "Params", message: String(describing: params))
         let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
         request.httpMethod = "POST"
         request.setBodyContent(parameters: params)
@@ -365,6 +366,8 @@ public class Request : NSObject {
                         }
                     }
                 } catch {
+                    let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("Error could not parse JSON: '\(jsonStr)'")
                     self.juspayRequestCallBack?.onFinish(params: BrowserParams.init(), error: "Error while making Instamojo request")
                     Logger.logError(tag: "Caught Exception", message: String(describing: error))
                 }
