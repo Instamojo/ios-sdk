@@ -16,10 +16,7 @@ class PaymentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        Logger.logDebug(tag: "Juspay Request", message: "Juspay Request Starting juspay safe browser payment")
         self.juspaySafeBrowser.startpaymentWithJuspay(in: self.view, withParameters: self.params) { (status, error, _) in
             let transactionStatus = TransactionStatus()
             if (!status) {
@@ -38,6 +35,10 @@ class PaymentViewController: UIViewController {
             }
             JPLoger.sharedInstance().logPaymentStatus(transactionStatus)
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
 
     //the navigationShouldPopOnBackButton method to check if controller is allowed to pop.
