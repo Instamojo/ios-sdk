@@ -442,10 +442,10 @@
             </objects>
             <point key="canvasLocation" x="1246.875" y="629.57746478873241"/>
         </scene>
-        <!--Payment View Controller-->
+        <!--Complete Payment-->
         <scene sceneID="WOT-jM-LAu">
             <objects>
-                <viewController storyboardIdentifier="juspay" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pac-dr-Ed7" customClass="PaymentViewController" customModule="Instamojo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="juspay" title="Complete Payment" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pac-dr-Ed7" customClass="PaymentViewController" customModule="Instamojo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TcK-ZG-5YA"/>
                         <viewControllerLayoutGuide type="bottom" id="GZN-eh-pRL"/>
