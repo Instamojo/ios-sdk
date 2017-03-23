@@ -63,7 +63,9 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         let options = paymentOptions.object(at: rowSelected) as? String
         switch options {
         case Constants.NetBankingOption? :
-            onNetBankingSelected(options: options!)
+            DispatchQueue.main.async {
+                self.onNetBankingSelected(options: options!)
+            }
             break
         case Constants.CreditCardOption? :
             onCreditCardSelected()
@@ -75,7 +77,9 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
             onEmiSelected(options : options!)
             break
         case Constants.WalletsOption? :
-            onWalletSelected(options: options!)
+             DispatchQueue.main.async {
+                self.onWalletSelected(options: options!)
+             }
             break
         case Constants.UpiOption? :
             onUPISelected()
