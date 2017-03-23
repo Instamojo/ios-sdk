@@ -88,6 +88,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     func checkOutCard(card: Card) {
         self.textField.resignFirstResponder()
         spinner.show()
+        Logger.logDebug(tag: "Juspay Request", message: "On Pay Clicked")
         let request = Request(order: self.order, card: card, jusPayRequestCallBack: self)
         request.execute()
     }
@@ -162,8 +163,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         }
         
         if !(name?.isEmpty)! && !(cardNumber?.isEmpty)! {
-            if !cvvTextField.isEditing{
-                let cvv = cvvTextField.text
+            let cvv = cvvTextField.text
                 if (cvv?.isEmpty)! {
                     error += Constants.EmptyCVV
                     cvvErrorLable.isHidden = false
@@ -179,7 +179,6 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                 cvvDivider.backgroundColor = .groupTableViewBackground
                 error += ""
             }
-        }
         invalidEntries = !error.isEmpty
     }
 
@@ -273,6 +272,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
 
     //When pay button is clicked
     @IBAction func checkout(_ sender: Any) {
+        validateEntries()
         if !(invalidEntries) {
             prepareCheckOut()
         }
