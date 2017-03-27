@@ -213,6 +213,8 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             cardImageView.image = UIImage(named : cardType.stringValue(), in: Constants.frameworkBundle, compatibleWith: nil)
             let validLength = cardNumber?.validLength()
             if (cardNumber?.characters.count)! >= validLength! && range.length == 0 {
+                cardNumberTextField.resignFirstResponder()
+                nameTextField.becomeFirstResponder()
                 return false
             } else {
                 return true
@@ -244,8 +246,15 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             }
         } else if textField == cvvTextField {
             //CVV number should not exceed 6 character limit
+            if characterCount! >= 6 && range.length == 0 {
+               cvvTextField.resignFirstResponder()
+            }
             return (characterCount! >= 6 && range.length == 0) ? false : true
         } else if textField == expiryDateTextField {
+            if characterCount! >= 5 && range.length == 0 {
+                expiryDateTextField.resignFirstResponder()
+                cvvTextField.becomeFirstResponder()
+            }
             return (characterCount! >= 5 && range.length == 0) ? false : true
         } else {
             return true
