@@ -235,7 +235,7 @@ public class Order : NSObject{
             dictonary.setValue(false, forKey: "validity")
             return dictonary
         } else {
-            dictonary.setValue("Description is greater than 255 characters", forKey: "error")
+            dictonary.setValue("Valid Description", forKey: "error")
             dictonary.setValue(true, forKey: "validity")
             return dictonary
         }
