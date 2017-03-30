@@ -13,7 +13,7 @@ public class NetBankingBanks : NSObject {
     public var bankName: String!
     public var bankCode: String!
 
-    init(bankName: String, bankCode: String) {
+    public init(bankName: String, bankCode: String) {
         self.bankName = bankName
         self.bankCode = bankCode
     }

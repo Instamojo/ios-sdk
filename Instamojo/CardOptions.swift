@@ -9,9 +9,9 @@
 import UIKit
 
 public class CardOptions : NSObject {
-    var orderID: String
-    var url: String
-    var merchantID: String
+    public var orderID: String
+    public var url: String
+    public var merchantID: String
 
     override init() {
         self.orderID = ""
@@ -19,7 +19,7 @@ public class CardOptions : NSObject {
         self.merchantID = ""
     }
 
-    init(orderID: String, url: String, merchantID: String) {
+    public init(orderID: String, url: String, merchantID: String) {
         self.orderID = orderID
         self.url = url
         self.merchantID = merchantID

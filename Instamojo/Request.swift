@@ -48,7 +48,7 @@ public class Request : NSObject {
      * @param card                  Card with all the proper validations done.
      * @param jusPayRequestCallback Callback for Asynchronous network call.
      */
-    init(order: Order, card: Card, jusPayRequestCallBack: JuspayRequestCallBack) {
+    public init(order: Order, card: Card, jusPayRequestCallBack: JuspayRequestCallBack) {
         self.mode = Mode.Juspay
         self.order = order
         self.card = card
@@ -62,7 +62,7 @@ public class Request : NSObject {
      * @param virtualPaymentAddress String
      * @param upiCallback           {@link UPICallback}
      */
-    init(order: Order, virtualPaymentAddress: String, upiCallBack: UPICallBack) {
+    public init(order: Order, virtualPaymentAddress: String, upiCallBack: UPICallBack) {
         self.mode = Mode.UPISubmission
         self.order = order
         self.virtualPaymentAddress = virtualPaymentAddress

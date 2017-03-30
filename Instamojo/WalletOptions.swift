@@ -10,15 +10,15 @@ import UIKit
 
 public class WalletOptions : NSObject{
 
-    var url: String!
-    var wallets: [Wallet]!
+    public var url: String!
+    public var wallets: [Wallet]!
 
-    init(url: String, wallets: [Wallet]) {
+    public init(url: String, wallets: [Wallet]) {
         self.url = url
         self.wallets = wallets
     }
 
-    func getPostData(accessToken: String, walletID: String) -> String {
+    public func getPostData(accessToken: String, walletID: String) -> String {
         return "access_token=" + accessToken + "&wallet_id=" + walletID
     }
 }

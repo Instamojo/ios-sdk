@@ -10,13 +10,13 @@ import UIKit
 
 public class UPISubmissionResponse : NSObject {
 
-    var paymentID: String
-    var statusCode: Int
-    var payerVirtualAddress: String
-    var payeeVirtualAddress: String
-    var statusCheckURL: String
-    var upiBank: String
-    var statusMessage: String
+    public var paymentID: String
+    public var statusCode: Int
+    public var payerVirtualAddress: String
+    public var payeeVirtualAddress: String
+    public var statusCheckURL: String
+    public var upiBank: String
+    public var statusMessage: String
 
     override init() {
         self.paymentID = ""
@@ -28,7 +28,7 @@ public class UPISubmissionResponse : NSObject {
         self.statusMessage = ""
     }
 
-    init(paymentID: String, statusCode: Int, payerVirtualAddress: String, payeeVirtualAddress: String, statusCheckURL: String, upiBank: String, statusMessage: String) {
+    public init(paymentID: String, statusCode: Int, payerVirtualAddress: String, payeeVirtualAddress: String, statusCheckURL: String, upiBank: String, statusMessage: String) {
         self.paymentID = paymentID
         self.statusCode = statusCode
         self.payerVirtualAddress = payerVirtualAddress

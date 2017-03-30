@@ -78,4 +78,24 @@ public class Instamojo: NSObject {
             }
         }
     }
+    
+    public class func makePayment(params: BrowserParams){
+        self.resetDefaults()
+        let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
+        let viewController = storyBoard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as! PaymentViewController
+        viewController.params = params
+        let window: UIWindow? = UIApplication.shared.keyWindow
+        let rootClass = window?.rootViewController
+        if rootClass is UINavigationController {
+            let navController: UINavigationController? = (UIApplication.shared.keyWindow?.rootViewController as? UINavigationController)
+            navController?.pushViewController(viewController, animated: true)
+        } else {
+            let navController = UINavigationController(rootViewController: (window?.rootViewController)!)
+            window?.rootViewController = nil
+            window?.frame = UIScreen.main.bounds
+            window?.rootViewController = navController
+            navController.pushViewController(viewController, animated: true)
+        }
+    }
+    
 }

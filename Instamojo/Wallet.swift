@@ -10,9 +10,9 @@ import UIKit
 
 public class Wallet : NSObject{
 
-    var name: String
-    var imageUrl: String
-    var walletID: String
+    public var name: String
+    public var imageUrl: String
+    public var walletID: String
 
     override init() {
         self.name = ""
@@ -20,7 +20,7 @@ public class Wallet : NSObject{
          self.walletID = ""
     }
 
-    init(name: String, imageUrl: String, walletID: String) {
+    public init(name: String, imageUrl: String, walletID: String) {
         self.name = name
         self.imageUrl = imageUrl
         self.walletID = walletID

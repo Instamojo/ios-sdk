@@ -10,12 +10,12 @@ import UIKit
 
 public class EMIOptions : NSObject{
 
-    var merchantID: String
-    var orderID: String
-    var url: String
-    var emiBanks: [EMIBank]!
-    var selectedBankCode: String!
-    var selectedTenure: Int = -1
+    public var merchantID: String
+    public var orderID: String
+    public var url: String
+    public var emiBanks: [EMIBank]!
+    public var selectedBankCode: String!
+    public var selectedTenure: Int = -1
 
     override init() {
         self.merchantID = ""
@@ -24,7 +24,7 @@ public class EMIOptions : NSObject{
         self.url = ""
     }
 
-    init(merchantID: String, orderID: String, url: String, emiBanks: [EMIBank]) {
+    public init(merchantID: String, orderID: String, url: String, emiBanks: [EMIBank]) {
         self.merchantID = merchantID
         self.orderID = orderID
         self.url = url

@@ -10,16 +10,16 @@ import UIKit
 
 public class NetBankingOptions : NSObject {
 
-    var url: String!
-    var banks: [NetBankingBanks]!
+    public var url: String!
+    public var banks: [NetBankingBanks]!
 
     init(url: String, banks: [NetBankingBanks]) {
         self.url = url
         self.banks = banks
     }
 
-    func getPostData(accessToken: String, bankCode: String) -> String {
+    public func getPostData(accessToken: String, bankCode: String) -> String {
         return "access_token=" + accessToken + "&bank_code=" + bankCode
     }
-
+    
 }

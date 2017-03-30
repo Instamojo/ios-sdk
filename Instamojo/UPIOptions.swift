@@ -10,13 +10,13 @@ import UIKit
 
 public class UPIOptions : NSObject {
 
-    var url: String
+    public var url: String
 
     override init() {
         self.url = ""
     }
 
-    init(url: String) {
+    public init(url: String) {
         self.url = url
     }
 }
