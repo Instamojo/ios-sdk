@@ -20,13 +20,13 @@ public class Instamojo: NSObject {
      */
     public override class func initialize() {
         instance = true
-        Logger.setLogLevel(level: true)
+        Logger.enableLog(enable: true)
         Urls.setBaseUrl(baseUrl: Constants.DefaultBaseUrl)
     }
 
-    public class func setLogLevel(level: Bool) {
+    public class func enableLog(enable: Bool) {
         if initiliazed() {
-            Logger.setLogLevel(level: level)
+            Logger.enableLog(enable: enable)
         } else {
             return
         }

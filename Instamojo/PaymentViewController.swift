@@ -28,7 +28,7 @@ class PaymentViewController: UIViewController {
                     UserDefaults.standard.setValue(true, forKey: "USER-CANCELLED")
                     UserDefaults.standard.setValue(nil, forKey: "ON-REDIRECT-URL")
                     _ = self.navigationController?.popToRootViewController(animated: true)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "INSTAMOJO"), object: nil)
                 } else {
                     transactionStatus.paymentStatus = JPUNKNOWNSTATUS
                 }
@@ -53,7 +53,7 @@ class PaymentViewController: UIViewController {
              UserDefaults.standard.setValue(nil, forKey: "USER-CANCELLED")
              UserDefaults.standard.setValue(true, forKey: "ON-REDIRECT-URL")
             _ = self.navigationController?.popToRootViewController(animated: true)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "INSTAMOJO"), object: nil)
         }
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }

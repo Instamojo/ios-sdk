@@ -48,15 +48,10 @@ public class Order : NSObject{
             self.clientID = Constants.ProdClientId
         }
     }
-
-    public func isValidToCreateOrder() -> (validity: Bool, error: String) {
-        let space = ","
-        return (isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity  && isValidTransactionID().validity, isValidName().error + space + isValidEmail().error + space + isValidPhone().error + space + isValidAmount().error + space + isValidWebhook().error + space + isValidTransactionID().error)
-    }
-
+    
     public func isValid() -> (validity: Bool, error: String) {
         let space = ","
-        return (isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity && isValidRedirectURL().validity && isValidTransactionID().validity, isValidName().error + space + isValidEmail().error + space + isValidPhone().error + space + isValidAmount().error + space + isValidWebhook().error + space + isValidDescription().error + space + isValidRedirectURL().error + space + isValidTransactionID().error)
+        return (isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity  && isValidTransactionID().validity, isValidName().error + space + isValidEmail().error + space + isValidPhone().error + space + isValidAmount().error + space + isValidWebhook().error + space + isValidTransactionID().error)
     }
     
     public func isValid() -> Bool {

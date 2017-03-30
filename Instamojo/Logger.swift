@@ -33,8 +33,8 @@ public class Logger {
         }
     }
 
-    public static func setLogLevel(level: Bool) {
-        Logger.enableLog = level
+    public static func enableLog(enable: Bool) {
+        Logger.enableLog = enable
     }
 
 }
