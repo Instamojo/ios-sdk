@@ -89,11 +89,11 @@ public class Request : NSObject {
      * @param orderID               String
      * @param orderRequestCallBack  {@link OrderRequestCallBack}
      */
-    init(orderID: String, accessToken: String, orderRequestCallBack: OrderRequestCallBack ) {
+    public init(orderID: String, accessToken: String, orderRequestCallBack: OrderRequestCallBack ) {
         self.mode = Mode.FetchOrder
         self.orderID = orderID
         self.accessToken = accessToken
-        self.upiSubmissionResponse = UPISubmissionResponse.init()
+        self.orderRequestCallBack = orderRequestCallBack;
     }
 
     public func execute() {
