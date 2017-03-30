@@ -24,9 +24,9 @@ public class Instamojo: NSObject {
         Urls.setBaseUrl(baseUrl: Constants.DefaultBaseUrl)
     }
 
-    public class func enableLog(enable: Bool) {
+    public class func enableLog(option: Bool) {
         if initiliazed() {
-            Logger.enableLog(enable: enable)
+            Logger.enableLog(enable: option)
         } else {
             return
         }
