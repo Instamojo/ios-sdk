@@ -8,8 +8,10 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://Sukanya_raj@bitbucket.org/innoventes/instamojo-ios-sdk.git', :tag => s.version }
   s.platform     = :ios
   s.ios.deployment_target = '8.0'
-  s.source_files = 'Instamojo/*.swift','Instamojo-Bridging-Header.h'
-  s.resources = 'Instamojo/*.xcassets','Instamojo/*.storyboard'
+  s.source_files = 'Pod/Classes/**/*.{swift}'
+  s.resource_bundles = {
+    'Instamojo' => ['Pod/Classes/**/*.{storyboard,xcassets}']
+  }
   s.subspec "JuspaySafeBrowser" do |ss|
       ss.dependency "JuspaySafeBrowser"
       ss.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/JuspaySafeBrowser"}
