@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source_files = 'Instamojo/*.swift'
   s.resources = 'Instamojo/*.xcassets','Instamojo/*.storyboard'
-  s.public_header_files = 'Instamoj/*.h'
+  s.public_header_files = 'Instamojo/*.h'
   s.subspec "JuspaySafeBrowser" do |ss|
       ss.dependency "JuspaySafeBrowser"
       ss.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/JuspaySafeBrowser"}
