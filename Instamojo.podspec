@@ -9,4 +9,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = '8.0'
   s.dependency 'JuspaySafeBrowser'
+  s.source_files = 'Instamojo/*.swift'
+  s.resources = 'Instamojo/*.xcassets','Instamojo/*.storyboard'
 end
