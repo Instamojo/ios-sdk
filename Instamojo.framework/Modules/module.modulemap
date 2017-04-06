@@ -1,0 +1,3 @@
+framework module Instamojo {
+    header "Instamojo-Swift.h"
+}
