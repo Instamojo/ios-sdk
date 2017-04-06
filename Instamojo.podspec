@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
   s.source 		 = { :git => 'https://Sukanya_raj@bitbucket.org/innoventes/instamojo-ios-sdk.git', :tag => s.version }
   s.platform     = :ios
   s.ios.deployment_target = '8.0'
-  s.source_files  = "Instamojo.framework/Headers/*.{h}"
-  s.public_header_files = "Instamojo.framework/Headers/*.{h}"
+  s.source_files = 'Pod/Classes/**/*', 'Instamojo.framework/Headers/*.h'
+  s.public_header_files = 'Instamojo.framework/Headers/*.h'
   s.ios.framework = 'MessageUI', 'CoreTelephony', 'SystemConfiguration', 'JavaScriptCore'
-  s.ios.vendored_frameworks = "Instamojo.framework"
+  s.ios.vendored_frameworks = 'Instamojo.framework'
   s.resource = 'JuspaySafeBrowser.bundle'
 end
