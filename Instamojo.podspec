@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.preserve_paths = 'Instamojo.framework'
   s.public_header_files = 'Instamojo.framework/Headers/*.h'
   s.vendored_frameworks = 'Instamojo.framework'
-  s.resource = 'Instamojo.framework','JuspaySafeBrowser.bundle's
-  s.xcconfig      = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Instamojo/**"'}
+  s.resource = 'Instamojo.framework','JuspaySafeBrowser.bundle'
+  s.xcconfig = { "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/Instamojo/**"}
   s.frameworks = 'Instamojo'
 end
