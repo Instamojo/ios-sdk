@@ -33,7 +33,7 @@ public class Request: NSObject {
      * Network Request to create an order ID from Instamojo server.
      *
      * @param order                Order model with all the mandatory fields set.
-     * @param orderRequestCallBack Callback interface for the Asynchronous Network Call.
+     * @param orderRequestCallBack OrderRequestCallBack interface for the Asynchronous Network Call.
      */
     public init(order: Order, orderRequestCallBack: OrderRequestCallBack) {
         self.mode = Mode.OrderCreate
@@ -46,7 +46,7 @@ public class Request: NSObject {
      *
      * @param order                 Order model with all the mandatory fields set.
      * @param card                  Card with all the proper validations done.
-     * @param jusPayRequestCallback Callback for Asynchronous network call.
+     * @param jusPayRequestCallBack JusPayRequestCallBack for Asynchronous network call.
      */
     public init(order: Order, card: Card, jusPayRequestCallBack: JuspayRequestCallBack) {
         self.mode = Mode.Juspay
@@ -58,9 +58,9 @@ public class Request: NSObject {
     /**
      * Network request for UPISubmission Submission
      *
-     * @param order                 {@link Order}
+     * @param order                 Order
      * @param virtualPaymentAddress String
-     * @param upiCallback           {@link UPICallback}
+     * @param upiCallback           UPICallback
      */
     public init(order: Order, virtualPaymentAddress: String, upiCallBack: UPICallBack) {
         self.mode = Mode.UPISubmission
@@ -72,9 +72,9 @@ public class Request: NSObject {
     /**
      * Network Request to check the status of the transaction
      *
-     * @param order                 {@link Order}
-     * @param upiSubmissionResponse {@link UPISubmissionResponse}
-     * @param upiCallback           {@link UPICallback}
+     * @param order                 Order
+     * @param upiSubmissionResponse UPISubmissionResponse
+     * @param upiCallback           UPICallback
      */
     init(order: Order, upiSubmissionResponse: UPISubmissionResponse, upiCallback: UPICallBack ) {
         self.mode = Mode.UPIStatusCheck
@@ -87,7 +87,7 @@ public class Request: NSObject {
      * Network request to fetch the order
      * @param accessToken           String
      * @param orderID               String
-     * @param orderRequestCallBack  {@link OrderRequestCallBack}
+     * @param orderRequestCallBack  OrderRequestCallBack
      */
     public init(orderID: String, accessToken: String, orderRequestCallBack: OrderRequestCallBack ) {
         self.mode = Mode.FetchOrder

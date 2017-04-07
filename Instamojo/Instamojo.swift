@@ -14,9 +14,8 @@ public class Instamojo: NSObject {
     static var instance: Bool = false
 
     /**
-     * Sets the base url for all network calls
+     * Initizalise Instamojo
      *
-     * @param baseUrl URl
      */
     public class func setup() {
         instance = true
@@ -35,7 +34,7 @@ public class Instamojo: NSObject {
     /**
      * Sets the base url for all network calls
      *
-     * @param baseUrl URl
+     * @param url String
      */
     public class func setBaseUrl(url: String) {
         if initiliazed() {
@@ -59,6 +58,11 @@ public class Instamojo: NSObject {
         UserDefaults.standard.setValue(nil, forKey: "ON-REDIRECT-URL")
     }
 
+    /**
+     * Invoke Pre Created Payment UI
+     *
+     * @param order Order
+     */
     public class func invokePaymentOptionsView(order: Order) {
         self.resetDefaults()
         let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
@@ -78,7 +82,12 @@ public class Instamojo: NSObject {
             }
         }
     }
-
+    
+    /**
+     * Invoke Payment For Custom UI
+     *
+     * @param params BrowserParams
+     */
     public class func makePayment(params: BrowserParams) {
         self.resetDefaults()
         let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
