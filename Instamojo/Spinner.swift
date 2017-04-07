@@ -29,11 +29,10 @@ public class Spinner: UIVisualEffectView {
         self.setup()
     }
 
-    
-    public func setText(text: String){
+    public func setText(text: String) {
         self.text = text
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         self.text = ""
         self.vibrancyView = UIVisualEffectView(effect: UIVibrancyEffect(blurEffect: blurEffect))
@@ -53,7 +52,7 @@ public class Spinner: UIVisualEffectView {
         super.didMoveToSuperview()
 
         if let superview = self.superview {
-            
+
             let width = superview.frame.size.width / 1.7
             let height: CGFloat = 50.0
             self.frame = CGRect(x: superview.frame.size.width / 2 - width / 2,

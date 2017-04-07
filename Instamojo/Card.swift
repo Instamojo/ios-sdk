@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Card : NSObject{
+public class Card: NSObject {
 
     public var cardHolderName: String
     public var cardNumber: String
@@ -40,45 +40,45 @@ public class Card : NSObject{
         return self.date.components(separatedBy: "/")[1]
 
     }
-    
+
     public func isValidCard() -> Bool {
         return isValidCVV() && isValidDate() && isValidCardNumber() && isValidCardHolderName()
     }
-    
+
     public func isValidCardNumber() -> Bool {
         return self.cardNumber.isValidCardNumber() && self.cardNumber.validLength() != self.cardNumber.characters.count
     }
-    
-    public func isValidCardHolderName() -> Bool{
+
+    public func isValidCardHolderName() -> Bool {
         if self.cardHolderName.isEmpty {
             return false
-        }else{
+        } else {
             return true
         }
     }
-    
+
     public func isValidDate() -> Bool {
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: date)
-        
+
         let currentYear =  components.year
         let month = getExpiryMonth()
         let year = getExpiryYear()
-        
-        if Int(month)! > 12 || Int(year)! < currentYear!{
+
+        if Int(month)! > 12 || Int(year)! < currentYear! {
             return false
-        }else{
+        } else {
             return false
         }
     }
-    
-    public func isValidCVV() -> Bool{
-        if self.cvv.isEmpty{
+
+    public func isValidCVV() -> Bool {
+        if self.cvv.isEmpty {
             return false
-        }else{
+        } else {
             return true
         }
     }
-    
+
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class NetBankingBanks : NSObject {
+public class NetBankingBanks: NSObject {
 
     public var bankName: String!
     public var bankCode: String!

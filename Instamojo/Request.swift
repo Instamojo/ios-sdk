@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Request : NSObject {
+public class Request: NSObject {
 
     var order: Order?
     var mode: Mode
@@ -93,7 +93,7 @@ public class Request : NSObject {
         self.mode = Mode.FetchOrder
         self.orderID = orderID
         self.accessToken = accessToken
-        self.orderRequestCallBack = orderRequestCallBack;
+        self.orderRequestCallBack = orderRequestCallBack
     }
 
     public func execute() {
@@ -360,14 +360,14 @@ public class Request : NSObject {
                             browserParams.transactionId = txn_id
                             browserParams.endUrlRegexes = Urls.getEndUrlRegex()
                             self.juspayRequestCallBack?.onFinish(params: browserParams, error: "")
-                        }else{
+                        } else {
                             Logger.logDebug(tag: "Juspay Request", message: "Error on request")
                             self.juspayRequestCallBack?.onFinish(params: BrowserParams.init(), error: "Error while making Instamojo request")
                         }
                     }
                 } catch {
                     let jsonStr = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                    print("Error could not parse JSON: '\(jsonStr)'")
+                    print("Error could not parse JSON: '\(String(describing: jsonStr))'")
                     self.juspayRequestCallBack?.onFinish(params: BrowserParams.init(), error: "Error while making Instamojo request")
                     Logger.logError(tag: "Caught Exception", message: String(describing: error))
                 }
@@ -452,7 +452,7 @@ public class Request : NSObject {
                             self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, status: statusCode!)
                         } else if statusCode == Constants.FailedPayment {
                              self.upiCallBack?.onStatusCheckComplete(paymentComplete: false, status: statusCode!)
-                        }else {
+                        } else {
                             self.upiCallBack?.onStatusCheckComplete(paymentComplete: true, status: statusCode!)
                         }
                     }

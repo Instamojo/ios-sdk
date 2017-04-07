@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CardOptions : NSObject {
+public class CardOptions: NSObject {
     public var orderID: String
     public var url: String
     public var merchantID: String

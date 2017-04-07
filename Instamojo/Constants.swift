@@ -37,7 +37,7 @@ public class Constants {
     public static let EmptyCardHolderName = "Required"
     public static let EmptyExpiryDate = "Required"
     public static let EmptyCVV = "Required"
-    
+
     //Card Image Names
     public static let AcceptedCards = "accepted_cards"
     public static let UnknownCard = "ic_unknown_card"
@@ -79,9 +79,9 @@ public class Constants {
     public static let EmiCardTitle = "EMI"
     public static let CrediCardTitle = "Enter Credit Card Details"
     public static let DebitCardTitle = "Enter Debit Card Details"
-    
+
     internal static let frameworkBundle = Bundle(identifier: "com.instamojo.ios.Instamojo")!
-    
+
     public static func getStoryboardInstance() -> UIStoryboard {
         return UIStoryboard(name: "InstamojoStoryboard", bundle: frameworkBundle)
     }

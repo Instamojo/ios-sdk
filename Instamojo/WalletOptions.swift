@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class WalletOptions : NSObject{
+public class WalletOptions: NSObject {
 
     public var url: String!
     public var wallets: [Wallet]!

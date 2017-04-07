@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class NetBankingOptions : NSObject {
+public class NetBankingOptions: NSObject {
 
     public var url: String!
     public var banks: [NetBankingBanks]!
@@ -21,5 +21,5 @@ public class NetBankingOptions : NSObject {
     public func getPostData(accessToken: String, bankCode: String) -> String {
         return "access_token=" + accessToken + "&bank_code=" + bankCode
     }
-    
+
 }

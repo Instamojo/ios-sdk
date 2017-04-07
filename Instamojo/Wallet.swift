@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Wallet : NSObject{
+public class Wallet: NSObject {
 
     public var name: String
     public var imageUrl: String

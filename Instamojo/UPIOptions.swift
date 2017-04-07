@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class UPIOptions : NSObject {
+public class UPIOptions: NSObject {
 
     public var url: String
 

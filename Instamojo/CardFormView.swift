@@ -26,14 +26,14 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     @IBOutlet var expiryDateErrorLable: UILabel!
     @IBOutlet var cvvDivider: UIView!
     @IBOutlet var cvvErrorLable: UILabel!
-    
+
     var order: Order!
     var cardType: Int = 0
     var amountToBePayed: Float = 0
     var spinner: Spinner!
     var textField: UITextField!
     var invalidEntries: Bool = false
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         amountToBePayed =  Float(order.amount!)!
@@ -97,7 +97,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     func validateEntries() {
         let cardNumber = cardNumberTextField?.text
         let name = nameTextField?.text
-        var error : String = ""
+        var error: String = ""
         if !cardNumberTextField.isEditing {
             if (cardNumber?.isEmpty)! {
                 invalidEntries = true
@@ -132,7 +132,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                 nameErrorLable.isHidden = false
                 nameErrorLable.text = Constants.EmptyCardHolderName
                 nameDivider.backgroundColor = .red
-            }else{
+            } else {
                 nameErrorLable.isHidden = true
                 nameDivider.backgroundColor = .groupTableViewBackground
                 error += ""
@@ -142,26 +142,26 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             nameDivider.backgroundColor = .groupTableViewBackground
             error += ""
         }
-        
+
         if !(name?.isEmpty)! && !(cardNumber?.isEmpty)! {
-            if !expiryDateTextField.isEditing{
+            if !expiryDateTextField.isEditing {
                 let expiryDate = expiryDateTextField.text
                 if (expiryDate?.isEmpty)! {
                     error += Constants.EmptyExpiryDate
                     expiryDateErrorLable.isHidden = false
                     expiryDateErrorLable.text = Constants.EmptyExpiryDate
                     expiryDateDivider.backgroundColor = .red
-                }else{
+                } else {
                     expiryDateErrorLable.isHidden = true
                     expiryDateDivider.backgroundColor = .groupTableViewBackground
                 }
-            }else {
+            } else {
                 expiryDateErrorLable.isHidden = true
                 expiryDateDivider.backgroundColor = .groupTableViewBackground
                 error += ""
             }
         }
-        
+
         if !(name?.isEmpty)! && !(cardNumber?.isEmpty)! {
             let cvv = cvvTextField.text
                 if (cvv?.isEmpty)! {
@@ -169,12 +169,12 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                     cvvErrorLable.isHidden = false
                     cvvErrorLable.text = Constants.EmptyCVV
                     cvvDivider.backgroundColor = .red
-                }else{
+                } else {
                     cvvErrorLable.isHidden = true
                     cvvDivider.backgroundColor = .groupTableViewBackground
                     error += ""
                 }
-            }else {
+            } else {
                 cvvErrorLable.isHidden = true
                 cvvDivider.backgroundColor = .groupTableViewBackground
                 error += ""
@@ -273,14 +273,14 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                     self.spinner.hide()
                 }
             }
-        }else{
+        } else {
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Payment Status", message: "There seems to be some problem. Please choose a different payment options", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) in
                     _ = self.navigationController?.popViewController(animated: true)
                 }))
                 self.present(alert, animated: true, completion: nil)
-            }           
+            }
         }
     }
 

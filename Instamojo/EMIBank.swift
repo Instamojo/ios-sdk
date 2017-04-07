@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class EMIBank : NSObject {
+public class EMIBank: NSObject {
     public var bankName: String!
     public var bankCode: String!
     public var rate : [(key: Int, value: Int)]!

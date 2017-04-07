@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class Order : NSObject{
+public class Order: NSObject {
 
     public var id: String?
     public var transactionID: String?
@@ -48,16 +48,15 @@ public class Order : NSObject{
             self.clientID = Constants.ProdClientId
         }
     }
-    
+
     public func isValid() -> (validity: Bool, error: String) {
         let space = ","
         return (isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity  && isValidTransactionID().validity, isValidName().error + space + isValidEmail().error + space + isValidPhone().error + space + isValidAmount().error + space + isValidWebhook().error + space + isValidTransactionID().error)
     }
-    
+
     public func isValid() -> Bool {
         return isValidName().validity && isValidEmail().validity && isValidPhone().validity && isValidAmount().validity && isValidWebhook().validity && isValidDescription().validity && isValidRedirectURL().validity && isValidTransactionID().validity
     }
-
 
     /**
      * @return false if the buyer name is empty or has greater than 100 characters. Else true.
@@ -71,7 +70,7 @@ public class Order : NSObject{
              return (true, "Valid Name")
         }
     }
-    
+
     //Tuples are not supported by Objective-C
     public func isValidName() -> NSDictionary {
         let dictonary = NSMutableDictionary()
@@ -98,13 +97,13 @@ public class Order : NSObject{
             return (false, "Required")
         } else if (self.buyerEmail?.characters.count)! > 75 {
             return (false, "The buyer email is greater than 75 characters")
-        } else if !validateEmail(email: self.buyerEmail!){
+        } else if !validateEmail(email: self.buyerEmail!) {
              return (false, "Invalid Email")
-        }else {
+        } else {
              return (true, "Valid Email")
         }
     }
-    
+
     public func isValidEmail() -> NSDictionary {
         let dictonary = NSMutableDictionary()
         if  (self.buyerEmail?.trimmingCharacters(in: .whitespaces).isEmpty)! {
@@ -115,24 +114,23 @@ public class Order : NSObject{
             dictonary.setValue("The buyer email is greater than 75 characters", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
-        } else if !validateEmail(email: self.buyerEmail!){
+        } else if !validateEmail(email: self.buyerEmail!) {
             dictonary.setValue("Invalid Email", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
-        }else {
+        } else {
             dictonary.setValue("Valid Email", forKey: "error")
             dictonary.setValue(true, forKey: "validity")
             return dictonary
         }
     }
 
-
-    func validateEmail(email:String) -> Bool {
+    func validateEmail(email: String) -> Bool {
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: email)
     }
-    
+
     /**
      * @return false if the phone number is empty. Else true.
      */
@@ -143,7 +141,7 @@ public class Order : NSObject{
             return (true, "Valid Phone Number")
         }
     }
-    
+
     public func isValidPhone() -> NSDictionary {
         let dictonary = NSMutableDictionary()
         if (self.buyerPhone?.trimmingCharacters(in: .whitespaces).isEmpty)! {
@@ -156,7 +154,6 @@ public class Order : NSObject{
             return dictonary
         }
     }
-
 
     /**
      * @return false if the amount is empty or less than Rs. 9 or has more than 2 decimal places.
@@ -178,7 +175,7 @@ public class Order : NSObject{
             }
         }
     }
-    
+
     public func isValidAmount() -> NSDictionary {
         let dictonary = NSMutableDictionary()
         if (self.amount?.trimmingCharacters(in: .whitespaces).isEmpty)! {
@@ -235,7 +232,7 @@ public class Order : NSObject{
             return dictonary
         }
     }
-    
+
     /**
      * @return false if the transaction ID is empty or has greater than 64 characters.
      */
@@ -248,7 +245,7 @@ public class Order : NSObject{
             return (true, "Valid Transaction ID")
         }
     }
-    
+
     public func isValidTransactionID() -> NSDictionary {
         let dictonary = NSMutableDictionary()
         if (self.transactionID?.trimmingCharacters(in: .whitespaces).isEmpty)! {
@@ -280,7 +277,7 @@ public class Order : NSObject{
             return (true, "Valid Redirection URL")
         }
     }
-    
+
     public func isValidRedirectURL() -> NSDictionary {
         let dictonary = NSMutableDictionary()
         if (self.redirectionUrl?.trimmingCharacters(in: .whitespaces).isEmpty)! {
@@ -308,7 +305,7 @@ public class Order : NSObject{
             return (true, "Valid Webhook")
         }
     }
-    
+
     public func isValidWebhook() -> NSDictionary {
         let dictonary = NSMutableDictionary()
         if (self.webhook?.trimmingCharacters(in: .whitespaces).isEmpty)! {

@@ -18,7 +18,7 @@ public class Instamojo: NSObject {
      *
      * @param baseUrl URl
      */
-    public override class func initialize() {
+    public class func setup() {
         instance = true
         Logger.enableLog(enable: true)
         Urls.setBaseUrl(baseUrl: Constants.DefaultBaseUrl)
@@ -78,8 +78,8 @@ public class Instamojo: NSObject {
             }
         }
     }
-    
-    public class func makePayment(params: BrowserParams){
+
+    public class func makePayment(params: BrowserParams) {
         self.resetDefaults()
         let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
         let viewController = storyBoard.instantiateViewController(withIdentifier: Constants.PaymentOptionsJuspayViewController) as! PaymentViewController
@@ -97,5 +97,5 @@ public class Instamojo: NSObject {
             navController.pushViewController(viewController, animated: true)
         }
     }
-    
+
 }
