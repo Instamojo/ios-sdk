@@ -41,7 +41,7 @@ public class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerVi
 
         self.backgroundColor = UIColor.white
         // population years
-        var years: [Int] = []
+        var years = [Int]()
         if years.count == 0 {
             var year = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!.component(.year, from: NSDate() as Date)
             for _ in 0...15 {
@@ -52,7 +52,7 @@ public class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerVi
         self.years = years
 
         // population months with localized names
-        var months: [String] = []
+        var months = [String]()
         var month = 0
         for _ in 1...12 {
             months.append(DateFormatter().monthSymbols[month].capitalized)

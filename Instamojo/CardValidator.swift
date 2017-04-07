@@ -188,7 +188,7 @@ public extension String {
     var length: String { return String(characters.count)   }
 
     var pairs: [String] {
-        var result: [String] = []
+        var result = [String]()
         let chars = Array(characters)
         for index in stride(from:0, to: chars.count, by: 4) {
             result.append(String(chars[index..<min(index + 4, chars.count)]))
@@ -197,7 +197,7 @@ public extension String {
     }
 
     var expiryDate: [String] {
-        var result: [String] = []
+        var result = [String]()
         let chars = Array(characters)
         for index in stride(from:0, to: chars.count, by: 2) {
             result.append(String(chars[index..<min(index + 2, chars.count)]))
