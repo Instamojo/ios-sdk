@@ -41,6 +41,8 @@ typedef void(^JPBlock)(Boolean status,NSError* _Nullable error, id _Nullable inf
  */
 typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable info, WKWebView* _Nullable webView);
 
+typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
+
 @protocol JuspaySafeBrowserDelegate <NSObject>
 
 @optional
@@ -79,6 +81,8 @@ typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable i
 
 @interface JuspaySafeBrowser : UIView
 
+@property (nonatomic, copy) JuspayWebviewCallback _Nullable webviewCallback;
+
 /**
  JuspaySafeBrowser delegates gives url loading status.
  */
@@ -94,6 +98,10 @@ typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable i
  */
 @property (nonatomic) Boolean shouldLoadEndURL;
 
+/**
+ Set true if payment view controller should not be popped after payment completion
+ */
+@property (nonatomic) Boolean shouldNotPopAfterPayment;
 
 @property Boolean shouldNotPopOnEndURL;
 

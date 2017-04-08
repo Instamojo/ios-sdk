@@ -20,7 +20,7 @@ typedef enum{
     CARDTYPEUNKNOWN,
     DEBITCARD,
     CREDITCARD
-}CardType;
+}JPSCardType;
 
 typedef enum{
     UNKNOWN,
@@ -31,14 +31,14 @@ typedef enum{
     JCB,
     DISCOVER,
     AMEX
-}CardBrand;
+}JPSCardBrand;
 
 #import <Foundation/Foundation.h>
 
 @interface JPCard : NSObject
 
-@property (nonatomic, assign) CardType cardType;
-@property (nonatomic, assign) CardBrand cardBrand;
+@property (nonatomic, assign) JPSCardType cardType;
+@property (nonatomic, assign) JPSCardBrand cardBrand;
 @property (nonatomic, strong) NSString *number;
 @property (nonatomic, strong) NSString *cvc;
 @property (nonatomic, assign) NSUInteger expMonth;

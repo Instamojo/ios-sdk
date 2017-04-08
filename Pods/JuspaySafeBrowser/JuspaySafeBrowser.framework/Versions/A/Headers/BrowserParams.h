@@ -17,6 +17,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "JPCard.h"
 
 @interface BrowserParams : NSObject
@@ -89,6 +90,16 @@
  */
 @property (nonatomic, strong) NSArray *cookies;
 
+/**
+ Custom activity indicator dialog view.
+ */
+@property (nonatomic, strong) UIView *customActivityIndicator;
+
+/**
+ Contents to show on confirmation alert view while cancelling the transaction.
+ */
+@property (nonatomic, strong) NSArray *confirmationAlertContents;
+
 //Customer specific params
 
 /**
@@ -104,8 +115,8 @@
 //Payment Instrumets params
 @property (nonatomic, strong) NSString *cardToken;
 @property (nonatomic, strong) JPCard *card;
-@property (nonatomic, assign) CardBrand cardBrand;
-@property (nonatomic, assign) CardType cardType;
+@property (nonatomic, assign) JPSCardBrand cardBrand;
+@property (nonatomic, assign) JPSCardType cardType;
 @property (nonatomic, assign) Boolean merchantSentCardBrand;
 
 //Extra params
