@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Instamojo"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Instamojo iOS SDK"
   s.homepage     = "https://www.instamojo.com"
   s.license      = "LGPL"
