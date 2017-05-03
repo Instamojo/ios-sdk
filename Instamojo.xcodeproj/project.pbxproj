@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		58093B371E7816AA007BD619 /* InstamojoSDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 58093B3A1E7816AA007BD619 /* Build configuration list for PBXAggregateTarget "InstamojoSDK" */;
+			buildPhases = (
+				58093B3B1E7816B2007BD619 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = InstamojoSDK;
+			productName = InstamojoSDK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		5825BFD01E6ED06A00643173 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5825BFCF1E6ED06A00643173 /* Spinner.swift */; };
+		5857B1101E5303C2008ECDF9 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857B10F1E5303C2008ECDF9 /* Order.swift */; };
+		5857B11A1E5339BC008ECDF9 /* InstamojoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5857B1191E5339BC008ECDF9 /* InstamojoTests.swift */; };
+		5857B11C1E5339BC008ECDF9 /* Instamojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BB7DC11E484B26009AFD0C /* Instamojo.framework */; };
+		586CAAE01E5ABB210090C77F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586CAADF1E5ABB210090C77F /* Request.swift */; };
+		586CB52E1E7276B9000A1D39 /* NetBankingBanks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586CB52D1E7276B9000A1D39 /* NetBankingBanks.swift */; };
+		587825021E4991DA00D90B35 /* UPIPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587825011E4991DA00D90B35 /* UPIPaymentView.swift */; };
+		587825041E49AFD000D90B35 /* CardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587825031E49AFD000D90B35 /* CardValidator.swift */; };
+		587825061E49B75300D90B35 /* CardFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 587825051E49B75300D90B35 /* CardFormView.swift */; };
+		58B1E7D01E5D62D2002270E0 /* UPICallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B1E7CF1E5D62D2002270E0 /* UPICallBack.swift */; };
+		58B97B181E5C023100B7941C /* OrderRequestCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B97B171E5C023100B7941C /* OrderRequestCallBack.swift */; };
+		58B97B1E1E5C72D500B7941C /* JuspayRequestCallBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B97B1D1E5C72D500B7941C /* JuspayRequestCallBack.swift */; };
+		58BB7DCD1E484B35009AFD0C /* Instamojo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DCC1E484B35009AFD0C /* Instamojo.swift */; };
+		58BB7DEA1E484F70009AFD0C /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DE91E484F70009AFD0C /* Logger.swift */; };
+		58BB7DEC1E485129009AFD0C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DEB1E485129009AFD0C /* Constants.swift */; };
+		58BB7DEE1E485235009AFD0C /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DED1E485235009AFD0C /* Urls.swift */; };
+		58BB7DF21E486E07009AFD0C /* InstamojoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DF11E486E07009AFD0C /* InstamojoStoryboard.storyboard */; };
+		58BB7DF51E486E9C009AFD0C /* PaymentOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DF41E486E9C009AFD0C /* PaymentOptionsView.swift */; };
+		58BB7DF91E487384009AFD0C /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58BB7DF81E487384009AFD0C /* Media.xcassets */; };
+		58BB7DFE1E48A4BC009AFD0C /* ListOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58BB7DFD1E48A4BC009AFD0C /* ListOptionsView.swift */; };
+		58BE55131E60565C00997CE5 /* Instamojo-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 58BE55121E60565C00997CE5 /* Instamojo-Bridging-Header.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58C254351E542C9300D070EF /* MonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254341E542C9300D070EF /* MonthYearPicker.swift */; };
+		58C254371E54842100D070EF /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254361E54842100D070EF /* Card.swift */; };
+		58C254391E5489BC00D070EF /* CardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254381E5489BC00D070EF /* CardOptions.swift */; };
+		58C2543B1E548A4000D070EF /* EMIBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2543A1E548A4000D070EF /* EMIBank.swift */; };
+		58C2543D1E548D5400D070EF /* EMIOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2543C1E548D5400D070EF /* EMIOptions.swift */; };
+		58C2543F1E548E7B00D070EF /* NetBankingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C2543E1E548E7B00D070EF /* NetBankingOptions.swift */; };
+		58C254411E548F8600D070EF /* UPIOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254401E548F8600D070EF /* UPIOptions.swift */; };
+		58C254431E548FC000D070EF /* UPISubmissionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254421E548FC000D070EF /* UPISubmissionResponse.swift */; };
+		58C254451E54909200D070EF /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254441E54909200D070EF /* Wallet.swift */; };
+		58C254471E5490E300D070EF /* WalletOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254461E5490E300D070EF /* WalletOptions.swift */; };
+		58DB9B511E5039E7003A812D /* EMIOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9B501E5039E7003A812D /* EMIOptionsView.swift */; };
+		58F7650B1E69BAC900013D8B /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7650A1E69BAC900013D8B /* PaymentViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5857B11D1E5339BC008ECDF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58BB7DB81E484B26009AFD0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58BB7DC01E484B26009AFD0C;
+			remoteInfo = Instamojo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2AEA5EDB04D213D0895970C5 /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5825BFCF1E6ED06A00643173 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
+		5857B10F1E5303C2008ECDF9 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstamojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5857B1191E5339BC008ECDF9 /* InstamojoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstamojoTests.swift; sourceTree = "<group>"; };
+		5857B11B1E5339BC008ECDF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		586CAADF1E5ABB210090C77F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		586CB52D1E7276B9000A1D39 /* NetBankingBanks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetBankingBanks.swift; sourceTree = "<group>"; };
+		587825011E4991DA00D90B35 /* UPIPaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPIPaymentView.swift; sourceTree = "<group>"; };
+		587825031E49AFD000D90B35 /* CardValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardValidator.swift; sourceTree = "<group>"; };
+		587825051E49B75300D90B35 /* CardFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFormView.swift; sourceTree = "<group>"; };
+		58B1E7CF1E5D62D2002270E0 /* UPICallBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPICallBack.swift; sourceTree = "<group>"; };
+		58B97B171E5C023100B7941C /* OrderRequestCallBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderRequestCallBack.swift; sourceTree = "<group>"; };
+		58B97B1D1E5C72D500B7941C /* JuspayRequestCallBack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JuspayRequestCallBack.swift; sourceTree = "<group>"; };
+		58BB7DC11E484B26009AFD0C /* Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58BB7DC51E484B26009AFD0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58BB7DCC1E484B35009AFD0C /* Instamojo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Instamojo.swift; sourceTree = "<group>"; };
+		58BB7DE91E484F70009AFD0C /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		58BB7DEB1E485129009AFD0C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		58BB7DED1E485235009AFD0C /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		58BB7DF11E486E07009AFD0C /* InstamojoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InstamojoStoryboard.storyboard; sourceTree = "<group>"; };
+		58BB7DF41E486E9C009AFD0C /* PaymentOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentOptionsView.swift; sourceTree = "<group>"; };
+		58BB7DF81E487384009AFD0C /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		58BB7DFD1E48A4BC009AFD0C /* ListOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOptionsView.swift; sourceTree = "<group>"; };
+		58BE55121E60565C00997CE5 /* Instamojo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Instamojo-Bridging-Header.h"; sourceTree = "<group>"; };
+		58C254341E542C9300D070EF /* MonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthYearPicker.swift; sourceTree = "<group>"; };
+		58C254361E54842100D070EF /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		58C254381E5489BC00D070EF /* CardOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardOptions.swift; sourceTree = "<group>"; };
+		58C2543A1E548A4000D070EF /* EMIBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIBank.swift; sourceTree = "<group>"; };
+		58C2543C1E548D5400D070EF /* EMIOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIOptions.swift; sourceTree = "<group>"; };
+		58C2543E1E548E7B00D070EF /* NetBankingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetBankingOptions.swift; sourceTree = "<group>"; };
+		58C254401E548F8600D070EF /* UPIOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPIOptions.swift; sourceTree = "<group>"; };
+		58C254421E548FC000D070EF /* UPISubmissionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPISubmissionResponse.swift; sourceTree = "<group>"; };
+		58C254441E54909200D070EF /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		58C254461E5490E300D070EF /* WalletOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletOptions.swift; sourceTree = "<group>"; };
+		58DB9B501E5039E7003A812D /* EMIOptionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EMIOptionsView.swift; sourceTree = "<group>"; };
+		58F7650A1E69BAC900013D8B /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		9FF622859F2EDEC353C40DAD /* Pods-Instamojo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instamojo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instamojo/Pods-Instamojo.debug.xcconfig"; sourceTree = "<group>"; };
+		E357C4204689E4AE31BA278F /* Pods-Instamojo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instamojo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instamojo/Pods-Instamojo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5857B1141E5339BC008ECDF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5857B11C1E5339BC008ECDF9 /* Instamojo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58BB7DBD1E484B26009AFD0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		136510FC23FE074BA9F5B24F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FF622859F2EDEC353C40DAD /* Pods-Instamojo.debug.xcconfig */,
+				E357C4204689E4AE31BA278F /* Pods-Instamojo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5857B10E1E530380008ECDF9 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				5857B10F1E5303C2008ECDF9 /* Order.swift */,
+				58C254361E54842100D070EF /* Card.swift */,
+				58C254381E5489BC00D070EF /* CardOptions.swift */,
+				58C2543A1E548A4000D070EF /* EMIBank.swift */,
+				58C2543C1E548D5400D070EF /* EMIOptions.swift */,
+				58C2543E1E548E7B00D070EF /* NetBankingOptions.swift */,
+				58C254401E548F8600D070EF /* UPIOptions.swift */,
+				58C254421E548FC000D070EF /* UPISubmissionResponse.swift */,
+				58C254441E54909200D070EF /* Wallet.swift */,
+				58C254461E5490E300D070EF /* WalletOptions.swift */,
+				586CB52D1E7276B9000A1D39 /* NetBankingBanks.swift */,
+			);
+			name = entities;
+			sourceTree = "<group>";
+		};
+		5857B1181E5339BC008ECDF9 /* InstamojoTests */ = {
+			isa = PBXGroup;
+			children = (
+				5857B1191E5339BC008ECDF9 /* InstamojoTests.swift */,
+				5857B11B1E5339BC008ECDF9 /* Info.plist */,
+			);
+			path = InstamojoTests;
+			sourceTree = "<group>";
+		};
+		58B97B161E5C021F00B7941C /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				58B97B171E5C023100B7941C /* OrderRequestCallBack.swift */,
+				58B97B1D1E5C72D500B7941C /* JuspayRequestCallBack.swift */,
+				58B1E7CF1E5D62D2002270E0 /* UPICallBack.swift */,
+			);
+			name = protocols;
+			sourceTree = "<group>";
+		};
+		58BB7DB71E484B26009AFD0C = {
+			isa = PBXGroup;
+			children = (
+				58BE55121E60565C00997CE5 /* Instamojo-Bridging-Header.h */,
+				58BB7DC31E484B26009AFD0C /* Instamojo */,
+				5857B1181E5339BC008ECDF9 /* InstamojoTests */,
+				58BB7DC21E484B26009AFD0C /* Products */,
+				6403D92C2618E56F849F0EAE /* Frameworks */,
+				136510FC23FE074BA9F5B24F /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		58BB7DC21E484B26009AFD0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58BB7DC11E484B26009AFD0C /* Instamojo.framework */,
+				5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58BB7DC31E484B26009AFD0C /* Instamojo */ = {
+			isa = PBXGroup;
+			children = (
+				58B97B161E5C021F00B7941C /* protocols */,
+				5857B10E1E530380008ECDF9 /* entities */,
+				58BB7DF31E486E1D009AFD0C /* view */,
+				58BB7DF01E485299009AFD0C /* helpers */,
+				58BB7DEF1E485245009AFD0C /* network */,
+				58BB7DCC1E484B35009AFD0C /* Instamojo.swift */,
+				58BB7DC51E484B26009AFD0C /* Info.plist */,
+				58BB7DF11E486E07009AFD0C /* InstamojoStoryboard.storyboard */,
+				58BB7DF81E487384009AFD0C /* Media.xcassets */,
+			);
+			path = Instamojo;
+			sourceTree = "<group>";
+		};
+		58BB7DEF1E485245009AFD0C /* network */ = {
+			isa = PBXGroup;
+			children = (
+				58BB7DED1E485235009AFD0C /* Urls.swift */,
+				586CAADF1E5ABB210090C77F /* Request.swift */,
+			);
+			name = network;
+			sourceTree = "<group>";
+		};
+		58BB7DF01E485299009AFD0C /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				58BB7DEB1E485129009AFD0C /* Constants.swift */,
+				58BB7DE91E484F70009AFD0C /* Logger.swift */,
+				587825031E49AFD000D90B35 /* CardValidator.swift */,
+				58C254341E542C9300D070EF /* MonthYearPicker.swift */,
+				5825BFCF1E6ED06A00643173 /* Spinner.swift */,
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
+		58BB7DF31E486E1D009AFD0C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				58BB7DF41E486E9C009AFD0C /* PaymentOptionsView.swift */,
+				58BB7DFD1E48A4BC009AFD0C /* ListOptionsView.swift */,
+				587825011E4991DA00D90B35 /* UPIPaymentView.swift */,
+				587825051E49B75300D90B35 /* CardFormView.swift */,
+				58DB9B501E5039E7003A812D /* EMIOptionsView.swift */,
+				58F7650A1E69BAC900013D8B /* PaymentViewController.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		6403D92C2618E56F849F0EAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AEA5EDB04D213D0895970C5 /* Pods_Instamojo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		58BB7DBE1E484B26009AFD0C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58BE55131E60565C00997CE5 /* Instamojo-Bridging-Header.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5857B1161E5339BC008ECDF9 /* InstamojoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5857B11F1E5339BC008ECDF9 /* Build configuration list for PBXNativeTarget "InstamojoTests" */;
+			buildPhases = (
+				5857B1131E5339BC008ECDF9 /* Sources */,
+				5857B1141E5339BC008ECDF9 /* Frameworks */,
+				5857B1151E5339BC008ECDF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5857B11E1E5339BC008ECDF9 /* PBXTargetDependency */,
+			);
+			name = InstamojoTests;
+			productName = InstamojoTests;
+			productReference = 5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		58BB7DC01E484B26009AFD0C /* Instamojo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58BB7DC91E484B26009AFD0C /* Build configuration list for PBXNativeTarget "Instamojo" */;
+			buildPhases = (
+				14792C5362E2E0A01A2217C9 /* [CP] Check Pods Manifest.lock */,
+				58BB7DBC1E484B26009AFD0C /* Sources */,
+				58BB7DBD1E484B26009AFD0C /* Frameworks */,
+				58BB7DBE1E484B26009AFD0C /* Headers */,
+				58BB7DBF1E484B26009AFD0C /* Resources */,
+				E3C3C24EE4A8161F1B85D4F2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Instamojo;
+			productName = Instamojo;
+			productReference = 58BB7DC11E484B26009AFD0C /* Instamojo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58BB7DB81E484B26009AFD0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Sukanya Raj";
+				TargetAttributes = {
+					58093B371E7816AA007BD619 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = YB8APMPG5N;
+						ProvisioningStyle = Automatic;
+					};
+					5857B1161E5339BC008ECDF9 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = YB8APMPG5N;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 58BB7DD11E484B67009AFD0C;
+					};
+					58BB7DC01E484B26009AFD0C = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = YB8APMPG5N;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 58BB7DBB1E484B26009AFD0C /* Build configuration list for PBXProject "Instamojo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58BB7DB71E484B26009AFD0C;
+			productRefGroup = 58BB7DC21E484B26009AFD0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58BB7DC01E484B26009AFD0C /* Instamojo */,
+				5857B1161E5339BC008ECDF9 /* InstamojoTests */,
+				58093B371E7816AA007BD619 /* InstamojoSDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5857B1151E5339BC008ECDF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58BB7DBF1E484B26009AFD0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58BB7DF91E487384009AFD0C /* Media.xcassets in Resources */,
+				58BB7DF21E486E07009AFD0C /* InstamojoStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14792C5362E2E0A01A2217C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		58093B3B1E7816B2007BD619 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# 1\n# Set bash script to exit immediately if any commands fail.\nset -e\n\n# 2\n# Setup some constants for use later on.\nSTAR_PATH=\"*\"\n#MUST_CLEAN=true\nMUST_CLEAN=false\nCLEAN_BUILD=\"\"\nif [ ${MUST_CLEAN} = true ]; then\nCLEAN_BUILD=\"clean build\"\nfi\n\nCONFIGURATION_IS_RELEASE=true ### We force configuration to be Release\n\nREVEAL_ARCHIVE_IN_FINDER=true\nFRAMEWORK_NAME=\"${PROJECT_NAME}\"\nFRAMEWORK_DIR=\"${FRAMEWORK_NAME}.framework\"\nWORKSPACE_NAME=\"Instamojo.xcworkspace\"\n#WORKSPACE_PATH=\"../${WORKSPACE_NAME}\"\nWORKSPACE_PATH=\"${WORKSPACE_NAME}\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_DIR}\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_DIR}\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_DIR}\"\n\nif [ ${CONFIGURATION_IS_RELEASE} = true ]; then\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphonesimulator/${FRAMEWORK_DIR}\"\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/Release-iphoneos/${FRAMEWORK_DIR}\"\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/Release-iphoneuniversal\"\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_DIR}\"\nfi\n\n# 3\n# If remnants from a previous build exist, delete them.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n\n# 4\n# Build the framework for device and for simulator (using\n# all needed architectures).\n\n#### Current Configuration Build (if different than Release)\nif [ ${CONFIGURATION_IS_RELEASE} = false ]; then\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphonesimulator\" -configuration ${CONFIGURATION} ${CLEAN_BUILD} CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphoneos\" -configuration ${CONFIGURATION} ${CLEAN_BUILD} CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\nfi\n\n\n#### Release Build (Simulator)\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphonesimulator\" -configuration Release ${CLEAN_BUILD}only_active_arch=no defines_module=yes\n#### Release Build (Device)\nxcodebuild -workspace ${WORKSPACE_PATH} -scheme ${PROJECT_NAME} -sdk \"iphoneos\" -configuration Release ${CLEAN_BUILD} only_active_arch=no defines_module=yes\n\n#exit;\n\n# 5\n# Remove .framework file if exists on Desktop from previous run.\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\nmkdir \"${FRAMEWORK}\"\n\n# 6\n# Copy the device version of framework.\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n# 7\n# Replace the framework executable within the framework with\n# a new version created by merging the device and simulator\n# frameworks' executables with lipo.\n\nlipo -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\"\n\n# 8\n# Copy the Swift module mappings for the simulator into the\n# framework.  The device mappings already exist from step 6.\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/${STAR_PATH} \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\nfi\n#if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n#  cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n#fi\n\n# 9\n# Delete the most recent build.\nif [ -d \"${SRCROOT}/build\" ]; then\nrm -rf \"${SRCROOT}/build\"\nfi\n\n\n######################\n# On Release, copy the result to release directory\n######################\n\nOUTPUT_DIR=\"${PROJECT_DIR}/Framework\"\nrm -rf \"$OUTPUT_DIR\"\nmkdir -p \"$OUTPUT_DIR\"\ncp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\n# 10\n# Convenience step\nif [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\nopen \"${OUTPUT_DIR}/\"\nfi";
+		};
+		E3C3C24EE4A8161F1B85D4F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Instamojo/Pods-Instamojo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5857B1131E5339BC008ECDF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5857B11A1E5339BC008ECDF9 /* InstamojoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58BB7DBC1E484B26009AFD0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58C254451E54909200D070EF /* Wallet.swift in Sources */,
+				5825BFD01E6ED06A00643173 /* Spinner.swift in Sources */,
+				58BB7DCD1E484B35009AFD0C /* Instamojo.swift in Sources */,
+				58C2543B1E548A4000D070EF /* EMIBank.swift in Sources */,
+				58C2543D1E548D5400D070EF /* EMIOptions.swift in Sources */,
+				587825061E49B75300D90B35 /* CardFormView.swift in Sources */,
+				58BB7DF51E486E9C009AFD0C /* PaymentOptionsView.swift in Sources */,
+				58B97B181E5C023100B7941C /* OrderRequestCallBack.swift in Sources */,
+				58DB9B511E5039E7003A812D /* EMIOptionsView.swift in Sources */,
+				58C254391E5489BC00D070EF /* CardOptions.swift in Sources */,
+				58C254411E548F8600D070EF /* UPIOptions.swift in Sources */,
+				58C2543F1E548E7B00D070EF /* NetBankingOptions.swift in Sources */,
+				58C254371E54842100D070EF /* Card.swift in Sources */,
+				58C254431E548FC000D070EF /* UPISubmissionResponse.swift in Sources */,
+				5857B1101E5303C2008ECDF9 /* Order.swift in Sources */,
+				58C254471E5490E300D070EF /* WalletOptions.swift in Sources */,
+				58BB7DEA1E484F70009AFD0C /* Logger.swift in Sources */,
+				58B1E7D01E5D62D2002270E0 /* UPICallBack.swift in Sources */,
+				58B97B1E1E5C72D500B7941C /* JuspayRequestCallBack.swift in Sources */,
+				586CAAE01E5ABB210090C77F /* Request.swift in Sources */,
+				587825021E4991DA00D90B35 /* UPIPaymentView.swift in Sources */,
+				58BB7DFE1E48A4BC009AFD0C /* ListOptionsView.swift in Sources */,
+				58BB7DEC1E485129009AFD0C /* Constants.swift in Sources */,
+				58F7650B1E69BAC900013D8B /* PaymentViewController.swift in Sources */,
+				586CB52E1E7276B9000A1D39 /* NetBankingBanks.swift in Sources */,
+				58C254351E542C9300D070EF /* MonthYearPicker.swift in Sources */,
+				587825041E49AFD000D90B35 /* CardValidator.swift in Sources */,
+				58BB7DEE1E485235009AFD0C /* Urls.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5857B11E1E5339BC008ECDF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58BB7DC01E484B26009AFD0C /* Instamojo */;
+			targetProxy = 5857B11D1E5339BC008ECDF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		58093B381E7816AA007BD619 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58093B391E7816AA007BD619 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5857B1201E5339BC008ECDF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				INFOPLIST_FILE = InstamojoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instamojo.ios.InstamojoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sample.app/Sample";
+			};
+			name = Debug;
+		};
+		5857B1211E5339BC008ECDF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				INFOPLIST_FILE = InstamojoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instamojo.ios.InstamojoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sample.app/Sample";
+			};
+			name = Release;
+		};
+		58BB7DC71E484B26009AFD0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		58BB7DC81E484B26009AFD0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		58BB7DCA1E484B26009AFD0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FF622859F2EDEC353C40DAD /* Pods-Instamojo.debug.xcconfig */;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Instamojo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instamojo.ios.Instamojo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Instamojo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58BB7DCB1E484B26009AFD0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E357C4204689E4AE31BA278F /* Pods-Instamojo.release.xcconfig */;
+			buildSettings = {
+				BITCODE_GENERATION_MODE = bitcode;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = YB8APMPG5N;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Instamojo/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.instamojo.ios.Instamojo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Instamojo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58093B3A1E7816AA007BD619 /* Build configuration list for PBXAggregateTarget "InstamojoSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58093B381E7816AA007BD619 /* Debug */,
+				58093B391E7816AA007BD619 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5857B11F1E5339BC008ECDF9 /* Build configuration list for PBXNativeTarget "InstamojoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5857B1201E5339BC008ECDF9 /* Debug */,
+				5857B1211E5339BC008ECDF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58BB7DBB1E484B26009AFD0C /* Build configuration list for PBXProject "Instamojo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58BB7DC71E484B26009AFD0C /* Debug */,
+				58BB7DC81E484B26009AFD0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58BB7DC91E484B26009AFD0C /* Build configuration list for PBXNativeTarget "Instamojo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58BB7DCA1E484B26009AFD0C /* Debug */,
+				58BB7DCB1E484B26009AFD0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58BB7DB81E484B26009AFD0C /* Project object */;
+}

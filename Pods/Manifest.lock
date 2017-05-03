@@ -1,0 +1,12 @@
+PODS:
+  - JuspaySafeBrowser (0.1.34)
+
+DEPENDENCIES:
+  - JuspaySafeBrowser (~> 0.1.34)
+
+SPEC CHECKSUMS:
+  JuspaySafeBrowser: 898efa76fac54fea303408f8cc98e5a40b4546a2
+
+PODFILE CHECKSUM: 0f5223a1e42c98ad6a102b04a6d37c496c666837
+
+COCOAPODS: 1.2.0
