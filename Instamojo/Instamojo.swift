@@ -37,11 +37,7 @@ public class Instamojo: NSObject {
      * @param url String
      */
     public class func setBaseUrl(url: String) {
-        if initiliazed() {
-            Urls.setBaseUrl(baseUrl: url)
-        } else {
-            return
-        }
+        Urls.setBaseUrl(baseUrl: url)
     }
 
     private class func initiliazed() -> Bool {
