@@ -287,17 +287,17 @@ public class Request: NSObject {
                         self.orderRequestCallBack?.onFinish(order: self.order!, error: "")
                     }
                 } catch {
-                    Logger.logError(tag: "Caught Exception", message: String(describing: error))
-                    self.orderRequestCallBack?.onFinish(order: self.order!, error: "Error while making Instamojo request -" + String(describing: error))
+                    self.orderRequestCallBack?.onFinish(order:Order.init(), error: responseAsString!)
                 }
             } else {
-                self.orderRequestCallBack?.onFinish(order: self.order!, error: "Error while making Instamojo request ")
+                self.orderRequestCallBack?.onFinish(order: Order.init(), error: "Error while making Instamojo request ")
                 print(error!.localizedDescription)
             }
         })
-
         task.resume()
     }
+    
+    
 
     func parseOrder(response: [String : Any]) {
         let orderResponse = response["order"] as? [String : Any]
