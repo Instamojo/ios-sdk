@@ -278,7 +278,7 @@ public class Request: NSObject {
         request.httpMethod = "GET"
         let session = URLSession.shared
         request.addValue(getUserAgent(), forHTTPHeaderField: "User-Agent")
-        request.addValue("Bearer " + order!.authToken!, forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer " + self.accessToken!, forHTTPHeaderField: "Authorization")
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, _, error -> Void in
             if error == nil {
                 do {
