@@ -281,13 +281,14 @@ public class Request: NSObject {
         request.addValue("Bearer " + self.accessToken!, forHTTPHeaderField: "Authorization")
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, _, error -> Void in
             if error == nil {
+                let response = String(data: data!, encoding: String.Encoding.utf8) as String!
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: []) as?  [String:Any] {
                         self.parseOrder(response: jsonResponse)
                         self.orderRequestCallBack?.onFinish(order: self.order!, error: "")
                     }
                 } catch {
-                    self.orderRequestCallBack?.onFinish(order:Order.init(), error: responseAsString!)
+                    self.orderRequestCallBack?.onFinish(order:Order.init(), error: response!)
                 }
             } else {
                 self.orderRequestCallBack?.onFinish(order: Order.init(), error: "Error while making Instamojo request ")
