@@ -286,6 +286,8 @@ public class Request: NSObject {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: []) as?  [String:Any] {
                         self.parseOrder(response: jsonResponse)
                         self.orderRequestCallBack?.onFinish(order: self.order!, error: "")
+                    }else{
+                        self.orderRequestCallBack?.onFinish(order:Order.init(), error: response!)
                     }
                 } catch {
                     self.orderRequestCallBack?.onFinish(order:Order.init(), error: response!)
@@ -302,18 +304,18 @@ public class Request: NSObject {
 
     func parseOrder(response: [String : Any]) {
         let orderResponse = response["order"] as? [String : Any]
-        let id = orderResponse?["id"] as? String
-        let transactionID = orderResponse?["transaction_id"] as? String
-        let name = orderResponse?["name"] as? String
-        let email = orderResponse?["email"] as? String
-        let phone = orderResponse?["phone"] as? String
-        let amount = orderResponse?["amount"] as? String
-        let description = orderResponse?["description"] as? String
-        let currency = orderResponse?["currency"] as? String
-        let redirect_url = orderResponse?["redirect_url"] as? String
-        let webhook_url = orderResponse?["webhook_url"] as? String
-        let resource_uri = orderResponse?["resource_uri"] as? String
-        self.order = Order.init(authToken: accessToken!, transactionID: transactionID!, buyerName: name!, buyerEmail: email!, buyerPhone: phone!, amount: amount!, description: description!, webhook: webhook_url!)
+        let id = orderResponse?["id"] as? String ?? ""
+        let transactionID = orderResponse?["transaction_id"] as? String ?? ""
+        let name = orderResponse?["name"] as? String ?? ""
+        let email = orderResponse?["email"] as? String ?? ""
+        let phone = orderResponse?["phone"] as? String ?? ""
+        let amount = orderResponse?["amount"] as? String ?? ""
+        let description = orderResponse?["description"] as? String ?? ""
+        let currency = orderResponse?["currency"] as? String ?? ""
+        let redirect_url = orderResponse?["redirect_url"] as? String ?? ""
+        let webhook_url = orderResponse?["webhook_url"] as? String ?? ""
+        let resource_uri = orderResponse?["resource_uri"] as? String ?? ""
+        self.order = Order.init(authToken: accessToken!, transactionID: transactionID, buyerName: name, buyerEmail: email, buyerPhone: phone, amount: amount, description: description, webhook: webhook_url)
         self.order?.redirectionUrl = redirect_url
         self.order?.currency = currency
         self.order?.resourceURI = resource_uri
