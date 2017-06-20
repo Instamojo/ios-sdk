@@ -9,7 +9,7 @@
 import UIKit
 
 class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
-
+    
     @IBOutlet weak var alertMessageView: UIView!
     @IBOutlet weak var vpaDetailsView: UIView!
     @IBOutlet weak var vpa: UITextField!
@@ -17,7 +17,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
     var upiSubmissionResponse: UPISubmissionResponse!
     var spinner: Spinner!
     var continueCheck: Bool = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let verifyPaymentButton = UIBarButtonItem(
@@ -33,12 +33,12 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
         self.view.addSubview(spinner)
         self.vpa.delegate = self
     }
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.vpa.resignFirstResponder()
         return true
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if continueCheck {
@@ -47,16 +47,16 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
             UserDefaults.standard.setValue(nil, forKey: "ON-REDIRECT-URL")
         }
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         continueCheck = false
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-
+    
     func verifyPayment(sender: UIBarButtonItem) {
         let virturalPaymentAddress = self.vpa.text
         if (virturalPaymentAddress?.contains("@"))! {
@@ -69,7 +69,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
             self.showAlert(title: "Invalid VPA", errorMessage: "Please enter a valid VPA. Example mohit@icici")
         }
     }
-
+    
     func onSubmission(upiSubmissionResponse: UPISubmissionResponse, exception: String) {
         DispatchQueue.main.async {
             self.spinner.hide()
@@ -85,20 +85,20 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
             }
         }
     }
-
+    
     func checkForStatusTransaction() {
         self.spinner.setText(text: "Checking status..")
         self.spinner.show()
         let request = Request.init(order: self.order, upiSubmissionResponse: self.upiSubmissionResponse, upiCallback: self)
         request.execute()
     }
-
+    
     func onStatusCheckComplete(paymentComplete: Bool, status: Int) {
         DispatchQueue.main.async {
             self.spinner.hide()
             if status == Constants.FailedPayment {
-                 self.continueCheck = false
-                 self.onPaymentStatusComplete(message: "Payment Cancelled")
+                self.continueCheck = false
+                self.onPaymentStatusComplete(message: "Payment Cancelled")
             } else if status == Constants.PendingPayment {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     if self.continueCheck {
