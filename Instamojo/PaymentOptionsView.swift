@@ -13,6 +13,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var paymentOptionsTableView: UITableView!
     var order: Order!
     var paymentOptions: NSMutableArray = [Constants.DebitCardOption, Constants.NetBankingOption, Constants.CreditCardOption, Constants.WalletsOption, Constants.EmiOption, Constants.UpiOption]
+    var paymentCompleted : Bool = false;
 
     var mainStoryboard: UIStoryboard = UIStoryboard()
 
@@ -21,6 +22,12 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         paymentOptionsTableView.tableFooterView = UIView()
         mainStoryboard = Constants.getStoryboardInstance()
         self.reloadDataBasedOnOrder()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.backToViewController), name: NSNotification.Name("INSTAMOJO"), object: nil)
+    }
+    
+    func backToViewController(){
+        Logger.logDebug(tag: "Payment Done", message: "In Observer")
+        paymentCompleted = true
     }
 
     //Set payment options based on the order
@@ -102,9 +109,18 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidAppear(animated)
         if UserDefaults.standard.value(forKey: "USER-CANCELLED-ON-VERIFY") != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                _ = self.navigationController?.popToRootViewController(animated: true)
+                _ = self.navigationController?.popViewController(animated: true)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
             }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if paymentCompleted {
+            Logger.logDebug(tag: "Payment Done", message: "GO BACK")
+            paymentCompleted = false
+            _ = self.navigationController?.popViewController(animated: true)
         }
     }
 
