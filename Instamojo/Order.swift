@@ -29,6 +29,8 @@ public class Order: NSObject {
     public var emiOptions: EMIOptions!
     public var walletOptions: WalletOptions!
     public var upiOptions: UPIOptions!
+    
+    override init() {}
 
    public init(authToken: String, transactionID: String, buyerName: String, buyerEmail: String, buyerPhone: String, amount: String, description: String, webhook: String ) {
         self.authToken = authToken

@@ -278,41 +278,44 @@ public class Request: NSObject {
         request.httpMethod = "GET"
         let session = URLSession.shared
         request.addValue(getUserAgent(), forHTTPHeaderField: "User-Agent")
-        request.addValue("Bearer " + order!.authToken!, forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer " + self.accessToken!, forHTTPHeaderField: "Authorization")
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, _, error -> Void in
             if error == nil {
+                let response = String(data: data!, encoding: String.Encoding.utf8) as String!
                 do {
                     if let jsonResponse = try JSONSerialization.jsonObject(with: data!, options: []) as?  [String:Any] {
                         self.parseOrder(response: jsonResponse)
                         self.orderRequestCallBack?.onFinish(order: self.order!, error: "")
+                    }else{
+                        self.orderRequestCallBack?.onFinish(order:Order.init(), error: response!)
                     }
                 } catch {
-                    Logger.logError(tag: "Caught Exception", message: String(describing: error))
-                    self.orderRequestCallBack?.onFinish(order: self.order!, error: "Error while making Instamojo request -" + String(describing: error))
+                    self.orderRequestCallBack?.onFinish(order:Order.init(), error: response!)
                 }
             } else {
-                self.orderRequestCallBack?.onFinish(order: self.order!, error: "Error while making Instamojo request ")
+                self.orderRequestCallBack?.onFinish(order: Order.init(), error: "Error while making Instamojo request ")
                 print(error!.localizedDescription)
             }
         })
-
         task.resume()
     }
+    
+    
 
     func parseOrder(response: [String : Any]) {
         let orderResponse = response["order"] as? [String : Any]
-        let id = orderResponse?["id"] as? String
-        let transactionID = orderResponse?["transaction_id"] as? String
-        let name = orderResponse?["name"] as? String
-        let email = orderResponse?["email"] as? String
-        let phone = orderResponse?["phone"] as? String
-        let amount = orderResponse?["amount"] as? String
-        let description = orderResponse?["description"] as? String
-        let currency = orderResponse?["currency"] as? String
-        let redirect_url = orderResponse?["redirect_url"] as? String
-        let webhook_url = orderResponse?["webhook_url"] as? String
-        let resource_uri = orderResponse?["resource_uri"] as? String
-        self.order = Order.init(authToken: accessToken!, transactionID: transactionID!, buyerName: name!, buyerEmail: email!, buyerPhone: phone!, amount: amount!, description: description!, webhook: webhook_url!)
+        let id = orderResponse?["id"] as? String ?? ""
+        let transactionID = orderResponse?["transaction_id"] as? String ?? ""
+        let name = orderResponse?["name"] as? String ?? ""
+        let email = orderResponse?["email"] as? String ?? ""
+        let phone = orderResponse?["phone"] as? String ?? ""
+        let amount = orderResponse?["amount"] as? String ?? ""
+        let description = orderResponse?["description"] as? String ?? ""
+        let currency = orderResponse?["currency"] as? String ?? ""
+        let redirect_url = orderResponse?["redirect_url"] as? String ?? ""
+        let webhook_url = orderResponse?["webhook_url"] as? String ?? ""
+        let resource_uri = orderResponse?["resource_uri"] as? String ?? ""
+        self.order = Order.init(authToken: accessToken!, transactionID: transactionID, buyerName: name, buyerEmail: email, buyerPhone: phone, amount: amount, description: description, webhook: webhook_url)
         self.order?.redirectionUrl = redirect_url
         self.order?.currency = currency
         self.order?.resourceURI = resource_uri
