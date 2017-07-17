@@ -12,7 +12,7 @@ import UIKit
 public class Instamojo: NSObject {
 
     static var instance: Bool = false
-
+    static var isNavigation: Bool = true
     /**
      * Initizalise Instamojo
      *
@@ -47,6 +47,14 @@ public class Instamojo: NSObject {
             return false
         }
     }
+    
+    public class func isNavigationStack() -> Bool {
+        if Instamojo.isNavigation {
+            return true
+        } else {
+            return false
+        }
+    }
 
     private class func resetDefaults() {
         UserDefaults.standard.setValue(nil, forKey: "USER-CANCELLED-ON-VERIFY")
@@ -67,14 +75,16 @@ public class Instamojo: NSObject {
             let window: UIWindow? = UIApplication.shared.keyWindow
             let rootClass = window?.rootViewController
             if rootClass is UINavigationController {
+                isNavigation = true
                 let navController: UINavigationController? = (UIApplication.shared.keyWindow?.rootViewController as? UINavigationController)
                 navController?.pushViewController(viewController, animated: true)
             } else {
-                let navController = UINavigationController(rootViewController: (window?.rootViewController)!)
-                window?.rootViewController = nil
-                window?.frame = UIScreen.main.bounds
-                window?.rootViewController = navController
-                navController.pushViewController(viewController, animated: true)
+                viewController.isBackButtonNeeded = false
+                isNavigation = false
+                let vc = window?.rootViewController
+                let navController = UINavigationController(rootViewController: viewController)
+                navController.navigationBar.isTranslucent = false
+                vc?.present(navController, animated: true, completion: nil)
             }
         }
     }
