@@ -32,6 +32,9 @@ class PaymentViewController: UIViewController {
                         if vc is PaymentOptionsView {
                             _ = self.navigationController?.popToViewController(vc as! PaymentOptionsView, animated: true)
                         }
+                        if(Instamojo.isNavigationStack() == false ){
+                            vc.dismiss(animated: true, completion: nil)
+                        }
                     }
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "INSTAMOJO"), object: nil)
                 } else {
@@ -61,6 +64,9 @@ class PaymentViewController: UIViewController {
             for vc in controllers! {
                 if vc is PaymentOptionsView {
                     _ = self.navigationController?.popToViewController(vc as! PaymentOptionsView, animated: true)
+                }
+                if(Instamojo.isNavigationStack() == false ){
+                    vc.dismiss(animated: true, completion: nil)
                 }
             }
             

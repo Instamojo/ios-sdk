@@ -16,14 +16,24 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
     var paymentCompleted : Bool = false;
 
     var mainStoryboard: UIStoryboard = UIStoryboard()
-
+    var isBackButtonNeeded: Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         paymentOptionsTableView.tableFooterView = UIView()
         mainStoryboard = Constants.getStoryboardInstance()
         self.reloadDataBasedOnOrder()
         NotificationCenter.default.addObserver(self, selector: #selector(self.backToViewController), name: NSNotification.Name("INSTAMOJO"), object: nil)
+        
+        if(isBackButtonNeeded == false){
+            let menu_button_ = UIBarButtonItem.init(title: "Exit", style: .plain, target: self, action:#selector(self.exitViewController))
+            self.navigationItem.rightBarButtonItem = menu_button_
+        }
     }
+    
+    func exitViewController(){
+        self.dismiss(animated: true, completion: nil)
+    }
+
     
     func backToViewController(){
         Logger.logDebug(tag: "Payment Done", message: "In Observer")
@@ -110,7 +120,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         if UserDefaults.standard.value(forKey: "USER-CANCELLED-ON-VERIFY") != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 _ = self.navigationController?.popViewController(animated: true)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "INSTAMOJO"), object: nil)
             }
         }
     }

@@ -77,7 +77,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     //Prepare the card object for a juspay request
     func prepareCheckOut() {
         let cardHolderName = nameTextField.text
-        let cardNumber = cardNumberTextField.text
+        let cardNumber = cardNumberTextField.text?.replacingOccurrences(of: " ", with: "")
         let expiryDate = expiryDateTextField.text
         let cvv = cvvTextField.text
         let card = Card(cardHolderName: cardHolderName!, cardNumber: cardNumber!, date: expiryDate!, cvv: cvv!, savedCard: false)
