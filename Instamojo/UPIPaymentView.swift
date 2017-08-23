@@ -127,7 +127,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
                 }
             }
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "INSTAMOJO"), object: nil)
         }))
         self.present(alert, animated: true, completion: nil)
     }

@@ -1,10 +1,5 @@
-//
 //  Instamojo-Bridging-Header.h
 //  Instamojo
-//
-//  Created by Sukanya Raj on 16/02/17.
-//  Copyright © 2017 Sukanya Raj. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>

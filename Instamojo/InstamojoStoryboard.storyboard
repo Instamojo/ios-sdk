@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -178,6 +178,7 @@
                             <constraint firstItem="zMw-10-M3Y" firstAttribute="top" secondItem="6WF-eo-R9K" secondAttribute="top" id="OZ1-jh-xXW"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -418,6 +419,7 @@
                             <constraint firstItem="smb-VL-WcP" firstAttribute="top" secondItem="Hep-Rb-7oe" secondAttribute="bottom" constant="34" id="zix-kM-6il"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="cardImageView" destination="gjb-ag-Qz8" id="KpJ-C9-NFB"/>
                         <outlet property="cardNumberDivider" destination="jY4-kW-BGl" id="3qE-Nf-V2M"/>
@@ -453,6 +455,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u2g-WJ-QIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,6 +511,7 @@
                             <constraint firstAttribute="trailing" secondItem="Bug-TC-qZc" secondAttribute="trailing" id="umx-dF-qBy"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="banksTableView" destination="Bug-TC-qZc" id="bRx-0m-Okh"/>
                     </connections>
@@ -572,6 +576,7 @@
                             <constraint firstAttribute="trailing" secondItem="kuD-kZ-rIE" secondAttribute="trailing" id="eYa-mH-RDn"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="emiOptionsTableView" destination="kuD-kZ-rIE" id="CpW-Be-ecl"/>
                     </connections>

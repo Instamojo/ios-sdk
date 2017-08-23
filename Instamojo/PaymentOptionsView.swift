@@ -120,7 +120,7 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         if UserDefaults.standard.value(forKey: "USER-CANCELLED-ON-VERIFY") != nil {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 _ = self.navigationController?.popViewController(animated: true)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "JUSPAY"), object: nil)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "INSTAMOJO"), object: nil)
             }
         }
     }
