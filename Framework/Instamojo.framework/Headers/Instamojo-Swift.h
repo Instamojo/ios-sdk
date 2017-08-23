@@ -287,9 +287,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isNavigation;)
 /// @param url String
 + (void)setBaseUrlWithUrl:(NSString * _Nonnull)url;
 + (BOOL)isNavigationStack SWIFT_WARN_UNUSED_RESULT;
-/// Invoke Pre Created Payment UI
-/// @param order Order
 + (void)invokePaymentOptionsViewWithOrder:(Order * _Nonnull)order;
+/// Invoke Pre Created Payment UI by passing loaded viewcontroller in scenario with multiple navigation or tab bar with navigation within
+/// @param order Order
++ (void)invokePaymentOptionsViewWithOrder:(Order * _Nonnull)order controller:(UIViewController * _Nonnull)controller;
 /// Invoke Payment For Custom UI
 /// @param params BrowserParams
 + (void)makePaymentWithParams:(BrowserParams * _Nonnull)params;
