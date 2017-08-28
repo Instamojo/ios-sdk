@@ -67,6 +67,7 @@ public class Instamojo: NSObject {
      *
      * @param order Order
      */
+    //@available(*, deprecated:1.0.10, message:"no longer needed")
     public class func invokePaymentOptionsView(order: Order) {
         self.resetDefaults()
         let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
@@ -89,6 +90,31 @@ public class Instamojo: NSObject {
         }
     }
     
+    /**
+     * Invoke Pre Created Payment UI by passing loaded viewcontroller in scenario with multiple navigation or tab bar with navigation within
+     *
+     * @param order Order
+     */
+    public class func invokePaymentOptionsView(order: Order, controller: UIViewController) {
+        self.resetDefaults()
+        let storyBoard: UIStoryboard = Constants.getStoryboardInstance()
+        if let viewController: PaymentOptionsView = storyBoard.instantiateViewController(withIdentifier: Constants.PaymentOptionsViewController) as? PaymentOptionsView {
+            viewController.order = order
+            let window: UIWindow? = UIApplication.shared.keyWindow
+            //let rootClass = window?.rootViewController
+            if controller.navigationController != nil && controller.navigationController?.navigationBar.isHidden == false{
+                isNavigation = true
+                controller.navigationController?.pushViewController(viewController, animated: true);
+            } else {
+                viewController.isBackButtonNeeded = false
+                isNavigation = false
+                let vc = window?.rootViewController
+                let navController = UINavigationController(rootViewController: viewController)
+                navController.navigationBar.isTranslucent = false
+                vc?.present(navController, animated: true, completion: nil)
+            }
+        }
+    }
     /**
      * Invoke Payment For Custom UI
      *
