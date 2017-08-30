@@ -277,15 +277,20 @@ SWIFT_CLASS("_TtC9Instamojo9Instamojo")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL instance;)
 + (BOOL)instance SWIFT_WARN_UNUSED_RESULT;
 + (void)setInstance:(BOOL)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL isNavigation;)
++ (BOOL)isNavigation SWIFT_WARN_UNUSED_RESULT;
++ (void)setIsNavigation:(BOOL)value;
 /// Initizalise Instamojo
 + (void)setup;
 + (void)enableLogWithOption:(BOOL)option;
 /// Sets the base url for all network calls
 /// @param url String
 + (void)setBaseUrlWithUrl:(NSString * _Nonnull)url;
-/// Invoke Pre Created Payment UI
-/// @param order Order
++ (BOOL)isNavigationStack SWIFT_WARN_UNUSED_RESULT;
 + (void)invokePaymentOptionsViewWithOrder:(Order * _Nonnull)order;
+/// Invoke Pre Created Payment UI by passing loaded viewcontroller in scenario with multiple navigation or tab bar with navigation within
+/// @param order Order
++ (void)invokePaymentOptionsViewWithOrder:(Order * _Nonnull)order controller:(UIViewController * _Nonnull)controller;
 /// Invoke Payment For Custom UI
 /// @param params BrowserParams
 + (void)makePaymentWithParams:(BrowserParams * _Nonnull)params;
@@ -421,7 +426,9 @@ SWIFT_CLASS("_TtC9Instamojo18PaymentOptionsView")
 @property (nonatomic, strong) NSMutableArray * _Nonnull paymentOptions;
 @property (nonatomic) BOOL paymentCompleted;
 @property (nonatomic, strong) UIStoryboard * _Nonnull mainStoryboard;
+@property (nonatomic) BOOL isBackButtonNeeded;
 - (void)viewDidLoad;
+- (void)exitViewController;
 - (void)backToViewController;
 - (void)reloadDataBasedOnOrder;
 - (void)didReceiveMemoryWarning;
