@@ -57,7 +57,7 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
         super.viewDidAppear(animated)
     }
     
-    func verifyPayment(sender: UIBarButtonItem) {
+    @objc func verifyPayment(sender: UIBarButtonItem) {
         let virturalPaymentAddress = self.vpa.text
         if (virturalPaymentAddress?.contains("@"))! {
             self.vpa.resignFirstResponder()
