@@ -41,7 +41,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         let toolbarDone = UIToolbar.init()
         toolbarDone.sizeToFit()
         let barBtnDone = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.done,
-                                              target: self, action: #selector(doneButton_Clicked(sender:)))
+                                              target: self, action: #selector(CardFormView.doneButton_Clicked(sender:)))
         toolbarDone.items = [barBtnDone]
         cardNumberTextField.inputAccessoryView = toolbarDone
         expiryDateTextField.inputAccessoryView = toolbarDone
@@ -59,7 +59,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
     }
 
     //Click listener on the Done button on top of the keyboard
-    func doneButton_Clicked(sender: UIBarButtonItem) {
+    @objc func doneButton_Clicked(sender: UIBarButtonItem) {
         if cardNumberTextField.isEditing {
             cardNumberTextField.resignFirstResponder()
             self.textField = nameTextField

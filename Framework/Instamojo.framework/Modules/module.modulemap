@@ -1,3 +1,4 @@
 framework module Instamojo {
     header "Instamojo-Swift.h"
+    requires objc
 }

@@ -30,12 +30,12 @@ class PaymentOptionsView: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func exitViewController(){
+    @objc func exitViewController(){
         self.dismiss(animated: true, completion: nil)
     }
 
     
-    func backToViewController(){
+    @objc func backToViewController(){
         Logger.logDebug(tag: "Payment Done", message: "In Observer")
         paymentCompleted = true
     }
