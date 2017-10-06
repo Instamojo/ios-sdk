@@ -10,7 +10,6 @@
 #define JuspaySafeBrowserHeader_h
 
 #import "JuspaySafeBrowser.h"
-#import "JuspaySafeBrowserViewController.h"
 #import "JuspayCodes.h"
 #import "UIViewController+BackButtonHandler.h"
 
