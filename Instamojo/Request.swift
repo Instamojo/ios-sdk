@@ -225,7 +225,11 @@ public class Request: NSObject {
                         for j in 0 ..< ratesRaw.count {
                             let tenure = ratesRaw[j]["tenure"] as? Int
                             let interest = ratesRaw[j]["interest"] as? Int
-                            rates.updateValue(interest!, forKey: tenure!)
+                            if let _ = tenure {
+                                if let _ = interest {
+                                    rates.updateValue(interest!, forKey: tenure!)
+                                }
+                            }
                         }
 
                         let sortedRates = rates.sorted(by: { $0.0 < $1.0 })

@@ -77,6 +77,7 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  */
 - (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 
+
 @end
 
 @interface JuspaySafeBrowser : UIView
@@ -89,7 +90,7 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
 @property (nonatomic, weak) id <JuspaySafeBrowserDelegate>_Nullable jpBrowserDelegate;
 
 /**
- Returns true if user has finished transaction and or has asked to cancel current tansaction.
+ Returns true if user has finished transaction and or has asked to cancel current transaction.
  */
 @property (nonatomic) Boolean isControllerAllowedToPop;
 
@@ -127,5 +128,10 @@ typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
  Triggers the back button pressed dialogue. If you have a custom back button this needs to be called before calling any other methods.
  */
 - (void)backButtonPressed;
+
+/**
+ Closes the current session and cancels the ongoing transaction without showing confirmation dialog.
+ */
+- (void)closeSession;
 
 @end
