@@ -334,7 +334,7 @@ public class Request: NSObject {
 
         var params = ["order_id": self.order!.cardOptions.orderID, "merchant_id": self.order!.cardOptions.merchantID, "payment_method_type": "Card", "card_number": self.card!.cardNumber, "name_on_card": self.card!.cardHolderName, "card_exp_month": self.card!.getExpiryMonth(), "card_exp_year": self.card!.getExpiryYear(), "card_security_code": self.card!.cvv, "save_to_locker": self.card!.savedCard ? "true" : "false", "redirect_after_payment": "true", "format": "json"] as [String : Any]
 
-        if self.order!.emiOptions != nil {
+        if self.order!.emiOptions != nil && self.order!.emiOptions.selectedBankCode != nil {
             params.updateValue("true", forKey: "is_emi")
             params.updateValue(self.order!.emiOptions.selectedBankCode, forKey :"emi_bank")
             params.updateValue(self.order!.emiOptions.selectedTenure, forKey: "emi_tenure")
