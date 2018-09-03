@@ -18,7 +18,7 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
         Logger.logDebug(tag: "Juspay Request", message: "Juspay Request Starting juspay safe browser payment")
         self.juspaySafeBrowser.startpaymentWithJuspay(in: self.view, withParameters: self.params) { (status, error, _) in
-            let transactionStatus = TransactionStatus()
+            let transactionStatus = JPTransactionStatus()
             if (!status) {
                 transactionStatus.paymentID = "TransactionID"
                 let nsError = error! as NSError
@@ -41,7 +41,7 @@ class PaymentViewController: UIViewController {
                     transactionStatus.paymentStatus = JPUNKNOWNSTATUS
                 }
             }
-            JPLoger.sharedInstance().logPaymentStatus(transactionStatus)
+            JPLogger.sharedInstance().logPaymentStatus(transactionStatus)
         }
     }
     

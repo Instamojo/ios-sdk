@@ -212,7 +212,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             let cardType = try CardValidator.cardType(for: (cardNumber)!)
             cardImageView.image = UIImage(named : cardType.stringValue(), in: Constants.frameworkBundle, compatibleWith: nil)
             let validLength = cardNumber?.validLength()
-            if (cardNumber?.characters.count)! >= validLength! && range.length == 0 {
+            if (cardNumber?.count)! >= validLength! && range.length == 0 {
                 cardNumberTextField.resignFirstResponder()
                 nameTextField.becomeFirstResponder()
                 return false
@@ -220,20 +220,20 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
                 return true
             }
         } catch {
-            if cardNumber?.characters.count == 0 {
+            if cardNumber?.count == 0 {
                 cardImageView.image = UIImage(named: Constants.AcceptedCards, in: Constants.frameworkBundle, compatibleWith: nil)
                 return true
             } else {
                 cardImageView.image = UIImage(named: Constants.UnknownCard, in: Constants.frameworkBundle, compatibleWith: nil)
 
-                return ((cardNumber?.characters.count)! >= 19 && range.length == 0) ? false : true
+                return ((cardNumber?.count)! >= 19 && range.length == 0) ? false : true
             }
         }
     }
 
     //texfield values are validated as and when a character changes
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let characterCount = textField.text?.characters.count
+        let characterCount = textField.text?.count
         if textField == cardNumberTextField {
             //card number validations
             if (characterCount!) > 4 {
