@@ -54,6 +54,7 @@
 		58C254471E5490E300D070EF /* WalletOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C254461E5490E300D070EF /* WalletOptions.swift */; };
 		58DB9B511E5039E7003A812D /* EMIOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DB9B501E5039E7003A812D /* EMIOptionsView.swift */; };
 		58F7650B1E69BAC900013D8B /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7650A1E69BAC900013D8B /* PaymentViewController.swift */; };
+		6C1F3644DADBC25D4A620BB9 /* Pods_Instamojo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5606DC2FEBC5D3DE73C7DA50 /* Pods_Instamojo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5606DC2FEBC5D3DE73C7DA50 /* Pods_Instamojo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instamojo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5825BFCF1E6ED06A00643173 /* Spinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		5857B10F1E5303C2008ECDF9 /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		5857B1171E5339BC008ECDF9 /* InstamojoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstamojoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C1F3644DADBC25D4A620BB9 /* Pods_Instamojo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +249,7 @@
 		6403D92C2618E56F849F0EAE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5606DC2FEBC5D3DE73C7DA50 /* Pods_Instamojo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -413,7 +417,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JuspaySafeBrowser.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
