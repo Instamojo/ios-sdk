@@ -66,7 +66,7 @@ public class Order: NSObject {
     public func isValidName() -> (validity: Bool, error: String) {
         if (self.buyerName?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             return (false, "Required")
-        } else if ((self.buyerName?.characters.count)! > 100) {
+        } else if ((self.buyerName?.count)! > 100) {
             return (false, "The buyer name is greater than 100 characters")
         } else {
              return (true, "Valid Name")
@@ -80,7 +80,7 @@ public class Order: NSObject {
             dictonary.setValue("Required", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
-        } else if ((self.buyerName?.characters.count)! > 100) {
+        } else if ((self.buyerName?.count)! > 100) {
             dictonary.setValue("The buyer name is greater than 100 characters", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
@@ -97,7 +97,7 @@ public class Order: NSObject {
     public func isValidEmail() -> (validity: Bool, error: String) {
         if  (self.buyerEmail?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             return (false, "Required")
-        } else if (self.buyerEmail?.characters.count)! > 75 {
+        } else if (self.buyerEmail?.count)! > 75 {
             return (false, "The buyer email is greater than 75 characters")
         } else if !validateEmail(email: self.buyerEmail!) {
              return (false, "Invalid Email")
@@ -112,7 +112,7 @@ public class Order: NSObject {
             dictonary.setValue("Required", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
-        } else if (self.buyerEmail?.characters.count)! > 75 {
+        } else if (self.buyerEmail?.count)! > 75 {
             dictonary.setValue("The buyer email is greater than 75 characters", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
@@ -211,7 +211,7 @@ public class Order: NSObject {
     public func isValidDescription()-> (validity: Bool, error: String) {
         if (self.orderDescription?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             return (false, "Required")
-        } else if (self.orderDescription?.characters.count)! > 255 {
+        } else if (self.orderDescription?.count)! > 255 {
             return (true, "Description is greater than 255 characters")
         } else {
             return (true, "Valid Description")
@@ -224,7 +224,7 @@ public class Order: NSObject {
             dictonary.setValue("Required", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
-        } else if (self.orderDescription?.characters.count)! > 255 {
+        } else if (self.orderDescription?.count)! > 255 {
             dictonary.setValue("Description is greater than 255 characters", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary
@@ -241,7 +241,7 @@ public class Order: NSObject {
     public func isValidTransactionID() -> (validity: Bool, error: String) {
         if (self.transactionID?.trimmingCharacters(in: .whitespaces).isEmpty)! {
             return (false, "Transaction ID is a mandatory parameter")
-        } else if (self.transactionID?.characters.count)! > 64 {
+        } else if (self.transactionID?.count)! > 64 {
             return (true, "Transaction ID is greater than 64 characters")
         } else {
             return (true, "Valid Transaction ID")
@@ -255,7 +255,7 @@ public class Order: NSObject {
             dictonary.setValue(false, forKey: "validity")
             return dictonary
 
-        } else if (self.transactionID?.characters.count)! > 64 {
+        } else if (self.transactionID?.count)! > 64 {
             dictonary.setValue("Transaction ID is greater than 64 characters", forKey: "error")
             dictonary.setValue(false, forKey: "validity")
             return dictonary

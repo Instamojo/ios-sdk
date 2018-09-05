@@ -46,7 +46,7 @@ public class Card: NSObject {
     }
 
     public func isValidCardNumber() -> Bool {
-        return self.cardNumber.isValidCardNumber() && self.cardNumber.validLength() != self.cardNumber.characters.count
+        return self.cardNumber.isValidCardNumber() && self.cardNumber.validLength() != self.cardNumber.count
     }
 
     public func isValidCardHolderName() -> Bool {

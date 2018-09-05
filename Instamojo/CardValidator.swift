@@ -61,12 +61,12 @@ open class CardValidator {
 
         let formattedCardNumber = cardNumber.formattedCardNumber()
 
-        guard formattedCardNumber.characters.count >= 9 else {
+        guard formattedCardNumber.count >= 9 else {
             throw CardError.invalid
         }
 
-        let originalCheckDigit = formattedCardNumber.characters.last!
-        let characters = formattedCardNumber.characters.dropLast().reversed()
+        let originalCheckDigit = formattedCardNumber.last!
+        let characters = formattedCardNumber.dropLast().reversed()
 
         var digitSum = 0
 
@@ -185,11 +185,11 @@ public extension String {
         return numbersOnlyEquivalent.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
 
-    var length: String { return String(characters.count)   }
+    var length: String { return String(count)   }
 
     var pairs: [String] {
         var result = [String]()
-        let chars = Array(characters)
+        let chars = Array(self)
         for index in stride(from:0, to: chars.count, by: 4) {
             result.append(String(chars[index..<min(index + 4, chars.count)]))
         }
@@ -198,7 +198,7 @@ public extension String {
 
     var expiryDate: [String] {
         var result = [String]()
-        let chars = Array(characters)
+        let chars = Array(self)
         for index in stride(from:0, to: chars.count, by: 2) {
             result.append(String(chars[index..<min(index + 2, chars.count)]))
         }
