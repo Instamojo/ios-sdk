@@ -17,9 +17,9 @@ public class Spinner: UIVisualEffectView {
     }
 
     let background: UIView = UIView()
-    let activityIndictor: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+    let activityIndictor: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.whiteLarge)
     let label: UILabel = UILabel()
-    let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+    let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
     let vibrancyView: UIVisualEffectView
 
     public init(text: String) {

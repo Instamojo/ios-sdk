@@ -117,8 +117,8 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
     }
     
     func onPaymentStatusComplete(message: String) {
-        let alert = UIAlertController(title: "Payment Status", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) in
+        let alert = UIAlertController(title: "Payment Status", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(_) in
             UserDefaults.standard.setValue(true, forKey: "ON-REDIRECT-URL")
             let controllers = self.navigationController?.viewControllers
             for vc in controllers! {
@@ -133,8 +133,8 @@ class UPIPaymentView: UIViewController, UPICallBack, UITextFieldDelegate {
     }
     
     func showAlert(title: String, errorMessage: String) {
-        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: title, message: errorMessage, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }

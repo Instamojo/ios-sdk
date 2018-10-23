@@ -65,7 +65,7 @@ class EMIOptionsView: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.PaymentOptionsEmiViewController) else {
             // Never fails:
-            return UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: Constants.PaymentOptionsEmiViewController)
+            return UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: Constants.PaymentOptionsEmiViewController)
         }
         let emi = values.object(at: indexPath.row) as! NSDictionary
         let monthValue = emi.object(forKey: "month") as! String
