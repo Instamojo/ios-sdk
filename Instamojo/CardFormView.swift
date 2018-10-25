@@ -40,7 +40,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         initUI()
         let toolbarDone = UIToolbar.init()
         toolbarDone.sizeToFit()
-        let barBtnDone = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonSystemItem.done,
+        let barBtnDone = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.done,
                                               target: self, action: #selector(CardFormView.doneButton_Clicked(sender:)))
         toolbarDone.items = [barBtnDone]
         cardNumberTextField.inputAccessoryView = toolbarDone
@@ -202,7 +202,7 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
         } else {
             self.title = Constants.EmiCardTitle
         }
-        payButton.setTitle("Pay " + Constants.Inr + String(amountToBePayed).amountFormatter, for: UIControlState.normal)
+        payButton.setTitle("Pay " + Constants.Inr + String(amountToBePayed).amountFormatter, for: UIControl.State.normal)
     }
 
     //validates a card number
@@ -275,8 +275,8 @@ class CardFormView: UIViewController, UITextFieldDelegate, JuspayRequestCallBack
             }
         } else {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Payment Status", message: "There seems to be some problem. Please choose a different payment options", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: {(_) in
+                let alert = UIAlertController(title: "Payment Status", message: "There seems to be some problem. Please choose a different payment options", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {(_) in
                     _ = self.navigationController?.popViewController(animated: true)
                 }))
                 self.present(alert, animated: true, completion: nil)
