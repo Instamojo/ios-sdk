@@ -3,6 +3,7 @@
 //  Instamojo
 //
 //  Created by Sukanya Raj on 07/02/17.
+//  Edited by Vaibhav Bhasin on 4/10/19
 //  Copyright © 2017 Sukanya Raj. All rights reserved.
 //
 
@@ -161,7 +162,7 @@ public extension CardValidator.CardType {
 }
 
 public extension String {
-    public func isValidCardNumber() -> Bool {
+    func isValidCardNumber() -> Bool {
         do {
             try CardValidator.performLuhnAlgorithm(with: self)
             return true
@@ -170,17 +171,17 @@ public extension String {
         }
     }
 
-    public func cardType() -> CardValidator.CardType? {
+    func cardType() -> CardValidator.CardType? {
         let cardType = try? CardValidator.cardType(for: self)
         return cardType
     }
 
-    public func validLength() -> Int {
+    func validLength() -> Int {
         let cardType = try? CardValidator.cardType(for: self)
         return CardValidator.cardLength(for: cardType!)
     }
 
-    public func formattedCardNumber() -> String {
+    func formattedCardNumber() -> String {
         let numbersOnlyEquivalent = replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression, range: nil)
         return numbersOnlyEquivalent.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
