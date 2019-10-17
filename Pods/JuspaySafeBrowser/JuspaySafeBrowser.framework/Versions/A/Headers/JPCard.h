@@ -46,6 +46,5 @@ typedef enum{
 @property (nonatomic, readonly) NSString *last4;
 
 - (void)setCardsBrand:(NSString*)cardNumber;
-- (void)setCardstype:(NSString*)cardType;
 
 @end
