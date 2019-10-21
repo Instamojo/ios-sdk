@@ -31,7 +31,7 @@ public class Urls {
      * @return Order Fetch URL
      */
     public static func getOrderFetchURL(orderID: String) -> String {
-        return baseUrl + "v2/gateway/orders/" + orderID + "/payment-options/"
+        return baseUrl + "v2/gateway/orders/" + orderID + "/checkout-options/"
     }
 
     /**
