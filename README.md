@@ -9,7 +9,7 @@ Table of Contents
    * [Generating Access Token](#section-generating-access-token)
    * [What is Transaction ID](#section-what-is-transaction-id)
    * [Installation](#section-installation)
-     * [Using Cocapods Recommended](#section-using-cocapods-of code.)
+     * [Using Cocapods Recommended](#section-using-cocapods-of-code.)
      * [Manually](#section-manually)
      * [Prerequisites](#section-Prerequisites)
    * [Simple Integration](#section-simple-integration)
