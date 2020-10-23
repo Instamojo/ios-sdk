@@ -3,6 +3,7 @@
 //  Instamojo
 //
 //  Created by Sukanya Raj on 15/02/17.
+//  Edited by Vaibhav Bhasin on 4/10/19
 //  Copyright © 2017 Sukanya Raj. All rights reserved.
 //
 
@@ -21,7 +22,7 @@ public class MonthYearPickerView: UIPickerView, UIPickerViewDelegate, UIPickerVi
 
     var year: Int = 0 {
         didSet {
-            selectRow(years.index(of: year)!, inComponent: 1, animated: true)
+            selectRow(years.firstIndex(of: year)!, inComponent: 1, animated: true)
         }
     }
 
