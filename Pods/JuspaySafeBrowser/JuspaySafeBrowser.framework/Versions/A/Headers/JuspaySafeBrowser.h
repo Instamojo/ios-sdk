@@ -43,7 +43,7 @@ typedef void(^JPWBBlock)(Boolean status,NSError* _Nullable error, id _Nullable i
 
 typedef void(^JuspayWebviewCallback)(WKWebView * _Nullable webView);
 
-typedef void(^JuspayResponseCallback)(NSString *response, NSString *error);
+typedef void(^JuspayResponseCallback)(NSString * _Nullable response, NSString * _Nullable error);
 
 @protocol JuspaySafeBrowserDelegate <NSObject>
 
@@ -79,7 +79,7 @@ typedef void(^JuspayResponseCallback)(NSString *response, NSString *error);
  */
 - (void)browserDidFailLoadingUrl:(NSURL* _Nullable)url withError:(NSError *_Nullable)error;
 
-- (void)onEvent:(NSString *)event payload:(NSString *)payload responseCallback:(JuspayResponseCallback)callback;
+- (void)onEvent:(NSString * _Nonnull)event payload:(NSString * _Nullable)payload responseCallback:(JuspayResponseCallback _Nonnull)callback;
 
 @end
 
